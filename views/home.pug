@@ -1,0 +1,1410 @@
+extends layouts/zonelayout.pug
+block body
+
+
+ aside.pushy-panel
+  .pushy-panel__inner
+    header.pushy-panel__header
+      .pushy-panel__logo
+        a(href='index.html')
+          img(src='assets/images/logo.png' srcset='assets/images/logo@2x.png 2x' alt='Alchemists')
+    .pushy-panel__content
+      // Widget: Posts
+      aside.widget.widget--side-panel
+        .widget__content
+          ul.posts.posts--simple-list.posts--simple-list--lg
+            li.posts__item.posts__item--category-1
+              .posts__inner
+                .posts__cat
+                  span.label.posts__cat-label The Team
+                h6.posts__title
+                  a(href='#')
+                    | The new eco friendly stadium won a Leafy Award in
+                    | 2016
+                time.posts__date(datetime='2017-08-23') August 23rd, 2018
+                .posts__excerpt
+                  | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor
+                  | incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en
+                  | derum sum laborem.
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name James Spiegel
+                ul.post__meta.meta
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.meta-like--active.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+            li.posts__item.posts__item--category-2
+              .posts__inner
+                .posts__cat
+                  span.label.posts__cat-label Injuries
+                h6.posts__title
+                  a(href='#')
+                    | Mark Johnson has a Tibia Fracture and is gonna be
+                    | out
+                time.posts__date(datetime='2017-08-23') August 23rd, 2018
+                .posts__excerpt
+                  | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor
+                  | incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en
+                  | derum sum laborem.
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name Jessica Hoops
+                ul.post__meta.meta
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.meta-like--active.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+      // Widget: Posts / End
+      // Widget: Tag Cloud
+      aside.widget.widget--side-panel.widget-tagcloud
+        .widget__title
+          h4 Tag Cloud
+        .widget__content
+          .tagcloud
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') PLAYOFFS
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') ALCHEMISTS
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') INJURIES
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') TEAM
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') INCORPORATIONS
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') UNIFORMS
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') CHAMPIONS
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') PROFESSIONAL
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') COACH
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') STADIUM
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') NEWS
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') PLAYERS
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') WOMEN DIVISION
+            a.btn.btn-primary.btn-xs.btn-outline.btn-sm(href='#') AWARDS
+      // Widget: Tag Cloud / End
+      // Widget: Banner
+      aside.widget.widget--side-panel.widget-banner
+        .widget__content
+          figure.widget-banner__img
+            a(href='#')
+              img(src='assets/images/samples/banner.jpg' alt='Banner')
+      // Widget: Banner / End
+    a.pushy-panel__back-btn(href='#')
+ // Pushy Panel / End
+ //
+  Hero Unit
+  ==================================================
+ .hero-unit
+  .container.hero-unit__container
+    .hero-unit__content.hero-unit__content--left-center
+      span.hero-unit__decor
+        i.fas.fa-star
+        i.fas.fa-star
+        i.fas.fa-star
+      h5.hero-unit__subtitle Elric Bros School
+      h1.hero-unit__title
+        | The 
+        span.text-primary Alchemists
+      .hero-unit__desc
+        | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor
+        | incididunt ut labore et dolore .
+      a.btn.btn-inverse.btn-sm.btn-outline.btn-icon-right.btn-condensed.hero-unit__btn(href='#')
+        | Read More
+        i.fas.fa-plus.text-primary
+    figure.hero-unit__img
+      img(src='assets/images/samples/header_player.png' alt='Hero Unit Image')
+ //
+  Header Featured News
+  ==================================================
+ .posts.posts--carousel-featured.featured-carousel
+  .posts__item.posts__item--category-1
+    a.posts__link-wrapper(href='#')
+      figure.posts__thumb
+        img(src='assets/images/samples/featured-carousel-2.jpg' alt='')
+      .posts__inner
+        .posts__cat
+          span.label.posts__cat-label The Team
+        h3.posts__title Alchemists women team tryouts will start in January
+        time.posts__date(datetime='2017-08-23') June 8th, 2018
+        ul.post__meta.meta
+          li.meta__item.meta__item--views 2369
+          li.meta__item.meta__item--likes
+            i.meta-like.icon-heart
+            |  530
+          li.meta__item.meta__item--comments 18
+  .posts__item.posts__item--category-1
+    a.posts__link-wrapper(href='#')
+      figure.posts__thumb
+        img(src='assets/images/samples/featured-carousel-3.jpg' alt='')
+      .posts__inner
+        .posts__cat
+          span.label.posts__cat-label The Team
+        h3.posts__title Checkout the new ride of our best player of the season
+        time.posts__date(datetime='2017-08-23') August 23rd, 2018
+        ul.post__meta.meta
+          li.meta__item.meta__item--views 2369
+          li.meta__item.meta__item--likes
+            i.meta-like.icon-heart
+            |  530
+          li.meta__item.meta__item--comments 18
+  .posts__item.posts__item--category-1
+    a.posts__link-wrapper(href='#')
+      figure.posts__thumb
+        img(src='assets/images/samples/featured-carousel-1.jpg' alt='')
+      .posts__inner
+        .posts__cat
+          span.label.posts__cat-label The Team
+        h3.posts__title All the players are taking a team trip this summer
+        time.posts__date(datetime='2017-08-23') August 23rd, 2018
+        ul.post__meta.meta
+          li.meta__item.meta__item--views 2369
+          li.meta__item.meta__item--likes
+            i.meta-like.icon-heart
+            |  530
+          li.meta__item.meta__item--comments 18
+  .posts__item.posts__item--category-1
+    a.posts__link-wrapper(href='#')
+      figure.posts__thumb
+        img(src='assets/images/samples/featured-carousel-2.jpg' alt='')
+      .posts__inner
+        .posts__cat
+          span.label.posts__cat-label The Team
+        h3.posts__title Alchemists women team tryouts will start in January
+        time.posts__date(datetime='2017-08-23') August 23rd, 2018
+        ul.post__meta.meta
+          li.meta__item.meta__item--views 2369
+          li.meta__item.meta__item--likes
+            i.meta-like.icon-heart
+            |  530
+          li.meta__item.meta__item--comments 18
+  .posts__item.posts__item--category-1
+    a.posts__link-wrapper(href='#')
+      figure.posts__thumb
+        img(src='assets/images/samples/featured-carousel-1.jpg' alt='')
+      .posts__inner
+        .posts__cat
+          span.label.posts__cat-label The Team
+        h3.posts__title All the players are taking a team trip this summer
+        time.posts__date(datetime='2017-08-23') August 23rd, 2018
+        ul.post__meta.meta
+          li.meta__item.meta__item--views 2369
+          li.meta__item.meta__item--likes
+            i.meta-like.icon-heart
+            |  530
+          li.meta__item.meta__item--comments 18
+ //
+  Content
+  ==================================================
+ .site-content
+  .container
+    .row
+      // Content
+      .content.col-lg-8
+        // Featured News
+        .card.card--clean
+          header.card__header.card__header--has-filter
+            h4 Featured News
+            ul.category-filter.category-filter--featured
+              li.category-filter__item
+                a.category-filter__link.category-filter__link--reset.category-filter__link--active(href='#') All
+              li.category-filter__item
+                a.category-filter__link(href='#' data-category='posts__item--category-1') The Team
+              li.category-filter__item
+                a.category-filter__link(href='#' data-category='posts__item--category-3') Playoffs
+              li.category-filter__item
+                a.category-filter__link(href='#' data-category='posts__item--category-2') Injuries
+          .card__content
+            // Slider
+            .slick.posts.posts--slider-featured
+              .posts__item.posts__item--category-1
+                a.posts__link-wrapper(href='#')
+                  figure.posts__thumb
+                    img(src='assets/images/samples/post-slide1.jpg' alt='')
+                  .posts__inner
+                    .posts__cat
+                      span.label.posts__cat-label The Team
+                    h3.posts__title
+                      | The Planettroters will 
+                      span.posts__title-higlight perform this May 4th
+                      |  at Madison
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Cube
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='assets/images/samples/avatar-4.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name Jesse Stevens
+                        time.posts__date(datetime='2017-08-28') August 28th, 2018
+              .posts__item.posts__item--category-3
+                a.posts__link-wrapper(href='#')
+                  figure.posts__thumb
+                    img(src='assets/images/samples/post-slide2.jpg' alt='')
+                  .posts__inner
+                    .posts__cat
+                      span.label.posts__cat-label Playoffs
+                    h3.posts__title
+                      | New York is preparing all 
+                      span.posts__title-higlight for the Playoffs Final
+                      |  next
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;December
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name James Spiegel
+                        time.posts__date(datetime='2017-08-28') June 28th, 2018
+              .posts__item.posts__item--category-1
+                a.posts__link-wrapper(href='#')
+                  figure.posts__thumb
+                    img(src='assets/images/samples/post-slide3.jpg' alt='')
+                  .posts__inner
+                    .posts__cat
+                      span.label.posts__cat-label The Team
+                    h3.posts__title
+                      | The new eco friendly 
+                      span.posts__title-higlight stadium won a Leafy
+                      |  Award in 2016
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name James Spiegel
+                        time.posts__date(datetime='2017-08-28') June 28th, 2018
+              .posts__item.posts__item--category-3
+                a.posts__link-wrapper(href='#')
+                  figure.posts__thumb
+                    img(src='assets/images/samples/post-slide4.jpg' alt='')
+                  .posts__inner
+                    .posts__cat
+                      span.label.posts__cat-label Playoffs
+                    h3.posts__title
+                      | New York Islanders are 
+                      span.posts__title-higlight now flying to California
+                      |  for the
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;big game
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name James Spiegel
+                        time.posts__date(datetime='2017-08-28') June 28th, 2018
+              .posts__item.posts__item--category-3
+                a.posts__link-wrapper(href='#')
+                  figure.posts__thumb
+                    img(src='assets/images/samples/post-slide6.jpg' alt='')
+                  .posts__inner
+                    .posts__cat
+                      span.label.posts__cat-label Playoffs
+                    h3.posts__title
+                      | Jeremy Rittersen was 
+                      span.posts__title-higlight called to be
+                      |  in the National Team
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name Jessica Hoops
+                        time.posts__date(datetime='2017-08-28') May 24th, 2018
+              .posts__item.posts__item--category-2
+                a.posts__link-wrapper(href='#')
+                  figure.posts__thumb
+                    img(src='assets/images/samples/post-slide5.jpg' alt='')
+                  .posts__inner
+                    .posts__cat
+                      span.label.posts__cat-label Injuries
+                    h3.posts__title
+                      | Jessica Valentine has a 
+                      span.posts__title-higlight sprained ankle
+                      |  and won&apos;t be in the
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Final
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='assets/images/samples/avatar-4.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name Jesse Stevens
+                        time.posts__date(datetime='2017-08-28') April 12th, 2018
+            // Slider / End
+        // Featured News / End
+        // Post Area 1
+        .posts.posts--cards.post-grid.row
+          .post-grid__item.col-sm-6
+            .posts__item.posts__item--card.posts__item--category-1.card
+              figure.posts__thumb
+                .posts__cat
+                  span.label.posts__cat-label The Team
+                a(href='#')
+                  img(src='assets/images/samples/post-img6.jpg' alt='')
+              .posts__inner.card__content
+                a.posts__cta(href='#')
+                time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                h6.posts__title
+                  a(href='#')
+                    | Michael Bryan was chosen again as best player with
+                    | 45 points
+                .posts__excerpt
+                  | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor
+                  | incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en
+                  | derum sum laborem.
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-4.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name Jesse Stevens
+                ul.post__meta.meta
+                  li.meta__item.meta__item--views 2369
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+          .post-grid__item.col-sm-6
+            .posts__item.posts__item--card.posts__item--category-1.card
+              figure.posts__thumb
+                .posts__cat
+                  span.label.posts__cat-label The Team
+                a(href='#')
+                  img(src='assets/images/samples/post-img3.jpg' alt='')
+              .posts__inner.card__content
+                a.posts__cta(href='#')
+                time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                h6.posts__title
+                  a(href='#')
+                    | The new eco friendly stadium won a Leafy Award in
+                    | 2016
+                .posts__excerpt
+                  | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor
+                  | incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en
+                  | derum sum laborem.
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name Jessica Hoops
+                ul.post__meta.meta
+                  li.meta__item.meta__item--views 2369
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+        // Post Area 1 / End
+        // Post Area 2
+        .posts.posts--cards.post-grid.row
+          .col-sm-6
+            .posts.posts--cards.post-grid
+              .post-grid__item
+                .posts__item.posts__item--card.posts__item--category-1.card
+                  figure.posts__thumb
+                    .posts__cat
+                      span.label.posts__cat-label The Team
+                    a(href='#')
+                      img(src='assets/images/samples/post-img5.jpg' alt='')
+                  .posts__inner.card__content
+                    a.posts__cta(href='#')
+                    time.posts__date(datetime='2016-08-23') August 23rd, 2016
+                    h6.posts__title
+                      a(href='#')
+                        | The Alchemists team is appearing in L.A.
+                        | Beach for charity
+                    .posts__excerpt
+                      | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                      | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam,
+                      | quis nostrud en derum sum laborem.
+                  footer.posts__footer.card__footer
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name James Spiegel
+                    ul.post__meta.meta
+                      li.meta__item.meta__item--views 2369
+                      li.meta__item.meta__item--likes
+                        a(href='#')
+                          i.meta-like.icon-heart
+                          |  530
+                      li.meta__item.meta__item--comments
+                        a(href='#') 18
+          .col-sm-6
+            .card
+              .card__content
+                ul.posts.posts--simple-list.posts--simple-list--lg
+                  li.posts__item.posts__item--category-1
+                    .posts__inner
+                      .posts__cat
+                        span.label.posts__cat-label The Team
+                      h6.posts__title
+                        a(href='#')
+                          | Trainings are getting really hard
+                          | reaching the final
+                      time.posts__date(datetime='2017-08-23') August 23rd, 2018
+                      .posts__excerpt
+                        | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod
+                        | tempor incididunt ut labore...
+                  li.posts__item.posts__item--category-3
+                    .posts__inner
+                      .posts__cat
+                        span.label.posts__cat-label Playoffs
+                      h6.posts__title
+                        a(href='#')
+                          | The victory againts The Sharks brings
+                          | us closer to the Final
+                      time.posts__date(datetime='2017-08-23') February 2nd, 2018
+                      .posts__excerpt
+                        | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod
+                        | tempor incididunt ut labore...
+                  li.posts__item.posts__item--category-3
+                    .posts__inner
+                      .posts__cat
+                        span.label.posts__cat-label Playoffs
+                      h6.posts__title
+                        a(href='#')
+                          | The next match against The Clovers will
+                          | be this Friday
+                      time.posts__date(datetime='2017-08-23') November 27th, 2017
+                      .posts__excerpt
+                        | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod
+                        | tempor incididunt ut labore...
+        // Post Area 2 / End
+        // Main News Banner
+        .main-news-banner.main-news-banner--img-left
+          figure.main-news-banner__img
+            img(src='assets/images/samples/main-news-banner__img.png' alt='')
+          .main-news-banner__inner
+            .posts.posts--simple-list.posts--simple-list--xlg
+              .posts__item.posts__item--category-1
+                .posts__inner
+                  .posts__cat
+                    span.label.posts__cat-label The Team
+                  h6.posts__title
+                    a(href='#')
+                      | Take a look at the brand 
+                      span.text-primary New Uniforms
+                      |  for next season
+                  time.posts__date(datetime='2017-08-23') August 23rd, 2017
+                  .posts__excerpt
+                    | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor.
+                  .posts__more
+                    a.btn.btn-inverse.btn-sm.btn-outline.btn-icon-right.btn-condensed(href='#')
+                      | Read
+                      | More 
+                      i.fas.fa-plus.text-primary
+        // Main News Banner / End
+        // Post Area 3
+        .posts.posts--cards.post-grid.row
+          .post-grid__item.col-sm-6
+            .posts__item.posts__item--card.posts__item--category-2.card
+              figure.posts__thumb
+                .posts__cat
+                  span.label.posts__cat-label Injuries
+                a(href='#')
+                  img(src='assets/images/samples/post-img1.jpg' alt='')
+              .posts__inner.card__content
+                a.posts__cta(href='#')
+                time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                h6.posts__title
+                  a(href='#')
+                    | Mark Johnson has a Tibia Fracture and is gonna be
+                    | out
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name James Spiegel
+                ul.post__meta.meta
+                  li.meta__item.meta__item--views 2369
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+          .post-grid__item.col-sm-6
+            .posts__item.posts__item--card.posts__item--category-1.card
+              figure.posts__thumb
+                .posts__cat
+                  span.label.posts__cat-label The Team
+                a(href='#')
+                  img(src='assets/images/samples/post-img7.jpg' alt='')
+              .posts__inner.card__content
+                a.posts__cta(href='#')
+                time.posts__date(datetime='2016-08-23') July 12th, 2018
+                h6.posts__title
+                  a(href='#')
+                    | Jay Rorks is only 24 points away from breaking the
+                    | record
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name Jessica Hoops
+                ul.post__meta.meta
+                  li.meta__item.meta__item--views 2369
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+          .clearfix.hidden-md.hidden-lg
+          .post-grid__item.col-sm-6
+            .posts__item.posts__item--card.posts__item--category-1.card
+              figure.posts__thumb
+                .posts__cat
+                  span.label.posts__cat-label The Team
+                a(href='#')
+                  img(src='assets/images/samples/post-img8.jpg' alt='')
+              .posts__inner.card__content
+                a.posts__cta(href='#')
+                time.posts__date(datetime='2016-08-23') February 24th, 2018
+                h6.posts__title
+                  a(href='#')
+                    | The team is starting a new power breakfast
+                    | regimen
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name James Spiegel
+                ul.post__meta.meta
+                  li.meta__item.meta__item--views 2369
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+          .post-grid__item.col-sm-6
+            .posts__item.posts__item--card.posts__item--category-1.card
+              figure.posts__thumb
+                .posts__cat
+                  span.label.posts__cat-label The Team
+                a(href='#')
+                  img(src='assets/images/samples/post-img2.jpg' alt='')
+              .posts__inner.card__content
+                a.posts__cta(href='#')
+                time.posts__date(datetime='2016-08-23') January 2nd, 2018
+                h6.posts__title
+                  a(href='#')
+                    | Cheerleader tryouts will start next Friday at
+                    | 5pm
+              footer.posts__footer.card__footer
+                .post-author
+                  figure.post-author__avatar
+                    img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                  .post-author__info
+                    h4.post-author__name James Spiegel
+                ul.post__meta.meta
+                  li.meta__item.meta__item--views 2369
+                  li.meta__item.meta__item--likes
+                    a(href='#')
+                      i.meta-like.icon-heart
+                      |  530
+                  li.meta__item.meta__item--comments
+                    a(href='#') 18
+        // Post Area 3 / End
+        // Lates News
+        .card.card--clean
+          header.card__header.card__header--has-btn
+            h4 Latest News
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='#') See All Posts
+          .card__content
+            // Posts List
+            .posts.posts--cards.posts--cards-thumb-left.post-list
+              .post-list__item
+                .posts__item.posts__item--card.posts__item--category-1.card.card--block
+                  figure.posts__thumb
+                    a(href='#')
+                      img(src='assets/images/samples/post-img9-m.jpg' alt='')
+                    a.posts__cta(href='#')
+                  .posts__inner
+                    .card__content
+                      .posts__cat
+                        span.label.posts__cat-label The Team
+                      h6.posts__title
+                        a(href='#')
+                          | The team is taking a summer vacation on
+                          | Woody Valley
+                      time.posts__date(datetime='2016-08-17') August 17th, 2018
+                      .posts__excerpt
+                        | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                        | tempor incididunt ut labore et dolore magna aliqua.
+                    footer.posts__footer.card__footer
+                      .post-author
+                        figure.post-author__avatar
+                          img(src='assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                        .post-author__info
+                          h4.post-author__name Jessica Hoops
+                      ul.post__meta.meta
+                        li.meta__item.meta__item--views 2369
+                        li.meta__item.meta__item--likes
+                          a(href='#')
+                            i.meta-like.icon-heart
+                            |  530
+                        li.meta__item.meta__item--comments
+                          a(href='#') 18
+              .post-list__item
+                .posts__item.posts__item--card.posts__item--category-1.card.card--block
+                  figure.posts__thumb
+                    a(href='#')
+                      img(src='assets/images/samples/post-img10-m.jpg' alt='')
+                    a.posts__cta(href='#')
+                  .posts__inner
+                    .card__content
+                      .posts__cat
+                        span.label.posts__cat-label The Team
+                      h6.posts__title
+                        a(href='#')
+                          | Jeremy Rittersen was called to be in
+                          | the National Team
+                      time.posts__date(datetime='2016-08-17') August 12th, 2018
+                      .posts__excerpt
+                        | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                        | tempor incididunt ut labore et dolore magna aliqua.
+                    footer.posts__footer.card__footer
+                      .post-author
+                        figure.post-author__avatar
+                          img(src='assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                        .post-author__info
+                          h4.post-author__name James Spiegel
+                      ul.post__meta.meta
+                        li.meta__item.meta__item--views 2369
+                        li.meta__item.meta__item--likes
+                          a(href='#')
+                            i.meta-like.icon-heart
+                            |  530
+                        li.meta__item.meta__item--comments
+                          a(href='#') 18
+              .post-list__item
+                .posts__item.posts__item--card.posts__item--category-1.card.card--block
+                  figure.posts__thumb
+                    a(href='#')
+                      img(src='assets/images/samples/post-img11-m.jpg' alt='')
+                    a.posts__cta(href='#')
+                  .posts__inner
+                    .card__content
+                      .posts__cat
+                        span.label.posts__cat-label The Team
+                      h6.posts__title
+                        a(href='#')
+                          | Alchemists New Stadium is gonna be
+                          | ready in September 2017
+                      time.posts__date(datetime='2016-08-17') July 14th, 2018
+                      .posts__excerpt
+                        | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                        | tempor incididunt ut labore et dolore magna aliqua.
+                    footer.posts__footer.card__footer
+                      .post-author
+                        figure.post-author__avatar
+                          img(src='assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                        .post-author__info
+                          h4.post-author__name Jessica Hoops
+                      ul.post__meta.meta
+                        li.meta__item.meta__item--views 2369
+                        li.meta__item.meta__item--likes
+                          a(href='#')
+                            i.meta-like.icon-heart
+                            |  530
+                        li.meta__item.meta__item--comments
+                          a(href='#') 18
+              .post-list__item
+                .posts__item.posts__item--card.posts__item--category-1.card.card--block
+                  figure.posts__thumb
+                    a(href='#')
+                      img(src='assets/images/samples/post-img14-m.jpg' alt='')
+                    a.posts__cta(href='#')
+                  .posts__inner
+                    .card__content
+                      .posts__cat
+                        span.label.posts__cat-label The Team
+                      h6.posts__title
+                        a(href='#')
+                          | The Championship Final will be be
+                          | played in San Francisco
+                      time.posts__date(datetime='2016-08-17') June 2nd, 2018
+                      .posts__excerpt
+                        | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                        | tempor incididunt ut labore et dolore magna aliqua.
+                    footer.posts__footer.card__footer
+                      .post-author
+                        figure.post-author__avatar
+                          img(src='assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                        .post-author__info
+                          h4.post-author__name Jessica Hoops
+                      ul.post__meta.meta
+                        li.meta__item.meta__item--views 2369
+                        li.meta__item.meta__item--likes
+                          a(href='#')
+                            i.meta-like.icon-heart
+                            |  530
+                        li.meta__item.meta__item--comments
+                          a(href='#') 18
+            // Posts List / End
+        // Lates News / End
+      // Content / End
+      // Sidebar
+      #sidebar.sidebar.col-lg-4
+        // Widget: Standings
+        aside.widget.card.widget--sidebar.widget-standings
+          .widget__title.card__header.card__header--has-btn
+            h4 Playoff Standings
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='#') See All Stats
+          .widget__content.card__content
+            .table-responsive
+              table.table.table-hover.table-standings
+                thead
+                  tr
+                    th Team Positions
+                    th W
+                    th L
+                    th GB
+                tbody
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/pirates_shield.png' alt='L.A Pirates')
+                        .team-meta__info
+                          h6.team-meta__name L.A Pirates
+                          span.team-meta__place Bebop Institute
+                    td 45
+                    td 5
+                    td 0
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/sharks_shield.png' alt='Sharks')
+                        .team-meta__info
+                          h6.team-meta__name Sharks
+                          span.team-meta__place Marine College
+                    td 42
+                    td 8
+                    td 3
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/alchemists_b_shield.png' alt='The Alchemists')
+                        .team-meta__info
+                          h6.team-meta__name The Alchemists
+                          span.team-meta__place Eric Bros School
+                    td 40
+                    td 10
+                    td 5
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/ocean_kings_shield.png' alt='Ocean Kings')
+                        .team-meta__info
+                          h6.team-meta__name Ocean Kings
+                          span.team-meta__place Bay College
+                    td 38
+                    td 12
+                    td 7
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/red_wings_shield.png' alt='Red Wings')
+                        .team-meta__info
+                          h6.team-meta__name Red Wings
+                          span.team-meta__place Icarus College
+                    td 37
+                    td 13
+                    td 8
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/lucky_clovers_shield.png' alt='Lucky Clovers')
+                        .team-meta__info
+                          h6.team-meta__name Lucky Clovers
+                          span.team-meta__place St. Patrick&rsquo;s Institute
+                    td 34
+                    td 16
+                    td 11
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/draconians_shield.png' alt='Draconians')
+                        .team-meta__info
+                          h6.team-meta__name Draconians
+                          span.team-meta__place High Rock College
+                    td 31
+                    td 19
+                    td 14
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='assets/images/samples/logos/bloody_wave_shield.png' alt='Bloody Wave')
+                        .team-meta__info
+                          h6.team-meta__name Bloody Wave
+                          span.team-meta__place Atlantic School
+                    td 30
+                    td 20
+                    td 15
+        // Widget: Standings / End
+        // Widget: Social Buttons
+        aside.widget.widget--sidebar.widget-social
+          a.btn-social-counter.btn-social-counter--fb(href='#' target='_blank')
+            .btn-social-counter__icon
+              i.fab.fa-facebook
+            h6.btn-social-counter__title Like Our Facebook Page
+            span.btn-social-counter__count
+              span.btn-social-counter__count-num
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Likes
+            span.btn-social-counter__add-icon
+          a.btn-social-counter.btn-social-counter--twitter(href='#' target='_blank')
+            .btn-social-counter__icon
+              i.fab.fa-twitter
+            h6.btn-social-counter__title Follow Us on Twitter
+            span.btn-social-counter__count
+              span.btn-social-counter__count-num
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Followers
+            span.btn-social-counter__add-icon
+          a.btn-social-counter.btn-social-counter--rss(href='#' target='_blank')
+            .btn-social-counter__icon
+              i.fas.fa-rss
+            h6.btn-social-counter__title Subscribe to Our RSS
+            span.btn-social-counter__count
+              span.btn-social-counter__count-num 840
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Subscribers
+            span.btn-social-counter__add-icon
+        // Widget: Social Buttons / End
+        // Widget: Popular News
+        aside.widget.widget--sidebar.card.widget-popular-posts
+          .widget__title.card__header
+            h4 Popular News
+          .widget__content.card__content
+            ul.posts.posts--simple-list
+              li.posts__item.posts__item--category-2
+                figure.posts__thumb
+                  a(href='#')
+                    img(src='assets/images/samples/post-img1-xs.jpg' alt='')
+                .posts__inner
+                  .posts__cat
+                    span.label.posts__cat-label Injuries
+                  h6.posts__title
+                    a(href='#')
+                      | Mark Johnson has a Tibia Fracture and is gonna
+                      | be out
+                  time.posts__date(datetime='2016-08-23') August 23rd, 2018
+              li.posts__item.posts__item--category-1
+                figure.posts__thumb
+                  a(href='#')
+                    img(src='assets/images/samples/post-img2-xs.jpg' alt='')
+                .posts__inner
+                  .posts__cat
+                    span.label.posts__cat-label The Team
+                  h6.posts__title
+                    a(href='#')
+                      | Jay Rorks is only 24 points away from breaking
+                      | the record
+                  time.posts__date(datetime='2016-08-23') August 22nd, 2018
+              li.posts__item.posts__item--category-1
+                figure.posts__thumb
+                  a(href='#')
+                    img(src='assets/images/samples/post-img3-xs.jpg' alt='')
+                .posts__inner
+                  .posts__cat
+                    span.label.posts__cat-label The Team
+                  h6.posts__title
+                    a(href='#')
+                      | The new eco friendly stadium won a Leafy Award
+                      | in 2016
+                  time.posts__date(datetime='2016-08-23') June 8th, 2018
+              li.posts__item.posts__item--category-1
+                figure.posts__thumb
+                  a(href='#')
+                    img(src='assets/images/samples/post-img4-xs.jpg' alt='')
+                .posts__inner
+                  .posts__cat
+                    span.label.posts__cat-label The Team
+                  h6.posts__title
+                    a(href='#')
+                      | The team is starting a new power breakfast
+                      | regimen
+                  time.posts__date(datetime='2016-08-23') May 12th, 2018
+        // Widget: Popular News / End
+        // Widget: Featured Player
+        aside.widget.card.widget--sidebar.widget-player
+          .widget__content.card__content
+            .widget-player__team-logo
+              img(src='assets/images/logo.png' alt='')
+            figure.widget-player__photo
+              img(src='assets/images/samples/widget-featured-player.png' alt='')
+            header.widget-player__header.clearfix
+              .widget-player__number 38
+              h4.widget-player__name
+                span.widget-player__first-name James
+                span.widget-player__last-name Girobili
+            .widget-player__content
+              .widget-player__content-inner
+                .widget-player__stat.widget-player__assists
+                  h6.widget-player__stat-label Assists
+                  .widget-player__stat-number 16.9
+                  .widget-player__stat-legend AVG
+                .widget-player__stat.widget-player__steals
+                  h6.widget-player__stat-label Steals
+                  .widget-player__stat-number 7.2
+                  .widget-player__stat-legend AVG
+                .widget-player__stat.widget-player__blocks
+                  h6.widget-player__stat-label Blocks
+                  .widget-player__stat-number 12.4
+                  .widget-player__stat-legend AVG
+            footer.widget-player__footer
+              span.widget-player__footer-txt
+                i.fas.fa-star
+                |  Featured Player
+        // Widget: Featured Player / End
+        // Widget: Game Result
+        aside.widget.card.widget--sidebar.widget-game-result
+          .widget__title.card__header.card__header--has-btn
+            h4 Last Game Results
+            button.btn.btn-default.btn-outline.btn-xs.card-header__button.js-switch-toggle
+              span.js-switch-txt(data-text-expand='Expand Stats' data-text-shrink='Shrink Stats') Expand Stats
+          .widget__content.card__content
+            // Game Score
+            .widget-game-result__section
+              .widget-game-result__section-inner
+                header.widget-game-result__header
+                  h3.widget-game-result__title Championship Quarter Finals
+                  time.widget-game-result__date(datetime='2016-03-24')
+                    | Saturday, March 24th,
+                    | 2016
+                .widget-game-result__main
+                  // 1st Team
+                  .widget-game-result__team.widget-game-result__team--first
+                    figure.widget-game-result__team-logo
+                      a(href='#')
+                        img(src='assets/images/samples/logos/alchemists_last_game_results_small.png' alt='')
+                    .widget-game-result__team-info
+                      h5.widget-game-result__team-name Alchemists
+                      .widget-game-result__team-desc Elric Bros School
+                  // 1st Team / End
+                  .widget-game-result__score-wrap
+                    .widget-game-result__score
+                      span.widget-game-result__score-result.widget-game-result__score-result--winner 107
+                      span.widget-game-result__score-dash -
+                      span.widget-game-result__score-result.widget-game-result__score-result--loser 102
+                    .widget-game-result__score-label Final Score
+                  // 2nd Team
+                  .widget-game-result__team.widget-game-result__team--second
+                    figure.widget-game-result__team-logo
+                      a(href='#')
+                        img(src='assets/images/samples/logos/sharks_last_game_results_small.png' alt='')
+                    .widget-game-result__team-info
+                      h5.widget-game-result__team-name Sharks
+                      .widget-game-result__team-desc Marine College
+                  // 2nd Team / End
+            // Game Score / End
+            // Scoreboard
+            .widget-game-result__section
+              .widget-game-result__table-stats
+                .table-responsive
+                  table.table.table__cell-center.table-thead-color
+                    thead
+                      tr
+                        th Scoreboard
+                        th 1
+                        th 2
+                        th 3
+                        th 4
+                        th T
+                    tbody
+                      tr
+                        th Alchemists
+                        td 30
+                        td 31
+                        td 22
+                        td 24
+                        td 107
+                      tr
+                        th Sharks
+                        td 22
+                        td 34
+                        td 20
+                        td 26
+                        td 102
+            // Scoreboard / End
+            // Game Statistics
+            .widget-game-result__section
+              header.widget-game-result__subheader.card__subheader.card__subheader--sm.card__subheader--nomargins
+                h5.widget-game-result__subtitle Game Statistics
+              .widget-game-result__section-inner
+                // Progress: Assists
+                .progress-double-wrapper
+                  h6.progress-title Assists
+                  .progress-inner-holder
+                    .progress__digit.progress__digit--left 22
+                    .progress__double
+                      .progress
+                        .progress__bar.progress__bar-width-60(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                      .progress
+                        .progress__bar.progress__bar--info.progress__bar-width-80(role='progressbar' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+                    .progress__digit.progress__digit--right.progress__digit--highlight
+                      | 36
+                // Progress: Assists / End
+                // Progress: Rebounds
+                .progress-double-wrapper
+                  h6.progress-title Rebounds
+                  .progress-inner-holder
+                    .progress__digit.progress__digit--left.progress__digit--highlight
+                      | 35
+                    .progress__double
+                      .progress
+                        .progress__bar.progress__bar-width-90(role='progressbar' aria-valuenow='90' aria-valuemin='0' aria-valuemax='100')
+                      .progress
+                        .progress__bar.progress__bar--info.progress__bar-width-40(role='progressbar' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+                    .progress__digit.progress__digit--right 18
+                // Progress: Rebounds / End
+                // Progress: Steals
+                .progress-double-wrapper
+                  h6.progress-title Steals
+                  .progress-inner-holder
+                    .progress__digit.progress__digit--left 14
+                    .progress__double
+                      .progress
+                        .progress__bar.progress__bar-width-30(role='progressbar' aria-valuenow='30' aria-valuemin='0' aria-valuemax='100')
+                      .progress
+                        .progress__bar.progress__bar--info.progress__bar-width-70(role='progressbar' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
+                    .progress__digit.progress__digit--right.progress__digit--highlight
+                      | 24
+                // Progress: Steals / End
+            // Game Statistics / End
+            .widget-game-result__extra-stats
+              // Game MVP
+              .widget-game-result__section
+                header.widget-game-result__subheader.card__subheader.card__subheader--sm.card__subheader--nomargins
+                  h5.widget-game-result__subtitle Game MVP
+                .widget-game-result__section-inner
+                  .player-details
+                    .player-details__info
+                      figure.player-details__photo
+                        a(href='#')
+                          img(src='assets/images/samples/stats_player_02.jpg' alt='')
+                      .player-details__info-holder
+                        h5.player-details__name
+                          a(href='#') Mark Stevens
+                        span.player-details__position 1st Power Forward
+                    .player-details__stats
+                      .player-details__circular.circular
+                        .circular__bar(data-percent='80')
+                          span.circular__percents
+                            | 36
+                            small Pts
+                      .player-details__circular.circular
+                        .circular__bar(data-percent='60')
+                          span.circular__percents
+                            | 18
+                            small Reb
+                      .player-details__circular.circular
+                        .circular__bar(data-percent='70')
+                          span.circular__percents
+                            | 29
+                            small Ast
+              // Game MVP / End
+        // Widget: Game Result / End
+        // Widget: Trending News
+        aside.widget.widget--sidebar.card.widget-tabbed
+          .widget__title.card__header
+            h4 Top Trending News
+          .widget__content.card__content
+            .widget-tabbed__tabs
+              // Widget Tabs
+              ul.nav.nav-tabs.nav-justified.widget-tabbed__nav(role='tablist')
+                li.nav-item
+                  a.nav-link.active(href='#widget-tabbed-newest' aria-controls='widget-tabbed-newest' role='tab' data-toggle='tab') Newest
+                li.nav-item
+                  a.nav-link(href='#widget-tabbed-commented' aria-controls='widget-tabbed-commented' role='tab' data-toggle='tab')
+                    | Most
+                    | Commented
+                li.nav-item
+                  a.nav-link(href='#widget-tabbed-popular' aria-controls='widget-tabbed-popular' role='tab' data-toggle='tab') Popular
+              // Widget Tab panes
+              .tab-content.widget-tabbed__tab-content
+                // Newest
+                #widget-tabbed-newest.tab-pane.fade.show.active(role='tabpanel')
+                  ul.posts.posts--simple-list
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | Jake Dribbler Announced that he is
+                            | retiring next month
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | The Alchemists news coach is
+                            | bringin a new shooting guard
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | This Saturday starts the intensive
+                            | training for the Final
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-3
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label Playoffs
+                        h6.posts__title
+                          a(href='#')
+                            | New York Islanders are now flying
+                            | to California for the big game
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | The Female Division is growing
+                            | strong after their third game
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                // Commented
+                #widget-tabbed-commented.tab-pane.fade(role='tabpanel')
+                  ul.posts.posts--simple-list
+                    li.posts__item.posts__item--category-3
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label Playoffs
+                        h6.posts__title
+                          a(href='#')
+                            | New York Islanders are now flying
+                            | to California for the big game
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | The Female Division is growing
+                            | strong after their third game
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | The Alchemists news coach is
+                            | bringin a new shooting guard
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | This Saturday starts the intensive
+                            | training for the Final
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | Jake Dribbler Announced that he is
+                            | retiring next month
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | Jake Dribbler Announced that he is
+                            | retiring next month
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                // Popular
+                #widget-tabbed-popular.tab-pane.fade(role='tabpanel')
+                  ul.posts.posts--simple-list
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | The Alchemists news coach is
+                            | bringin a new shooting guard
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | This Saturday starts the intensive
+                            | training for the Final
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | Jake Dribbler Announced that he is
+                            | retiring next month
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-1
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title
+                          a(href='#')
+                            | The Female Division is growing
+                            | strong after their third game
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    li.posts__item.posts__item--category-3
+                      .posts__inner
+                        .posts__cat
+                          span.label.posts__cat-label Playoffs
+                        h6.posts__title
+                          a(href='#')
+                            | New York Islanders are now flying
+                            | to California for the big game
+                        time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                        .posts__excerpt
+                          | Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do
+                          | eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        // Widget: Trending News / End
+        // Widget: Banner
+        aside.widget.card.widget--sidebar.widget-banner
+          .widget__title.card__header
+            h4 Advertisement
+          .widget__content.card__content
+            figure.widget-banner__img
+              a(href='https://themeforest.net/item/the-alchemists-sports-news-html-template/19106722?ref=dan_fisher')
+                img(src='assets/images/samples/banner.jpg' alt='Banner')
+        // Widget: Banner / End
+        // Widget: Newsletter
+        aside.widget.widget--sidebar.card.widget-newsletter
+          .widget__title.card__header
+            h4 Our Newsletter
+          .widget__content.card__content
+            h5.widget-newsletter__subtitle Subscribe Now!
+            .widget-newsletter__desc
+              p
+                | Receive the latest news from the team: game reminders, new adquisitions and professional
+                | match results.
+            form#newsletter.inline-form(action='#')
+              .input-group
+                input.form-control(type='email' placeholder='Your email address...')
+                span.input-group-append
+                  button.btn.btn-lg.btn-default(type='button') Send
+        // Widget: Newsletter / End
+        // Widget: Match Announcement
+        aside.widget.widget--sidebar.card.widget-preview
+          .widget__title.card__header
+            h4 Top Next Match
+          .widget__content.card__content
+            // Match Preview
+            .match-preview
+              section.match-preview__body
+                header.match-preview__header
+                  h3.match-preview__title Championship Quarter Finals
+                  time.match-preview__date(datetime='2017-05-17')
+                    | Saturday, October 17th,
+                    | 2018
+                .match-preview__content
+                  // 1st Team
+                  .match-preview__team.match-preview__team--first
+                    figure.match-preview__team-logo
+                      img(src='assets/images/samples/logo-alchemists--sm.png' alt='')
+                    h5.match-preview__team-name Alchemists
+                    .match-preview__team-info Elric Bros School
+                  // 1st Team / End
+                  .match-preview__vs
+                    .match-preview__conj VS
+                    .match-preview__match-info
+                      time.match-preview__match-time(datetime='2018-08-07 08:00')
+                        | 8:00
+                        | PM
+                      .match-preview__match-place Madison Cube Stadium
+                  // 2nd Team
+                  .match-preview__team.match-preview__team--second
+                    figure.match-preview__team-logo
+                      img(src='assets/images/samples/logo-l-clovers--sm.png' alt='')
+                    h5.match-preview__team-name Clovers
+                    .match-preview__team-info ST Paddy&apos;s Institute
+                  // 2nd Team / End
+                .match-preview__action
+                  a.btn.btn-default.btn-block(href='#') Buy Tickets Now
+              section.match-preview__countdown.countdown
+                h4.countdown__title Game Countdown
+                .countdown__content
+                  .countdown-counter(data-date='June 18, 2021 21:00:00')
+            // Match Preview / End
+        // Widget: Match Announcement / End
+      // Sidebar / End

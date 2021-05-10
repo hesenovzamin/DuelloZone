@@ -1,0 +1,85 @@
+extends layouts/zonelayout.pug
+block body
+ .page-heading
+  .container
+    .row
+      .col-md-10.offset-md-1
+        h1.page-heading__title
+          | Login or 
+          span.highlight Register
+        ol.page-heading__breadcrumb.breadcrumb
+          li.breadcrumb-item
+            a(href='_football_index.html') Home
+          li.breadcrumb-item
+            a(href='_football_shop-list.html') Shop
+          li.breadcrumb-item.active(aria-current='page') Login or Register
+ // Page Heading / End
+ //
+  Content
+  ==================================================
+ .site-content
+  .container
+    .row
+      .col-lg-6.mx-auto
+        // Login
+        .card
+          .card__header
+            h4 Login to your Account
+          .card__content
+            // Login Form
+            form(action='/login' method='POST')
+              .form-group
+                label(for='login_email') Your Email
+                input#login-name.form-control(type='email' name='login_email' required=''  placeholder='Enter your email address...')
+              .form-group
+                label(for='login_password') Your Password
+                input#login-password.form-control(type='password' name='login_password' required='' placeholder='Enter your password...')
+              .form-group.form-group--password-forgot
+                //label.checkbox.checkbox-inline
+                  input#inlineCheckbox1(type='checkbox' value='option1' checked='checked')
+                  |  Remember Me 
+                  span.checkbox-indicator
+                span.password-reminder
+                  | Forgot your password? 
+                  a(href='#')
+                    | Click
+                    | Here
+              .form-group.form-group--sm
+                button.btn.btn-primary-inverse.btn-lg.btn-block(type='submit') Sign in to your account
+            // Login Form / End
+        // Login / End
+    //-   .col-lg-6
+    //-     // Register
+    //-     .card
+    //-       .card__header
+    //-         h4 Register Now
+    //-       .card__content
+    //-         // Register Form
+    //-         form(action='#')
+    //-           .form-group
+    //-             label(for='register-name') Your Email
+    //-             input#register-name.form-control(type='email' name='register-name' placeholder='Enter your email address...')
+    //-           .form-group
+    //-             label(for='register-name') Your Email
+    //-             input#register-name.form-control(type='text' name='register-name' placeholder='Enter your nickname...')
+    //-           .form-group
+    //-             label(for='register-name') Your Email
+    //-             input#register-name.form-control(type='email' name='register-name' placeholder='Enter your email address...')
+    //-           .form-group
+    //-             label(for='register-name') Your Email
+    //-             input#register-name.form-control(type='email' name='register-name' placeholder='Enter your email address...')
+    //-           .form-group
+    //-             label(for='register-password') Your Password
+    //-             input#register-password.form-control(type='password' name='register-password' placeholder='Enter your password...')
+    //-           .form-group
+    //-             label(for='repeat-password') Repeat Password
+    //-             input#repeat-password.form-control(type='password' name='repeat-password' placeholder='Repeat your password...')
+    //-           .form-group.form-group--submit
+    //-             a.btn.btn-default.btn-lg.btn-block(href='_football_shop-account.html') Create Your Account
+            // Register Form / End
+        // Register / End
+ // Content / End
+ //
+  Footer
+  ================================================== --</body></html>
+

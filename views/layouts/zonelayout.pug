@@ -1,0 +1,558 @@
+doctype html
+head
+  //
+    Basic Page Needs
+    ==================================================
+  title Alchemists Basketball Club &amp; Sports News HTML Template - Home
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='description' content='Sports Club, League and News HTML Template')
+  meta(name='author' content='Dan Fisher')
+  meta(name='keywords' content='sports club news HTML template')
+  //
+    Favicons
+    ==================================================
+  link(rel='shortcut icon' href='/assets/images/basketball/favicons/favicon.ico')
+  link(rel='apple-touch-icon' sizes='120x120' href='/assets/images/basketball/favicons/favicon-120.png')
+  link(rel='apple-touch-icon' sizes='152x152' href='/assets/images/basketball/favicons/favicon-152.png')
+  //
+    Mobile Specific Metas
+    ==================================================
+  meta(name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0')
+  //
+    Google Web Fonts
+    ==================================================
+  link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700%7CSource+Sans+Pro:400,700' rel='stylesheet')
+  //
+    CSS
+    ==================================================
+  // Vendor CSS
+  link(href='/assets/vendor/bootstrap/css/bootstrap.css' rel='stylesheet')
+  link(href='/assets/fonts/font-awesome/css/all.min.css' rel='stylesheet')
+  link(href='/assets/fonts/simple-line-icons/css/simple-line-icons.css' rel='stylesheet')
+  link(href='/assets/vendor/magnific-popup/dist/magnific-popup.css' rel='stylesheet')
+  link(href='/assets/vendor/slick/slick.css' rel='stylesheet')
+  // Template CSS
+  link(href='/assets/css/style-basketball.css' rel='stylesheet')
+  // Custom CSS
+  link(href='/assets/css/custom.css' rel='stylesheet')
+.site-wrapper.clearfix
+  .site-overlay
+  //
+    Header
+    ==================================================
+  // Header Mobile
+  #header-mobile.header-mobile.clearfix
+    .header-mobile__logo
+      a(href='index.html')
+        img.header-mobile__logo-img(src='/assets/images/logo.png' srcset='/assets/images/logo@2x.png 2x' alt='Alchemists')
+    .header-mobile__inner
+      a#header-mobile__toggle.burger-menu-icon
+        span.burger-menu-icon__line
+      span#header-mobile__search-icon.header-mobile__search-icon
+  // Header Desktop
+  header.header.header--layout-1
+    // Header Top Bar
+    .header__top-bar.clearfix
+      .container
+        .header__top-bar-inner
+         if !IsLogin  
+          ul.nav-account
+            li.nav-account__item.nav-account__item--wishlist
+              a(href='/login')
+                | Login 
+                span.highlight 
+            li.nav-account__item
+              a(href='#')
+                | Language: 
+                span.highlight EN
+              ul.main-nav__sub
+                li
+                  a(href='#') English
+                li
+                  a(href='#') Türkçe
+         else 
+          ul.nav-account
+            li.nav-account__item
+              a(href='#' data-toggle='modal' data-target='#modal-login-register') Your Account
+            li.nav-account__item.nav-account__item--wishlist
+              a(href='shop-wishlist.html')
+                | Create Team 
+                span.highlight 
+            //- li.nav-account__item
+            //-   a(href='#')
+            //-     | Currency: 
+            //-     span.highlight USD
+            //-   ul.main-nav__sub
+            //-     li
+            //-       a(href='#') USD
+            //-     li
+            //-       a(href='#') EUR
+            //-     li
+            //-       a(href='#') GBP
+            li.nav-account__item
+              a(href='#')
+                | Language: 
+                span.highlight EN
+              ul.main-nav__sub
+                li
+                  a(href='#') English
+                li
+                  a(href='#') Türkçe
+            li.nav-account__item.nav-account__item--logout
+              a(href='#') Logout
+          // Account Navigation / End
+    // Header Top Bar / End
+    // Header Secondary
+    .header__secondary
+      .container
+        // Header Search Form
+        .header-search-form
+          form#mobile-search-form.search-form(action='#' style='margin-right : 10px;')
+            input.form-control.header-mobile__search-control(type='text' value='' placeholder='Komanda Axtar' style='border-radius : 1%;')
+            button.header-mobile__search-submit(type='submit')
+              i.fas.fa-search
+        .header-search-form
+          form#mobile-search-form.search-form(method='POST' action='#')
+            input.form-control.header-mobile__search-control(type='text' value='' placeholder='Oyuncu Axtar' style='border-radius : 1%;')
+            button#SearchPlayer.header-mobile__search-submit(type='submit')
+              i.fas.fa-search
+        // Header Search Form / End
+            // Dropdown Shopping Cart / End
+    // Header Secondary / End
+    // Header Primary
+    .header__primary
+      .container
+        .header__primary-inner
+          // Header Logo
+          .header-logo
+            a(href='index.html')
+              img.header-logo__img(src='/assets/images/logo.png' alt='Alchemists' srcset='/assets/images/logo@2x.png 2x')
+          // Header Logo / End
+          // Main Navigation
+          nav.main-nav.clearfix
+            ul.main-nav__list
+              li.active
+                a(href='index.html') Home
+                ul.main-nav__sub
+                  li.active
+                    a(href='index.html') Home - version 1
+                  li
+                    a(href='index-2.html') Home - version 2
+                  li
+                    a(href='index-3.html') Home - version 3
+              li
+                a(href='#') Features
+                .main-nav__megamenu.clearfix
+                  ul.col-lg-2.col-md-3.col-12.main-nav__ul
+                    li.main-nav__title Features
+                    li
+                      a(href='features-shortcodes.html') Shortcodes
+                    li
+                      a(href='features-typography.html') Typography
+                    li
+                      a(href='features-widgets-blog.html') Widgets - Blog
+                    li
+                      a(href='features-widgets-shop.html') Widgets - Shop
+                    li
+                      a(href='features-widgets-sports.html') Widgets - Sports
+                    li
+                      a(href='features-404.html') 404 Error Page
+                    li
+                      a(href='features-search-results.html') Search Results
+                    li
+                      a(href='page-contacts.html') Contact Us
+                  ul.col-lg-2.col-md-3.col-12.main-nav__ul
+                    li.main-nav__title Other Pages
+                    li
+                      a(href='page-sponsors.html') Sponsors
+                    li
+                      a(href='page-faqs.html') FAQs
+                    li
+                      a(href='staff-single.html') Staff Member
+                    li
+                      a(href='event-tournament.html') Tournament
+                    li
+                      a(href='shop-list.html') Shop Page
+                    li
+                      a(href='shop-cart.html') Shopping Cart
+                    li
+                      a(href='shop-wishlist.html') Wishlist
+                    li
+                      a(href='shop-checkout.html') Checkout
+                  .col-lg-4.col-md-3.col-12
+                    .posts.posts--simple-list.posts--simple-list--lg
+                      .posts__item.posts__item--category-1
+                        .posts__inner
+                          .posts__cat
+                            span.label.posts__cat-label The Team
+                          h6.posts__title
+                            a(href='#') The team is starting a new power breakfast regimen
+                          time.posts__date(datetime='2017-08-23') August 23rd, 2017
+                          .posts__excerpt
+                            | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        .posts__footer.card__footer
+                          .post-author
+                            figure.post-author__avatar
+                              img(src='/assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                            .post-author__info
+                              h4.post-author__name James Spiegel
+                          ul.post__meta.meta
+                            li.meta__item.meta__item--likes
+                              a(href='#')
+                                i.meta-like.meta-like--active.icon-heart
+                                |  530
+                            li.meta__item.meta__item--comments
+                              a(href='#') 18
+                  .col-lg-4.col-md-3.col-12
+                    ul.posts.posts--simple-list
+                      li.posts__item.posts__item--category-1
+                        figure.posts__thumb
+                          a(href='#')
+                            img(src='/assets/images/samples/post-img3-xs.jpg' alt='')
+                        .posts__inner
+                          .posts__cat
+                            span.label.posts__cat-label The Team
+                          h6.posts__title
+                            a(href='#') The new eco friendly stadium won a Leafy Award in 2016
+                          time.posts__date(datetime='2016-08-21') August 21st, 2016
+                      li.posts__item.posts__item--category-2
+                        figure.posts__thumb
+                          a(href='#')
+                            img(src='/assets/images/samples/post-img1-xs.jpg' alt='')
+                        .posts__inner
+                          .posts__cat
+                            span.label.posts__cat-label Injuries
+                          h6.posts__title
+                            a(href='#') Mark Johnson has a Tibia Fracture and is gonna be out
+                          time.posts__date(datetime='2016-08-23') August 23rd, 2016
+                      li.posts__item.posts__item--category-1
+                        figure.posts__thumb
+                          a(href='#')
+                            img(src='/assets/images/samples/post-img4-xs.jpg' alt='')
+                        .posts__inner
+                          .posts__cat
+                            span.label.posts__cat-label The Team
+                          h6.posts__title
+                            a(href='#') The team is starting a new power breakfast regimen
+                          time.posts__date(datetime='2016-08-21') August 21st, 2016
+              li
+                a(href='#') The Team
+                ul.main-nav__sub
+                  li
+                    a(href='team-overview.html') Team
+                    ul.main-nav__sub-2
+                      li
+                        a(href='team-overview.html') Overview
+                      li
+                        a(href='team-roster-2.html') Roster
+                        ul.main-nav__sub-2
+                          li
+                            a(href='team-roster-1.html') Roster - 1
+                          li
+                            a(href='team-roster-2.html') Roster - 2
+                          li
+                            a(href='team-roster-3.html') Roster - 3
+                      li
+                        a(href='team-standings.html') Standings
+                      li
+                        a(href='team-last-results.html') Latest Results
+                      li
+                        a(href='team-schedule.html') Schedule
+                      li
+                        a(href='team-gallery.html') Gallery
+                        ul.main-nav__sub-3
+                          li
+                            a(href='team-gallery-album.html') Single Album
+                  li
+                    a(href='player-overview.html') Player
+                    ul.main-nav__sub-2
+                      li
+                        a(href='player-overview.html') Overview
+                      li
+                        a(href='player-stats.html') Full Statistics
+                      li
+                        a(href='player-bio.html') Biography
+                      li
+                        a(href='player-news.html') Related News
+                      li
+                        a(href='player-gallery.html') Gallery
+                  li
+                    a(href='staff-single.html') Staff Member
+                  li
+                    a(href='event-overview.html')
+                      | Event &nbsp; 
+                      span.label.label-danger New
+                    ul.main-nav__sub-2
+                      li
+                        a(href='event-overview.html') Overview
+                      li
+                        a(href='event-box-score.html') Box Score
+                      li
+                        a(href='event-play-by-play.html') Play-by-Play
+                      li
+                        a(href='event-team-stats.html') Team Stats
+                      li
+                        a(href='event-news-recap.html') News Recap
+                      li
+                        a(href='event-videos.html') Videos
+                  li
+                    a(href='event-tournament.html') Tournament
+              li
+                a(href='#') News
+                ul.main-nav__sub
+                  li
+                    a(href='blog-1.html') News - version 1
+                  li
+                    a(href='blog-2.html') News - version 2
+                  li
+                    a(href='blog-3.html') News - version 3
+                  li
+                    a(href='blog-4.html') News - version 4
+                  li
+                    a(href='#') Post
+                    ul.main-nav__sub-2
+                      li
+                        a(href='blog-post-1.html') Single Post - version 1
+                      li
+                        a(href='blog-post-2.html') Single Post - version 2
+                      li
+                        a(href='blog-post-3.html') Single Post - version 3
+              li
+                a(href='shop-grid.html') Shop
+                ul.main-nav__sub
+                  li
+                    a(href='shop-grid.html') Shop - Grid
+                  li
+                    a(href='shop-list.html') Shop - List
+                  li
+                    a(href='shop-fullwidth.html') Shop - Full Width
+                  li
+                    a(href='shop-product.html') Single Product
+                  li
+                    a(href='shop-cart.html') Shopping Cart
+                  li
+                    a(href='shop-checkout.html') Checkout
+                  li
+                    a(href='shop-wishlist.html') Wishlist
+                  li
+                    a(href='shop-login.html') Login
+                  li
+                    a(href='shop-account.html') Account
+            // Social Links
+            ul.social-links.social-links--inline.social-links--main-nav
+              li.social-links__item
+                a.social-links__link(href='#' data-toggle='tooltip' data-placement='bottom' title='Facebook')
+                  i.fab.fa-facebook
+              li.social-links__item
+                a.social-links__link(href='#' data-toggle='tooltip' data-placement='bottom' title='Twitter')
+                  i.fab.fa-twitter
+              li.social-links__item
+                a.social-links__link(href='#' data-toggle='tooltip' data-placement='bottom' title='Instagram')
+                  i.fab.fa-instagram
+            // Social Links / End
+            // Pushy Panel Toggle
+            a.pushy-panel__toggle(href='#')
+              span.pushy-panel__line
+            // Pushy Panel Toggle / Eng
+          // Main Navigation / End
+  block body
+  footer#footer.footer
+    // Footer Widgets
+    .footer-widgets
+      .footer-widgets__inner
+        .container
+          .row
+            .col-sm-12.col-lg-3
+              .footer-col-inner
+                // Footer Logo
+                .footer-logo
+                  a(href='index.html')
+                    img.footer-logo__img(src='/assets/images/logo.png' srcset='/assets/images/logo@2x.png 2x' alt='Alchemists')
+                // Footer Logo / End
+            .col-sm-4.col-lg-3
+              .footer-col-inner
+                // Widget: Contact Info
+                .widget.widget--footer.widget-contact-info
+                  h4.widget__title Contact Info
+                  .widget__content
+                    .widget-contact-info__desc
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                    .widget-contact-info__body.info-block
+                      .info-block__item
+                        svg.df-icon.df-icon--basketball(role='img')
+                          use(xlink:href='/assets/images/icons-basket.svg#basketball')
+                        h6.info-block__heading Contact Us
+                        a.info-block__link(href='mailto:tryouts@alchemists.com') tryouts@alchemists.com
+                      .info-block__item
+                        svg.df-icon.df-icon--jersey(role='img')
+                          use(xlink:href='/assets/images/icons-basket.svg#jersey')
+                        h6.info-block__heading Join Our Team!
+                        a.info-block__link(href='mailto:info@alchemists.com') info@alchemists.com
+                      .info-block__item.info-block__item--nopadding
+                        ul.social-links
+                          li.social-links__item
+                            a.social-links__link(href='#')
+                              i.fab.fa-facebook
+                              |  Facebook
+                          li.social-links__item
+                            a.social-links__link(href='#')
+                              i.fab.fa-twitter
+                              |  Twitter
+                          li.social-links__item
+                            a.social-links__link(href='#')
+                              i.fab.fa-instagram
+                              |  Instagram
+                // Widget: Contact Info / End
+            .col-sm-4.col-lg-3
+              .footer-col-inner
+                // Widget: Popular Posts / End
+                .widget.widget--footer.widget-popular-posts
+                  h4.widget__title Popular News
+                  .widget__content
+                    ul.posts.posts--simple-list
+                      li.posts__item.posts__item--category-2
+                        .posts__cat
+                          span.label.posts__cat-label Injuries
+                        h6.posts__title.posts__title--color-hover
+                          a(href='#') Mark Johnson has a Tibia Fracture and is gonna be out
+                        time.posts__date(datetime='2017-08-23') August 23rd, 2018
+                      li.posts__item.posts__item--category-1
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title.posts__title--color-hover
+                          a(href='#') Jay Rorks is only 24 points away from breaking the record
+                        time.posts__date(datetime='2017-08-23') August 22nd, 2018
+                      li.posts__item.posts__item--category-1
+                        .posts__cat
+                          span.label.posts__cat-label The Team
+                        h6.posts__title.posts__title--color-hover
+                          a(href='#') The new eco friendly stadium won a Leafy Award in 2016
+                        time.posts__date(datetime='2017-08-23') June 8th, 2018
+                // Widget: Popular Posts / End
+            .col-sm-4.col-lg-3
+              .footer-col-inner
+                // Widget: Instagram
+                .widget.widget--footer.widget-instagram
+                  h4.widget__title Gallery Widget
+                  .widget__content
+                    ul#instagram-feed.widget-instagram__list
+                      li.widget-instagram__item
+                        a.widget-instagram__link-wrapper(href='#' target='_blank')
+                          span.widget-instagram__plus-sign
+                            img.widget-instagram__img(src='/assets/images/samples/instagram-img1.jpg' alt='')
+                      li.widget-instagram__item
+                        a.widget-instagram__link-wrapper(href='#' target='_blank')
+                          span.widget-instagram__plus-sign
+                            img.widget-instagram__img(src='/assets/images/samples/instagram-img2.jpg' alt='')
+                      li.widget-instagram__item
+                        a.widget-instagram__link-wrapper(href='#' target='_blank')
+                          span.widget-instagram__plus-sign
+                            img.widget-instagram__img(src='/assets/images/samples/instagram-img3.jpg' alt='')
+                      li.widget-instagram__item
+                        a.widget-instagram__link-wrapper(href='#' target='_blank')
+                          span.widget-instagram__plus-sign
+                            img.widget-instagram__img(src='/assets/images/samples/instagram-img4.jpg' alt='')
+                      li.widget-instagram__item
+                        a.widget-instagram__link-wrapper(href='#' target='_blank')
+                          span.widget-instagram__plus-sign
+                            img.widget-instagram__img(src='/assets/images/samples/instagram-img5.jpg' alt='')
+                      li.widget-instagram__item
+                        a.widget-instagram__link-wrapper(href='#' target='_blank')
+                          span.widget-instagram__plus-sign
+                            img.widget-instagram__img(src='/assets/images/samples/instagram-img6.jpg' alt='')
+                    a.btn.btn-sm.btn-instagram.btn-icon-right(href='#')
+                      | Follow Our Profile 
+                      i.icon-arrow-right
+                // Widget: Instagram / End
+    // Footer Widgets / End
+    // Footer Secondary
+    .footer-secondary.footer-secondary--has-decor
+      .container
+        .footer-secondary__inner
+          .row
+            .col-md-10.offset-md-1
+              ul.footer-nav
+                li.footer-nav__item
+                  a(href='index.html') Home
+                li.footer-nav__item
+                  a(href='features-shortcodes.html') Features
+                li.footer-nav__item
+                  a(href='team-standings.html') Statistics
+                li.footer-nav__item
+                  a(href='team-overview.html') The Team
+                li.footer-nav__item
+                  a(href='blog-3.html') News
+                li.footer-nav__item
+                  a(href='shop-grid.html') Shop
+    // Footer Secondary / End
+  // Footer / End
+  // Login/Register Modal
+  #modal-login-register.modal.fade(tabindex='-1' role='dialog')
+    .modal-dialog.modal-lg.modal--login(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          .modal-account-holder
+            .modal-account__item
+              // Register Form
+              form.modal-form(action='#')
+                h5 Register Now!
+                .form-group
+                  input.form-control(type='email' placeholder='Enter your email address...')
+                .form-group
+                  input.form-control(type='password' placeholder='Enter your password...')
+                .form-group
+                  input.form-control(type='password' placeholder='Repeat your password...')
+                .form-group.form-group--submit
+                  a.btn.btn-primary.btn-block(href='shop-account.html') Create Your Account
+                .modal-form--note
+                  | You&rsquo;ll receive a confirmation email in your inbox with a link to activate your account.
+              // Register Form / End
+            .modal-account__item
+              // Login Form
+              form.modal-form(action='#')
+                h5 Login to your account
+                .form-group
+                  input.form-control(type='email' placeholder='Enter your email address...')
+                .form-group
+                  input.form-control(type='password' placeholder='Enter your password...')
+                .form-group.form-group--pass-reminder
+                  label.checkbox.checkbox-inline
+                    input#inlineCheckbox1(type='checkbox' value='option1' checked='')
+                    |  Remember Me
+                    span.checkbox-indicator
+                  a(href='#') Forgot your password?
+                .form-group.form-group--submit
+                  a.btn.btn-primary-inverse.btn-block(href='shop-account.html') Enter to your account
+                .modal-form--social
+                  h6 or Login with your social profile:
+                  ul.social-links.social-links--btn.text-center
+                    li.social-links__item
+                      a.social-links__link.social-links__link--lg.social-links__link--fb(href='#')
+                        i.fab.fa-facebook
+                    li.social-links__item
+                      a.social-links__link.social-links__link--lg.social-links__link--twitter(href='#')
+                        i.fab.fa-twitter
+                    li.social-links__item
+                      a.social-links__link.social-links__link--lg.social-links__link--gplus(href='#')
+                        i.fab.fa-google-plus-g
+              // Login Form / End
+  // Login/Register Modal / End
+//
+  Javascript Files
+  ==================================================
+// Core JS
+script(src='/assets/vendor/jquery/jquery.min.js')
+script(src='/assets/vendor/jquery/jquery-migrate.min.js')
+script(src='/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')
+script(src='/assets/js/core.js')
+// Vendor JS
+script(src='/assets/vendor/twitter/jquery.twitter.js')
+// Template JS
+script(src='/assets/js/init.js')
+script(src='/assets/js/custom.js')
+block script

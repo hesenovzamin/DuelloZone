@@ -1,0 +1,63 @@
+extends layouts/zonelayout.pug
+block body
+ .page-heading
+  .container
+    .row
+      .col-md-10.offset-md-1
+        h1.page-heading__title
+          | Login or 
+          span.highlight Register
+        ol.page-heading__breadcrumb.breadcrumb
+          li.breadcrumb-item
+            a(href='_football_index.html') Home
+          li.breadcrumb-item
+            a(href='_football_shop-list.html') Shop
+          li.breadcrumb-item.active(aria-current='page') Login or Register
+ // Page Heading / End
+ //
+  Content
+  ==================================================
+ .site-content
+  .container
+    .row
+      .col-lg-6.mx-auto
+        // Register
+        .card
+          .card__header
+            h4 Register Now
+          .card__content
+            // Register Form
+            form(method='POST' action='/register')
+              .form-group
+                label(for='register-name') Your Email
+                input#register-name.form-control(type='email' name='register_email' placeholder='Enter your email address...' required='')
+              .form-group
+                label(for='register-name') First Name
+                input#register-name.form-control(type='text'  minlength="1"  name='first_name' placeholder='Enter your first name...' required='')
+              .form-group
+                label(for='register-name') Last Name
+                input#register-name.form-control(type='text' minlength="1" text='last_name' placeholder='Enter your last name...' required='')
+              .form-group
+                label(for='register-name') Riot ID
+                input#register-name.form-control(type='text'  minlength="4" maxlength="4"  name='riotid' placeholder='Enter your riot  ID...' required='')
+              .form-group
+                label(for='register-name') Nick Name
+                input#register-name.form-control(type='text' minlength="4" name='nick_name' placeholder='Enter your nickname...' required='') 
+              .form-group
+                label(for='rank') Rank
+                select.form-control(name='rank')
+                  option(value='Gold1') Gold1
+                  option(value='Gold2') Gold2
+                  option(value='Gold3') Gold3
+              .form-group
+                label(for='register-password') Your Password
+                input#register-password.form-control(type='password' minlength="8" name='register_password' placeholder='Enter your password...' required='')
+              .form-group
+                label(for='repeat-password') Repeat Password
+                input#repeat-password.form-control(type='password' minlength="8" name='repeat_password' placeholder='Repeat your password...' required='')
+              .form-group.form-group--submit
+                button.btn.btn-default.btn-lg.btn-block(type='submit') Create Your Account
+            // Register Form / End
+        // Register / End
+ // Content / End
+ //

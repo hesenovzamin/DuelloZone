@@ -1,0 +1,35 @@
+extends layouts/zonelayout.pug
+block body
+ .page-heading
+  .container
+    .row
+      .col-md-10.offset-md-1
+        h1.page-heading__title
+          | Error 
+          span.highlight Page
+        ol.page-heading__breadcrumb.breadcrumb
+          li.breadcrumb-item
+            a(href='_football_index.html') Home
+          li.breadcrumb-item
+            a(href='_football_features-shortcodes.html') Features
+          li.breadcrumb-item.active(aria-current='page') Error
+
+ .site-content
+  .container
+    // Error 404
+    .error-404
+      .row
+        .col-md-8.offset-md-2
+          figure.error-404__figure
+            img(src='assets\images\icon-ghost.svg' alt='')
+          header.error__header
+            h2.error__title #{info}
+            h3.error__subtitle #{info2}
+             
+            a(href='mailto:info@alchemists.com') info@alchemists.com
+          footer.error__cta
+            a.btn.btn-primary(href='_football_index.html')
+              | Return to
+              | Home
+            a.btn.btn-primary-inverse(href='#') Keep Browsing
+    // Error 404 / End

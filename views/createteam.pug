@@ -1,0 +1,60 @@
+extends layouts/zonelayout.pug
+block body
+ .page-heading
+  .container
+    .row
+      .col-md-10.offset-md-1
+        h1.page-heading__title
+          | Login or 
+          span.highlight Register
+        ol.page-heading__breadcrumb.breadcrumb
+          li.breadcrumb-item
+            a(href='_football_index.html') Home
+          li.breadcrumb-item
+            a(href='_football_shop-list.html') Shop
+          li.breadcrumb-item.active(aria-current='page') Login or Register
+ // Page Heading / End
+ //
+  Content
+  ==================================================
+ .site-content
+  .container
+    .row
+      .col-lg-6.mx-auto
+        // Register
+        .card
+          .card__header
+            h4 Register Now
+          .card__content
+            // Register Form
+            form(action='/createteam' method='POST' enctype='multipart/form-data')
+              .form-group
+                label(for='team-name') Team Name
+                input#team_name.form-control(type='text' name='name' placeholder='Enter your team name...' required='')
+              .form-group
+                label(for='Team-Logo') Team Logo
+                input#team_logo.form-control( type='file'   name="File" multiple='' placeholder='If you do not upload a logo, team logo will set by default.')
+              //- .form-group
+              //-   label(for='player-id') Player1 ID
+              //-   input#register-name.form-control(type='text'  minlength="24" maxlength="24"  name='playerid1' placeholder='Enter  player  ID...' required='')
+              //- .form-group
+              //-   label(for='player-id') Player2 ID
+              //-   input#register-name.form-control(type='text'  minlength="24" maxlength="24"  name='playerid2' placeholder='Enter  player  ID...' required='')
+              //- .form-group
+              //-   label(for='player-id') Player3 ID
+              //-   input#register-name.form-control(type='text'  minlength="24" maxlength="24"  name='playerid3' placeholder='Enter  player  ID...' required='')
+              //- .form-group
+              //-   label(for='player-id') Player4 ID
+              //-   input#register-name.form-control(type='text'  minlength="24" maxlength="24"  name='playerid4' placeholder='Enter  player  ID...' required='')
+              .form-group.form-group--submit
+                button.btn.btn-default.btn-lg.btn-block(type='submit') Create Your Team
+    //
+block script
+    script. 
+      console.log('salam')
+      $("#team_logo").on("change", function() {
+      if ($("#team_logo")[0].files.length != 1) {
+          $("#team_logo").val('');
+          alert("You can select only 1 images");
+      }
+      });
