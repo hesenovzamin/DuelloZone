@@ -131,6 +131,11 @@ exports.PostCreateTeam = async (req, res, next) => {
 exports.GetAccount = async (req, res, next) => {
     console.log(req.user)
     res.render("account",{
-        IsLogin : req.session.IsLogin
+        IsLogin : req.session.IsLogin,
+        User : req.user
     });
 };
+
+exports.GetUpdateUser = async (req,res,next) => {
+    console.log(req.body)
+}

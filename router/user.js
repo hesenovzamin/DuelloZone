@@ -25,4 +25,5 @@ router.post('/createteam', UserController.PostCreateTeam);
 
 //Acount
 router.get('/account',UserController.GetAccount)
+router.post('/updateuser',UserController.GetUpdateUser)
 module.exports = router;
