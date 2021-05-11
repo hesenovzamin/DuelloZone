@@ -136,6 +136,34 @@ exports.GetAccount = async (req, res, next) => {
     });
 };
 
-exports.GetUpdateUser = async (req,res,next) => {
+exports.PostUpdateUser = async (req,res,next) => {
     console.log(req.body)
+    const body = req.body
+        User.findById(req.user._id)
+        .then(user => {
+            user.email = body.account_email
+            user.name = ''
+        })
+}
+
+exports.PostUpdatePassword = async (req,res,next) => {
+    console.log(req.body)
+    const body = req.body
+    if(body.account_password === body.account_password_repeat && body.account_password.length > 4)
+    {
+        User.findById(req.user._id)
+        .then(user => {
+            user.password = body.account_password 
+            user.save()
+            .then(result => {
+                res.redirect('/account')
+            })
+        })
+    }
+    else{
+        res.render('error',{
+            info : 'Parollar Uygun Deyil',
+            info2 : 'Yeniden Yoxlayın'
+        })
+    }
 }
