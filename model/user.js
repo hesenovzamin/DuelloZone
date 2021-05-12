@@ -91,6 +91,23 @@ userSchema.methods.AddRequest = async function (object) {
     return this.save();
 }
 
+userSchema.methods.RemoveRequest = async function (object) {
+    
+    const updated = await this.RequestItem.filter(item => {
+
+        return String(item.object.teamid) !== String(object)
+    });
+    this.RequestItem = updated
+    console.log(updated,1)
+
+    return this.save();
+}
+
+userSchema.methods.clearRequest = function () {
+    this.RequestItem = [];
+    return this.save();
+}
+
 // userSchema.methods.getCart = function (product) {
 
 //     const ids = this.cart.items.map(i => {

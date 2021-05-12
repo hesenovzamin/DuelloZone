@@ -45,7 +45,7 @@ head
   #header-mobile.header-mobile.clearfix
     .header-mobile__logo
       a(href='index.html')
-        img.header-mobile__logo-img(src='/img/duellozone.jpg' srcset='/img/duellozone.jpg 2x' alt='Alchemists')
+        img.header-mobile__logo-img(src='/img/duello.zone.jpg' srcset='/img/duello.zone.jpg 2x' alt='Alchemists')
     .header-mobile__inner
       a#header-mobile__toggle.burger-menu-icon
         span.burger-menu-icon__line
@@ -79,7 +79,11 @@ head
           ul.nav-account
             li.nav-account__item
               //a(href='#' data-toggle='modal' data-target='#modal-login-register') 
+              a(href='/account') #{User.username}
+            li.nav-account__item
+              //a(href='#' data-toggle='modal' data-target='#modal-login-register') 
               a(href='/account') Your Account
+
             if (User.TeamStatus !== true)
              li.nav-account__item.nav-account__item--wishlist
               a(href='/createteam')
@@ -138,7 +142,7 @@ head
           // Header Logo
           .header-logo
             a(href='/home')
-              img.header-logo__img(src='/img/duellozone.jpg' alt='Alchemists' srcset='/img/duellozone.jpg 2x')
+              img.header-logo__img(src='/img/duello.zone.jpg' alt='Alchemists' srcset='/img/duello.zone.jpg 2x')
           // Header Logo / End
           // Main Navigation
           nav.main-nav.clearfix

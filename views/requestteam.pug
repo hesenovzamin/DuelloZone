@@ -1,0 +1,54 @@
+extends layouts/zonelayout.pug
+block body
+ //
+  Page Heading
+  ==================================================
+ .page-heading
+  .container
+    .row
+      .col-md-10.offset-md-1
+        h1.page-heading__title
+          | Shopping 
+          span.highlight Cart
+        ol.page-heading__breadcrumb.breadcrumb
+          li.breadcrumb-item
+            a(href='index.html') Home
+          li.breadcrumb-item
+            a(href='shop-grid.html') Shop
+          li.breadcrumb-item.active(aria-current='page') Shopping Cart
+ .site-content
+  .container
+    // Shopping Cart
+    .card.card--has-table
+      .card__header
+        h4 Your Team Invites
+      .card__content
+        .table-responsive
+          table.table.shop-table
+            thead
+              tr
+                th.product__photo TeamLogo
+                th.product__photo(style='text-align: center;') TeamName
+                th.product__info TeamLeader
+                th.product__price Accept
+                th.product__price Decline
+            tbody
+             each item in teams
+              tr
+                td.product__photo
+                  figure.product__thumb
+                    a(href='#')
+                      img(src=`/img/${item.logo}` alt='')
+                td.product__price
+                  | #{item.name}
+                td.product__info
+                  h5.product__name
+                    a(href='#') #{item.AdminId.name}
+                td.product__remove
+                  a.fas.fa-check.product__remove-icon(href=`/acceptteam/${item._id}`)
+                td.product__remove
+                  a.fas.fa-times.product__remove-icon(href=`/declineteam/${item._id}`)
+            // Checkout Payment / End
+        // Cart Totals / End
+    // Shipping Details / End
+ // Content / End

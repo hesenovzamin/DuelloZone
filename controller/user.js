@@ -276,3 +276,54 @@ exports.PostAddTeamMate = async (req, res, next) => {
         })
     })
 };
+
+
+//RequestTeam 
+exports.GetRequest = async (req, res, next) => {
+
+    let teamidarr = []
+    await req.user.RequestItem.forEach(element => {
+        teamidarr.push(element.object.teamid)
+    });
+    Team.find({
+        _id: {
+            $in: teamidarr
+        }
+    }).populate("AdminId", "name")
+    .then(teams => {
+        console.log(teams)
+        res.render("requestteam",{
+            User : req.user,
+            IsLogin : req.session.IsLogin,
+            teams : teams
+        });
+    })
+    
+};
+
+exports.AcceptTeam = async (req, res, next) => {
+
+    Team.findById(req.params.Id)
+    .then(team => {
+        User.findById(req.user._id)
+        .then(async user => {
+            team.AddTeamMates(user)
+            user.TeamStatus = true;
+            user.TeamID = team._id
+            await team.clearRequest()
+            res.redirect('/requestteam')
+        })
+        
+    })
+    
+};
+
+exports.DeclineTeam = async (req, res, next) => {
+
+    User.findById(req.user._id)
+        .then( async user => {
+          await  user.RemoveRequest(req.params.Id)
+            res.redirect('/requestteam')
+        })
+    
+};

@@ -34,4 +34,11 @@ router.post('/updatepassword',ControlSession,UserController.PostUpdatePassword)
 //GetTeam
 router.get('/getteam',ControlSession,UserController.GetTeam)
 router.post('/addteammate',ControlSession,UserController.PostAddTeamMate)
+
+//RequestTeam
+router.get('/requestteam',ControlSession,UserController.GetRequest)
+router.get('/acceptteam/:Id',ControlSession,UserController.AcceptTeam)
+router.get('/declineteam/:Id',ControlSession,UserController.DeclineTeam)
+
+
 module.exports = router;
