@@ -45,7 +45,7 @@ head
   #header-mobile.header-mobile.clearfix
     .header-mobile__logo
       a(href='index.html')
-        img.header-mobile__logo-img(src='/assets/images/logo.png' srcset='/assets/images/logo@2x.png 2x' alt='Alchemists')
+        img.header-mobile__logo-img(src='/img/duellozone.jpg' srcset='/img/duellozone.jpg 2x' alt='Alchemists')
     .header-mobile__inner
       a#header-mobile__toggle.burger-menu-icon
         span.burger-menu-icon__line
@@ -76,9 +76,15 @@ head
             li.nav-account__item
               //a(href='#' data-toggle='modal' data-target='#modal-login-register') 
               a(href='/account') Your Account
-            li.nav-account__item.nav-account__item--wishlist
-              a(href='shop-wishlist.html')
+            if (User.TeamStatus !== true)
+             li.nav-account__item.nav-account__item--wishlist
+              a(href='/createteam')
                 | Create Team 
+                span.highlight 
+            if (User.TeamStatus === true)
+             li.nav-account__item.nav-account__item--wishlist
+              a(href='/getteam')
+                | Your Team
                 span.highlight 
             //- li.nav-account__item
             //-   a(href='#')
@@ -127,8 +133,8 @@ head
         .header__primary-inner
           // Header Logo
           .header-logo
-            a(href='index.html')
-              img.header-logo__img(src='/assets/images/logo.png' alt='Alchemists' srcset='/assets/images/logo@2x.png 2x')
+            a(href='/home')
+              img.header-logo__img(src='/img/duellozone.jpg' alt='Alchemists' srcset='/img/duellozone.jpg 2x')
           // Header Logo / End
           // Main Navigation
           nav.main-nav.clearfix

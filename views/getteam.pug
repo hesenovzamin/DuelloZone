@@ -6,12 +6,12 @@ block body
       .col-md-10.offset-md-1
         h1.page-heading__title
           | Your 
-          span.highlight Account
+          span.highlight Team
         ol.page-heading__breadcrumb.breadcrumb
           li.breadcrumb-item
             a(href='/home') Home
 
-          li.breadcrumb-item.active(aria-current='page') Your Account
+          li.breadcrumb-item.active(aria-current='page') Your Team
  // Page Heading / End
  //
   Content
@@ -43,23 +43,23 @@ block body
           | #{action}
         .card.card--lg
           .card__header
-            h4 Personal Information
+            h4 Team Information
           .card__content
             form.df-personal-info(method='POST' action='/updateuser')
               .row
                 .col-md-6
                   .form-group
                     label(for='account-email') Email
-                    input#account-email.form-control(type='email' value='' name='account_email' placeholder=`${User.email}`)
+                    input#account-email.form-control(type='email' value='' name='account_email' placeholder=``)
               .row
                 .col-md-6
                   .form-group
                     label(for='account-first-name') First Name
-                    input#account-first-name.form-control(type='text' value=''  name='account_first_name' placeholder=`${User.name}`)
+                    input#account-first-name.form-control(type='text' value=''  name='account_first_name' placeholder=``)
                 .col-md-6
                   .form-group
                     label(for='account-last-name') Last Name
-                    input#account-last-name.form-control(type='text' value=''  name='account_last_name' placeholder=`${User.surname}`)
+                    input#account-last-name.form-control(type='text' value=''  name='account_last_name' placeholder=``)
               .form-group--submit
                 button.btn.btn-default.btn-lg.btn-block(type='submit')
                   | See all the

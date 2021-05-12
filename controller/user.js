@@ -8,7 +8,8 @@ const e = require('express');
 exports.GetIndex = async (req, res, next) => {
     console.log(req.user)
     res.render("home",{
-        IsLogin : req.session.IsLogin
+        IsLogin : req.session.IsLogin,
+        User : req.user
     });
 };
 
@@ -91,7 +92,9 @@ exports.PostLogin = async (req, res, next) => {
 //CreateTeam
 exports.GetCreateTeam = async (req, res, next) => {
 
-    res.render("createteam");
+    res.render("createteam",{
+        User : req.user
+    });
 };
 
 
@@ -114,9 +117,21 @@ exports.PostCreateTeam = async (req, res, next) => {
         const team = new Team({
             name : body.name,
             logo : TeamLogo,
+            AdminId : req.user._id
         })
         team.save()
         .then(result => {
+            User.findById(req.user._id)
+            .then(user => {
+                user.TeamStatus = true;
+                user.TeamAdmin = true;
+                user.TeamID = team._id
+                user.save()
+                .then( teamresult => {
+                    res.redirect('/home')
+                })
+
+            })
             console.log(result)
             res.redirect('/home')
         })
@@ -129,21 +144,50 @@ exports.PostCreateTeam = async (req, res, next) => {
 
 //account
 exports.GetAccount = async (req, res, next) => {
-    console.log(req.user)
+    console.log(req.query)
+    let action = "empty";
+    if(req.query.action)
+    {
+        if(req.query.action === "updatepwd")
+        {   
+            console.log('salam isdedi')
+             action = "Your password has been updated..."; 
+        }
+        else if(req.query.action === "erorpwd")
+        {   
+            console.log('salam isdedi')
+             action = "Your password is either short or not the same ..."; 
+        }
+        else if(req.query.action === "update")
+        {   
+            console.log('salam isdedi')
+             action = "Your account is update ..."; 
+        }
+    }
     res.render("account",{
         IsLogin : req.session.IsLogin,
-        User : req.user
+        User : req.user,
+        action : action
+
     });
 };
 
 exports.PostUpdateUser = async (req,res,next) => {
-    console.log(req.body)
-    const body = req.body
-        User.findById(req.user._id)
-        .then(user => {
-            user.email = body.account_email
-            user.name = ''
+
+
+    User.findById(req.user._id)
+    .then(user => {
+        if(req.body.account_first_name)
+        user.name = req.body.account_first_name
+        if(req.body.account_last_name)
+        user.surname = req.body.account_last_name
+        if(req.body.account_email)
+        user.email = req.body.account_email
+        user.save()
+        .then(result => {
+            res.redirect('/account?action=update')
         })
+    })
 }
 
 exports.PostUpdatePassword = async (req,res,next) => {
@@ -156,14 +200,20 @@ exports.PostUpdatePassword = async (req,res,next) => {
             user.password = body.account_password 
             user.save()
             .then(result => {
-                res.redirect('/account')
+                res.redirect('/account?action=updatepwd')
             })
         })
     }
     else{
-        res.render('error',{
-            info : 'Parollar Uygun Deyil',
-            info2 : 'Yeniden Yoxlayın'
-        })
+        res.redirect('/account?action=erorpwd')
     }
 }
+
+
+//GetTeam
+exports.GetTeam = async (req, res, next) => {
+
+    res.render("getteam",{
+        User : req.user
+    });
+};

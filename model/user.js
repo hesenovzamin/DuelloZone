@@ -13,6 +13,17 @@ const userSchema = mongoose.Schema({
         required : true,
         unique: true
     },
+    TeamStatus :{
+        type : Boolean,
+    },
+    TeamAdmin :{
+        type : Boolean,
+    },
+    TeamID :{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Team',
+    },
+    
     ProfilImg : {
         type : String,
     },
