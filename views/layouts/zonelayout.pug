@@ -85,7 +85,7 @@ head
               a(href='/createteam')
                 | Create Team 
                 span.highlight 
-            if (User.TeamStatus === true)
+            if (User.TeamStatus === true && User.TeamAdmin === true)
              li.nav-account__item.nav-account__item--wishlist
               a(href='/getteam')
                 | Your Team

@@ -45,9 +45,9 @@ const userSchema = mongoose.Schema({
         type : String,
         required : true
     },
-    RequestTeam : {
-        type : Object,
-    },
+    RequestItem : [
+
+    ],
     CreateDate : {
         type : Date,
         default : Date.now,
@@ -74,33 +74,22 @@ const userSchema = mongoose.Schema({
 
 
 
-// userSchema.methods.addToCart = function (product) {
-//     const index = this.cart.items.findIndex(cp => {
-//         return cp.productId.toString() === product._id.toString()
-//     });
+userSchema.methods.AddRequest = async function (object) {
+    const updated = [...this.RequestItem];
+    
+    const index = await this.RequestItem.findIndex(cp => {
 
-//     const updatedCartItems = [...this.cart.items];
+        return cp.object.teamid.toString() === object.teamid.toString()
+    });
+    if(index < 0)
+    {
+        console.log('isdedi')
+        updated.push({object});
+    }
+    this.RequestItem = updated
 
-//     let itemQuantity = 1;
-//     if (index >= 0) {
-//         // cart zaten eklenmek istenen product var: quantity'i arttır
-//         itemQuantity = this.cart.items[index].quantity + 1;
-//         updatedCartItems[index].quantity = itemQuantity;
-
-//     } else {
-//         // updatedCartItems!a yeni bir eleman ekle
-//         updatedCartItems.push({
-//             productId: product._id,
-//             quantity: itemQuantity
-//         });
-//     }
-
-//     this.cart = {
-//         items: updatedCartItems
-//     };
-
-//     return this.save();
-// }
+    return this.save();
+}
 
 // userSchema.methods.getCart = function (product) {
 

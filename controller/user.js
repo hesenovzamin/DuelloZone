@@ -223,8 +223,9 @@ exports.PostUpdatePassword = async (req,res,next) => {
 
 //GetTeam
 exports.GetTeam = async (req, res, next) => {
-
-    Team.findById(req.user.TeamID)
+    if(req.user.TeamAdmin)
+    {
+        Team.findById(req.user.TeamID)
     .then(team => {
         team.GetTeamMates()
         .then(result => {
@@ -236,6 +237,15 @@ exports.GetTeam = async (req, res, next) => {
         User : req.user,
         IsLogin : req.session.IsLogin,
     });
+    }
+    else{
+        res.render('error',{
+            info : 'Peyserliy eleme sen bura girenmersen',
+            info2 : `Peyserliy eleme`,
+            User : req.user,
+            IsLogin : req.session.IsLogin,
+        })
+    }
 };
 
 exports.PostAddTeamMate = async (req, res, next) => {
@@ -244,7 +254,7 @@ exports.PostAddTeamMate = async (req, res, next) => {
     Team.findById(req.user.TeamID)
     .then(team => {
         User.findOne({username : req.body.teammate})
-        .then(user => {
+        .then(async user => {
             // if(user)
             // {
             //     user.TeamStatus = true;
@@ -260,11 +270,9 @@ exports.PostAddTeamMate = async (req, res, next) => {
             var obj = {
                 teamid : team._id , userid : req.user._id, 
             }
-            user.RequestTeam = obj
-            user.save()
-            .then(result => {
-                res.redirect('/getteam')
-            })
+            console.log(user)
+           await user.AddRequest(obj)
+            res.redirect('/getteam')
         })
     })
 };
