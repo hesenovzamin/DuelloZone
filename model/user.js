@@ -45,6 +45,9 @@ const userSchema = mongoose.Schema({
         type : String,
         required : true
     },
+    RequestTeam : {
+        type : Object,
+    },
     CreateDate : {
         type : Date,
         default : Date.now,

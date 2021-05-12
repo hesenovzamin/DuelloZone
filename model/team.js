@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = require('./user')
 
 
 const teamSchema = mongoose.Schema({
@@ -60,32 +61,31 @@ teamSchema.methods.AddTeamMates = function (user) {
     return this.save();
 }
 
-// teamSchema.methods.GetTeamMates = function (product) {
+teamSchema.methods.GetTeamMates = function (product) {
 
-//     const ids = this.teammates.items.map(i => {
-//         return i.userid;
-//     });
+    const ids = this.teammates.items.map(i => {
+        return i.userid;
+    });
 
-//     return User
-//         .find({
-//             _id: {
-//                 $in: ids
-//             }
-//         })
-//         .select('Name Price ImgUrl1')
-//         .then(products => {
-//             return products.map(p => {
-//                 return {
-//                     name: p.name,
-//                     price: p.price,
-//                     imageUrl: p.imageUrl,
-//                     quantity: this.cart.items.find(i => {
-//                         return i.productId.toString() === p._id.toString()
-//                     }).quantity
-//                 }
-//             });
-//         });
-// }
+    return User
+        .find({
+            _id: {
+                $in: ids
+            }
+        })
+        .then(users => {
+            return users.map(p => {
+                return {
+                    name: p.name,
+                    email: p.email,
+                    riotid: p.riotid,
+                    username: p.username,
+                    rank: p.rank,
+                    surname: p.surname
+                }
+            });
+        });
+}
 
 teamSchema.methods.deleteCartItem = function (productid) {
     const cartItems = this.cart.items.filter(item => {

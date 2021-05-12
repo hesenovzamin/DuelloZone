@@ -65,6 +65,7 @@ exports.GetLogin = async (req, res, next) => {
 
 exports.PostLogin = async (req, res, next) => {
     console.log(req.body)
+    let url = '';
     User.findOne({email : req.body.login_email})
     .then(user => {
         if(user)
@@ -73,8 +74,18 @@ exports.PostLogin = async (req, res, next) => {
             {
                 req.session.user = user
                 req.session.IsLogin = true
+
+                if (req.session.redirectTo == undefined)
+                {
+                    url = "/home";
+                }   
+                else {
+                  url = req.session.redirectTo;
+                  console.log(url)
+                }
+                delete req.session.redirectTo;
+                res.redirect(url);
                 
-                res.redirect('/home')
             }
             else{
                 res.json({data : "Sifre yalnisdir"})
@@ -213,7 +224,47 @@ exports.PostUpdatePassword = async (req,res,next) => {
 //GetTeam
 exports.GetTeam = async (req, res, next) => {
 
+    Team.findById(req.user.TeamID)
+    .then(team => {
+        team.GetTeamMates()
+        .then(result => {
+            console.log(result)
+        })
+    })
+
     res.render("getteam",{
-        User : req.user
+        User : req.user,
+        IsLogin : req.session.IsLogin,
     });
+};
+
+exports.PostAddTeamMate = async (req, res, next) => {
+
+    console.log(req.body)
+    Team.findById(req.user.TeamID)
+    .then(team => {
+        User.findOne({username : req.body.teammate})
+        .then(user => {
+            // if(user)
+            // {
+            //     user.TeamStatus = true;
+            //     user.TeamID = team._id
+            //     user.save()
+            //     .then(result => {
+            //         team.AddTeamMates(user)
+            //     })
+            // }
+            // else{
+            //     res.json({data : false})
+            // }
+            var obj = {
+                teamid : team._id , userid : req.user._id, 
+            }
+            user.RequestTeam = obj
+            user.save()
+            .then(result => {
+                res.redirect('/getteam')
+            })
+        })
+    })
 };

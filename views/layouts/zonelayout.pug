@@ -58,9 +58,13 @@ head
         .header__top-bar-inner
          if !IsLogin  
           ul.nav-account
-            li.nav-account__item.nav-account__item--wishlist
+            li.nav-account__item
               a(href='/login')
                 | Login 
+                span.highlight 
+            li.nav-account__item
+              a(href='/register')
+                | Register 
                 span.highlight 
             li.nav-account__item
               a(href='#')

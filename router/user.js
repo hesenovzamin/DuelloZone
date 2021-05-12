@@ -4,6 +4,7 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controller/user');
+const ControlSession = require('../authentication/authentication');
 
 
 //home
@@ -20,16 +21,17 @@ router.post('/login', UserController.PostLogin);
 
 
 //CreateTeam
-router.get('/createteam', UserController.GetCreateTeam);
-router.post('/createteam', UserController.PostCreateTeam);
+router.get('/createteam',ControlSession, UserController.GetCreateTeam);
+router.post('/createteam',ControlSession, UserController.PostCreateTeam);
 
 //Acount
-router.get('/account',UserController.GetAccount)
-router.post('/updateuser',UserController.PostUpdateUser)
-router.post('/updatepassword',UserController.PostUpdatePassword)
+router.get('/account',ControlSession,UserController.GetAccount)
+router.post('/updateuser',ControlSession,UserController.PostUpdateUser)
+router.post('/updatepassword',ControlSession,UserController.PostUpdatePassword)
 
 
 
 //GetTeam
-router.get('/team',UserController.GetTeam)
+router.get('/getteam',ControlSession,UserController.GetTeam)
+router.post('/addteammate',ControlSession,UserController.PostAddTeamMate)
 module.exports = router;
