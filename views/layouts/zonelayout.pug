@@ -91,9 +91,15 @@ head
                 span.highlight 
             if (User.TeamStatus === true && User.TeamAdmin === true)
              li.nav-account__item.nav-account__item--wishlist
-              a(href='/getteam')
+              a(href=`/team/${User.TeamID.name}`)
                 | Your Team
                 span.highlight 
+            if (User.TeamStatus === true && User.TeamAdmin === true)
+             li.nav-account__item.nav-account__item--wishlist
+              a(href='/getteam')
+                | Control Team
+                span.highlight 
+            
             //- li.nav-account__item
             //-   a(href='#')
             //-     | Currency: 

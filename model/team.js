@@ -5,7 +5,8 @@ const User = require('./user')
 const teamSchema = mongoose.Schema({
     name : {
         type : String,
-        required : true
+        required : true,
+        unique: true
     },
     logo : {
         type : String,
@@ -61,18 +62,12 @@ teamSchema.methods.AddTeamMates = function (user) {
     return this.save();
 }
 
-teamSchema.methods.GetTeamMates = function (product) {
+teamSchema.methods.GetTeamMates = function () {
 
     const ids = this.teammates.items.map(i => {
         return i.userid;
     });
-
-    return User
-        .find({
-            _id: {
-                $in: ids
-            }
-        })
+    return User.find()
         .then(users => {
             return users.map(p => {
                 return {

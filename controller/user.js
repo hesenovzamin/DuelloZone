@@ -2,14 +2,35 @@
 const User = require('../model/user')
 const Team = require('../model/team');
 const e = require('express');
+const { find } = require('../model/user');
 
 
 //home
+const getTeam = function(user){
+    User.findById(user._id).populate('TeamID' ,'name')
+    .then(user => {
+        console.log(user) 
+        return user;
+    }
+    )
+}
+
 exports.GetIndex = async (req, res, next) => {
-    console.log(req.user)
+    let userteam;
+    if(req.session.IsLogin)
+    {
+      await  req.user
+        .populate('TeamID' ,'name')
+        .execPopulate()
+        .then( user => {
+           console.log(user)
+          userteam  = user
+        })
+    }
+    console.log(userteam)
     res.render("home",{
         IsLogin : req.session.IsLogin,
-        User : req.user
+        User : userteam
     });
 };
 
@@ -138,6 +159,7 @@ exports.PostCreateTeam = async (req, res, next) => {
                 user.TeamAdmin = true;
                 user.TeamID = team._id
                 user.save()
+                team.AddTeamMates(user)
                 .then( teamresult => {
                     res.redirect('/home')
                 })
@@ -227,16 +249,11 @@ exports.GetTeam = async (req, res, next) => {
     {
         Team.findById(req.user.TeamID)
     .then(team => {
-        team.GetTeamMates()
-        .then(result => {
-            console.log(result)
-        })
+        res.render("getteam",{
+            User : req.user,
+            IsLogin : req.session.IsLogin,
+        });
     })
-
-    res.render("getteam",{
-        User : req.user,
-        IsLogin : req.session.IsLogin,
-    });
     }
     else{
         res.render('error',{
@@ -255,23 +272,32 @@ exports.PostAddTeamMate = async (req, res, next) => {
     .then(team => {
         User.findOne({username : req.body.teammate})
         .then(async user => {
-            // if(user)
-            // {
-            //     user.TeamStatus = true;
-            //     user.TeamID = team._id
-            //     user.save()
-            //     .then(result => {
-            //         team.AddTeamMates(user)
-            //     })
-            // }
-            // else{
-            //     res.json({data : false})
-            // }
-            var obj = {
-                teamid : team._id , userid : req.user._id, 
+            if(user)
+            {
+                if (user.TeamStatus) {
+                        user.TeamStatus = true;
+                        user.TeamID = team._id
+                        user.save()
+                        .then(result => {
+                            team.AddTeamMates(user)
+                        })
+                        var obj = {
+                            teamid : team._id , userid : req.user._id, 
+                        }
+                        console.log(user)
+                    await user.AddRequest(obj)
+                } 
+                else {
+                    res.render('error',{
+                        info : 'Qeydiyyat Problemi',
+                        info2 : `Bu username teami var direme`
+                    })
+                }
             }
-            console.log(user)
-           await user.AddRequest(obj)
+            else{
+                res.json({data : false})
+            }
+           
             res.redirect('/getteam')
         })
     })
@@ -310,7 +336,7 @@ exports.AcceptTeam = async (req, res, next) => {
             team.AddTeamMates(user)
             user.TeamStatus = true;
             user.TeamID = team._id
-            await team.clearRequest()
+            await user.clearRequest()
             res.redirect('/requestteam')
         })
         
@@ -326,4 +352,34 @@ exports.DeclineTeam = async (req, res, next) => {
             res.redirect('/requestteam')
         })
     
+};
+
+//GetTeams
+
+exports.GetTeamOverviews = async (req, res, next) => {
+    let userteam;
+    if(req.session.IsLogin)
+    {
+      await  req.user
+        .populate('TeamID' ,'name')
+        .execPopulate()
+        .then( user => {
+           console.log(user)
+          userteam  = user
+        })
+    }
+    Team.findOne({name : req.params.team})
+    .then( team => {
+        console.log(team.teammates.items.length)
+        team.populate('teammates.items.userid')
+        .execPopulate()
+        .then(result => {
+            res.render('teamoverviews',{
+                team : team,
+                teammates : result.teammates.items,
+                IsLogin : req.session.IsLogin,
+                User : userteam
+            })
+        })
+    })
 };

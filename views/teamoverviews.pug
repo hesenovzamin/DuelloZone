@@ -1,0 +1,866 @@
+extends layouts/zonelayout.pug
+block body
+ //
+  Page Heading
+  ==================================================
+ .page-heading
+  .container
+    .row
+      .col-md-10.offset-md-1
+        h1.page-heading__title
+          | TEAM  
+          span.highlight #{team.name}
+        ol.page-heading__breadcrumb.breadcrumb
+          li.breadcrumb-item
+            a(href='/home') Home
+
+          li.breadcrumb-item.active(aria-current='page') Overview
+ // Page Heading / End
+ // Team Pages Filter
+ //nav.content-filter
+  .container
+    a.content-filter__toggle(href='#')
+    ul.content-filter__list
+      li.content-filter__item.content-filter__item--active
+        a.content-filter__link(href='team-overview.html')
+          small The Team
+          | Overview
+      li.content-filter__item
+        a.content-filter__link(href='team-roster-1.html')
+          small
+            | The
+            | Team
+          | Roster
+      li.content-filter__item
+        a.content-filter__link(href='team-standings.html')
+          small
+            | The
+            | Team
+          | Standings
+      li.content-filter__item
+        a.content-filter__link(href='team-last-results.html')
+          small
+            | The
+            | Team
+          | Latest Results
+      li.content-filter__item
+        a.content-filter__link(href='team-schedule.html')
+          small
+            | The
+            | Team
+          | Schedule
+      li.content-filter__item
+        a.content-filter__link(href='team-gallery.html')
+          small
+            | The
+            | Team
+          | Gallery
+ // Team Pages Filter / End
+ //
+  Content
+  ==================================================
+ .site-content
+  .container
+    .row
+      // Content
+      .content.col-lg-8
+        // Game Scoreboard
+        .card
+          if (!User.TeamStatus)
+           header.card__header.card__header--has-btn
+            h4 Request Team
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='#')
+              | Check previous
+              | Results
+          .card__content
+            // Game Result
+            .game-result
+              section.game-result__section
+                header.game-result__header
+                  h3.game-result__title Championship Quarter Finals
+                  time.game-result__date(datetime='2017-03-17')
+                    | Saturday, March 17th,
+                    | 2017
+                .game-result__content
+                  // 1st Team
+                  .game-result__team.game-result__team--first
+                    figure.game-result__team-logo(style='width: 80px;float: left;')
+                      img(src='/img/duello.zone.jpg' alt='')
+                    .game-result__team-info
+                      h5.game-result__team-name Alchemists
+                      .game-result__team-desc Elric Bros School
+                  // 1st Team / End
+                  .game-result__score-wrap
+                    .game-result__score
+                      span.game-result__score-result.game-result__score-result--winner 107
+                      span.game-result__score-dash -
+                      span.game-result__score-result.game-result__score-result--loser 102
+                    .game-result__score-label Final Score
+                  // 2nd Team
+                  .game-result__team.game-result__team--second
+                    figure.game-result__team-logo(style='width: 80px;float: left;')
+                      img(src='/img/duello.zone.jpg' alt='')
+                    .game-result__team-info
+                      h5.game-result__team-name Sharks
+                      .game-result__team-desc Marine College
+                  // 2nd Team / End
+                .game-result__stats
+                  .row
+                    .col-12.col-md-6.order-md-2.game-result__stats-scoreboard
+                      .game-result__table-stats
+                        .table-responsive
+                          table.table.table__cell-center.table-wrap-bordered.table-thead-color
+                            thead
+                              tr
+                                th Scoreboard
+                                th 1
+                                th 2
+                                th 3
+                                th 4
+                                th T
+                            tbody
+                              tr
+                                th Alchemists
+                                td 30
+                                td 31
+                                td 22
+                                td 24
+                                td 107
+                              tr
+                                th Sharks
+                                td 22
+                                td 34
+                                td 20
+                                td 26
+                                td 102
+                    .col-6.col-md-3.order-md-1.game-result__stats-team-1
+                      // Progress: Assists
+                      .progress-stats
+                        .progress__label ASS
+                        .progress
+                          .progress__bar.progress__bar-width-90(role='progressbar' aria-valuenow='90' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 22
+                      // Progress: Assists / End
+                      // Progress: Rebounds
+                      .progress-stats
+                        .progress__label Reb
+                        .progress
+                          .progress__bar.progress__bar-width-60(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 35
+                      // Progress: Rebounds / End
+                      // Progress: Steals
+                      .progress-stats
+                        .progress__label STE
+                        .progress
+                          .progress__bar.progress__bar-width-50(role='progressbar' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 14
+                      // Progress: Steals / End
+                      // Progress: Blocks
+                      .progress-stats
+                        .progress__label BLK
+                        .progress
+                          .progress__bar.progress__bar-width-80(role='progressbar' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 26
+                      // Progress: Blocks / End
+                      // Progress: Fouls
+                      .progress-stats
+                        .progress__label FOU
+                        .progress
+                          .progress__bar.progress__bar-width-70(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 18
+                      // Progress: Fouls / End
+                    .col-6.col-md-3.order-md-3.game-result__stats-team-2
+                      // Progress: Assists
+                      .progress-stats
+                        .progress__label ASS
+                        .progress
+                          .progress__bar.progress__bar--info.progress__bar-width-100(role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 36
+                      // Progress: Assists / End
+                      // Progress: Rebounds
+                      .progress-stats
+                        .progress__label Reb
+                        .progress
+                          .progress__bar.progress__bar--info.progress__bar-width-50(role='progressbar' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 18
+                      // Progress: Rebounds / End
+                      // Progress: Steals
+                      .progress-stats
+                        .progress__label STE
+                        .progress
+                          .progress__bar.progress__bar--info.progress__bar-width-80(role='progressbar' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 24
+                      // Progress: Steals / End
+                      // Progress: Blocks
+                      .progress-stats
+                        .progress__label BLK
+                        .progress
+                          .progress__bar.progress__bar--info.progress__bar-width-60(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 23
+                      // Progress: Blocks / End
+                      // Progress: Fouls
+                      .progress-stats
+                        .progress__label FOU
+                        .progress
+                          .progress__bar.progress__bar--info.progress__bar-width-50(role='progressbar' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                        .progress__number 14
+                      // Progress: Fouls / End
+              section.game-result__section
+                header.game-result__subheader.card__subheader
+                  h5.game-result__subtitle Game Statistics
+                .game-result__content.mb-0
+                  .row
+                    .col-12.col-md-6
+                      .row
+                        .col-4
+                          .circular
+                            .circular__bar(data-percent='88')
+                              span.circular__percents
+                                | 88
+                                small %
+                            span.circular__label
+                              | Shot
+                              br
+                              |  Accuracy
+                        .col-4
+                          .circular
+                            .circular__bar(data-percent='63')
+                              span.circular__percents
+                                | 63
+                                small %
+                            span.circular__label
+                              | Pass
+                              br
+                              |  Accuracy
+                        .col-4
+                          .circular
+                            .circular__bar(data-percent='75.5')
+                              span.circular__percents
+                                | 75.5
+                                small %
+                            span.circular__label
+                              | Total
+                              br
+                              |  Efficiency
+                    .col-12.col-md-6
+                      .row
+                        .col-4.col-push-8.col-md-push-0
+                          .circular
+                            .circular__bar(data-percent='72.5' data-bar-color='#0cb2e2')
+                              span.circular__percents
+                                | 72.5
+                                small %
+                            span.circular__label
+                              | Total
+                              br
+                              |  Efficiency
+                        .col-4
+                          .circular
+                            .circular__bar(data-percent='53' data-bar-color='#0cb2e2')
+                              span.circular__percents
+                                | 53
+                                small %
+                            span.circular__label
+                              | Pass
+                              br
+                              |  Accuracy
+                        .col-4.col-pull-8.col-md-pull-0
+                          .circular
+                            .circular__bar(data-percent='92' data-bar-color='#0cb2e2')
+                              span.circular__percents
+                                | 92
+                                small %
+                            span.circular__label
+                              | Shot
+                              br
+                              |  Accuracy
+            // Game Result / End
+        // Game Scoreboard / End
+        // Team Roster: Table
+        .card.card--has-table
+          .card__header.card__header--has-btn
+            h4 Team Players
+          .card__content
+            .table-responsive
+              table.table.table--lg.team-roster-table
+                thead
+                  tr
+                    th.team-roster-table__number Name
+                    th.team-roster-table__name Name
+                    th.team-roster-table__position.hidden-xs.hidden-sm Surname
+                    th.team-roster-table__age Rank
+                    th.team-roster-table__height Total Kill
+                    th.team-roster-table__weight Total Death
+                    th.team-roster-table__college.hidden-xs.hidden-sm Average
+                tbody
+                 each item in teammates
+                  tr
+                    td.team-roster-table__number 38
+                    td.team-roster-table__name Games Girobili
+                    td.team-roster-table__position.hidden-xs.hidden-sm
+                      | 1st Shooting Guard
+                    td.team-roster-table__age 18
+                    td.team-roster-table__height 6&apos;6&quot;
+                    td.team-roster-table__weight 205 lbs
+                    td.team-roster-table__college.hidden-xs.hidden-sm
+                      | South Beach College
+        // Team Roster: Table / End
+        .row
+          .col-md-6
+            // Widget: Team Leaders
+            aside.widget.widget--sidebar.card.card--has-table.widget-leaders
+              .widget__title.card__header
+                h4 Team Leaders
+              .widget__content.card__content
+                // Leader: Points
+                .table-responsive
+                  table.table.team-leader
+                    thead
+                      tr
+                        th.team-leader__type Points
+                        th.team-leader__total TP
+                        th.team-leader__gp GP
+                        th.team-leader__avg AVG
+                    tbody
+                      tr
+                        td.team-leader__player
+                          .team-leader__player-info
+                            figure.team-leader__player-img
+                              img(src='/assets/images/samples/stats_player_01.jpg' alt='')
+                            .team-leader__player-inner
+                              h5.team-leader__player-name James Girobili
+                              span.team-leader__player-position
+                                | 1st Shoting
+                                | Guard
+                        td.team-leader__total 424
+                        td.team-leader__gp 20
+                        td.team-leader__avg
+                          .circular
+                            .circular__bar(data-percent='85')
+                              span.circular__percents 21.2
+                // Leader: Points / End
+                // Leader: Assists
+                .table-responsive
+                  table.table.team-leader
+                    thead
+                      tr
+                        th.team-leader__type Assists
+                        th.team-leader__total TA
+                        th.team-leader__gp GP
+                        th.team-leader__avg AVG
+                    tbody
+                      tr
+                        td.team-leader__player
+                          .team-leader__player-info
+                            figure.team-leader__player-img
+                              img(src='/assets/images/samples/stats_player_02.jpg' alt='')
+                            .team-leader__player-inner
+                              h5.team-leader__player-name Mark Stevens
+                              span.team-leader__player-position
+                                | 1st Power
+                                | Forward
+                        td.team-leader__total 136
+                        td.team-leader__gp 20
+                        td.team-leader__avg
+                          .circular
+                            .circular__bar(data-percent='85')
+                              span.circular__percents 6.8
+                // Leader: Assists / End
+                // Leader: Steals
+                .table-responsive
+                  table.table.team-leader
+                    thead
+                      tr
+                        th.team-leader__type Steals
+                        th.team-leader__total TS
+                        th.team-leader__gp GP
+                        th.team-leader__avg AVG
+                    tbody
+                      tr
+                        td.team-leader__player
+                          .team-leader__player-info
+                            figure.team-leader__player-img
+                              img(src='/assets/images/samples/stats_player_02.jpg' alt='')
+                            .team-leader__player-inner
+                              h5.team-leader__player-name Mark Stevens
+                              span.team-leader__player-position
+                                | 1st Power
+                                | Forward
+                        td.team-leader__total 149
+                        td.team-leader__gp 20
+                        td.team-leader__avg
+                          .circular
+                            .circular__bar(data-percent='85')
+                              span.circular__percents 14.9
+                // Leader: Steals / End
+                // Leader: Steals
+                .table-responsive
+                  table.table.team-leader
+                    thead
+                      tr
+                        th.team-leader__type Rebounds
+                        th.team-leader__total TR
+                        th.team-leader__gp GP
+                        th.team-leader__avg AVG
+                    tbody
+                      tr
+                        td.team-leader__player
+                          .team-leader__player-info
+                            figure.team-leader__player-img
+                              img(src='/assets/images/samples/stats_player_01.jpg' alt='')
+                            .team-leader__player-inner
+                              h5.team-leader__player-name James Girobili
+                              span.team-leader__player-position
+                                | 1st Shoting
+                                | Guard
+                        td.team-leader__total 93
+                        td.team-leader__gp 20
+                        td.team-leader__avg
+                          .circular
+                            .circular__bar(data-percent='85')
+                              span.circular__percents 9.3
+                // Leader: Steals / End
+            // Widget: Team Leaders / End
+          .col-md-6
+            // Widget: Team Stats
+            aside.widget.widget--sidebar.card.card--has-table.widget-team-stats
+              .widget__title.card__header
+                h4 Team Stats
+              .widget__content.card__content
+                ul.team-stats-box
+                  li.team-stats__item
+                    .team-stats__icon
+                      svg.df-icon.df-icon--ppg(role='img')
+                        use(xlink:href='/assets/images/icons-basket.svg#points-per-game')
+                    .team-stats__value 103.5
+                    .team-stats__label Points Per Game
+                  li.team-stats__item
+                    .team-stats__icon
+                      svg.df-icon.df-icon--apg(role='img')
+                        use(xlink:href='/assets/images/icons-basket.svg#assists-per-game')
+                    .team-stats__value 24.7
+                    .team-stats__label Assists Per Game
+                  li.team-stats__item
+                    .team-stats__icon
+                      svg.df-icon.df-icon--rpg(role='img')
+                        use(xlink:href='/assets/images/icons-basket.svg#rebounds-per-game')
+                    .team-stats__value 35.2
+                    .team-stats__label Rebounds Per Game
+                  li.team-stats__item
+                    .team-stats__icon
+                      .df-icon-stack.df-icon-stack--3pts
+                        svg.df-icon.df-icon--basketball(role='img')
+                          use(xlink:href='/assets/images/icons-basket.svg#basketball')
+                        .df-icon--txt 3
+                    .team-stats__value 16.4
+                    .team-stats__label 3 Pointers Per Game
+            // Widget: Team Stats / End
+        // Schedule & Tickets
+        .card.card--has-table
+          .card__header.card__header--has-btn
+            h4 Games Schedule
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='team-schedule.html')
+              | See
+              | Complete Schedule
+          .card__content
+            .table-responsive
+              table.table.table-hover.team-schedule
+                thead
+                  tr
+                    th.team-schedule__date Date
+                    th.team-schedule__versus Versus
+                    th.team-schedule__time Time
+                    th.team-schedule__venue Venue
+                    th.team-schedule__tickets Tickets
+                tbody
+                  tr
+                    td.team-schedule__date Saturday, Mar 24
+                    td.team-schedule__versus
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/lucky_clovers_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Lucky Clovers
+                          span.team-meta__place St. Patrick&rsquo;s Institute
+                    td.team-schedule__time 9:00PM EST
+                    td.team-schedule__venue Madison Cube Stadium
+                    td.team-schedule__tickets
+                      a.btn.btn-xs.btn-default.btn-outline.btn-block(href='#')
+                        | Buy Game Tickets
+                  tr
+                    td.team-schedule__date Friday, May 31
+                    td.team-schedule__versus
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/red_wings_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Red Wings
+                          span.team-meta__place Icarus College
+                    td.team-schedule__time 9:30PM EST
+                    td.team-schedule__venue Alchemists Stadium
+                    td.team-schedule__tickets
+                      a.btn.btn-xs.btn-default.btn-outline.btn-block.disabled(href='#')
+                        | Sold Out
+                  tr
+                    td.team-schedule__date Saturday, May 8
+                    td.team-schedule__versus
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/draconians_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Draconians
+                          span.team-meta__place Wyvern College
+                    td.team-schedule__time 10:00PM EST
+                    td.team-schedule__venue Scalding Rock Stadium
+                    td.team-schedule__tickets
+                      a.btn.btn-xs.btn-default.btn-outline.btn-block(href='#')
+                        | Buy Game Tickets
+                  tr
+                    td.team-schedule__date Friday, May 14
+                    td.team-schedule__versus
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/aqua_keyes_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Aqua Keyes
+                          span.team-meta__place Pacific Institute
+                    td.team-schedule__time 10:00PM EST
+                    td.team-schedule__venue Alchemists Stadium
+                    td.team-schedule__tickets
+                      a.btn.btn-xs.btn-default.btn-outline.btn-block(href='#')
+                        | Buy Game Tickets
+                  tr
+                    td.team-schedule__date Saturday, May 22
+                    td.team-schedule__versus
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/icarus_wings_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Icarus Wings
+                          span.team-meta__place Waxer College
+                    td.team-schedule__time 10:30PM EST
+                    td.team-schedule__venue The FireStar Arena
+                    td.team-schedule__tickets
+                      a.btn.btn-xs.btn-default.btn-outline.btn-block.disabled(href='#')
+                        | Sold Out
+                  tr
+                    td.team-schedule__date Saturday, May 29
+                    td.team-schedule__versus
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/bloody_wave_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Bloody Wave
+                          span.team-meta__place Atlantic School
+                    td.team-schedule__time 9:00PM EST
+                    td.team-schedule__venue Alchemists Stadium
+                    td.team-schedule__tickets
+                      a.btn.btn-xs.btn-default.btn-outline.btn-block(href='#')
+                        | Buy Game Tickets
+        // Schedule & Tickets / End
+        // Points History
+        .card
+          .card__header.card__header--has-btn
+            h4 Points History
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='team-schedule.html')
+              | See
+              | Complete History
+          .card__content
+            canvas#points-history.points-history-chart(height='135')
+        // Points History / End
+      // Content / End
+      // Sidebar
+      .sidebar.col-lg-4
+        // Widget: Standings
+        aside.widget.card.widget--sidebar.widget-standings
+          .widget__title.card__header.card__header--has-btn
+            h4 Playoff Standings
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='#') See All Stats
+          .widget__content.card__content
+            .table-responsive
+              table.table.table-hover.table-standings
+                thead
+                  tr
+                    th Team Positions
+                    th W
+                    th L
+                    th GB
+                tbody
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/pirates_shield.png' alt='L.A Pirates')
+                        .team-meta__info
+                          h6.team-meta__name L.A Pirates
+                          span.team-meta__place Bebop Institute
+                    td 45
+                    td 5
+                    td 0
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/sharks_shield.png' alt='Sharks')
+                        .team-meta__info
+                          h6.team-meta__name Sharks
+                          span.team-meta__place Marine College
+                    td 42
+                    td 8
+                    td 3
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/alchemists_b_shield.png' alt='The Alchemists')
+                        .team-meta__info
+                          h6.team-meta__name The Alchemists
+                          span.team-meta__place Eric Bros School
+                    td 40
+                    td 10
+                    td 5
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/ocean_kings_shield.png' alt='Ocean Kings')
+                        .team-meta__info
+                          h6.team-meta__name Ocean Kings
+                          span.team-meta__place Bay College
+                    td 38
+                    td 12
+                    td 7
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/red_wings_shield.png' alt='Red Wings')
+                        .team-meta__info
+                          h6.team-meta__name Red Wings
+                          span.team-meta__place Icarus College
+                    td 37
+                    td 13
+                    td 8
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/lucky_clovers_shield.png' alt='Lucky Clovers')
+                        .team-meta__info
+                          h6.team-meta__name Lucky Clovers
+                          span.team-meta__place St. Patrick&rsquo;s Institute
+                    td 34
+                    td 16
+                    td 11
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/draconians_shield.png' alt='Draconians')
+                        .team-meta__info
+                          h6.team-meta__name Draconians
+                          span.team-meta__place High Rock College
+                    td 31
+                    td 19
+                    td 14
+                  tr
+                    td
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/bloody_wave_shield.png' alt='Bloody Wave')
+                        .team-meta__info
+                          h6.team-meta__name Bloody Wave
+                          span.team-meta__place Atlantic School
+                    td 30
+                    td 20
+                    td 15
+        // Widget: Standings / End
+        // Widget: Latest Results
+        aside.widget.card.widget--sidebar.widget-results
+          .widget__title.card__header.card__header--has-btn
+            h4 Latest Results
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='#') See Full Results
+          .widget__content.card__content
+            ul.widget-results__list
+              // Game #0
+              li.widget-results__item
+                .widget-results__header.justify-content-center
+                  .widget-results__title Saturday, March 24
+                .widget-results__content
+                  .widget-results__team.widget-results__team--first
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/alchemists_b_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name Alchemists
+                      span.widget-results__team-info Elric Bros School
+                  .widget-results__result
+                    .widget-results__score
+                      span.widget-results__score-winner 107
+                      |  - 
+                      span.widget-results__score-loser 102
+                      .widget-results__status Home
+                  .widget-results__team.widget-results__team--second
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/sharks_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name Sharks
+                      span.widget-results__team-info Marine College
+              // Game #0 / End
+              // Game #1
+              li.widget-results__item
+                .widget-results__header.justify-content-center
+                  .widget-results__title Friday, March 16
+                .widget-results__content
+                  .widget-results__team.widget-results__team--first
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/pirates_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name L.A. Pirates
+                      span.widget-results__team-info Bebop Institute
+                  .widget-results__result
+                    .widget-results__score
+                      span.widget-results__score-winner 124
+                      |  - 
+                      span.widget-results__score-loser 106
+                      .widget-results__status Away
+                  .widget-results__team.widget-results__team--second
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/alchemists_b_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name Alchemists
+                      span.widget-results__team-info Eric Bros School
+              // Game #1 / End
+              // Game #2
+              li.widget-results__item
+                .widget-results__header.justify-content-center
+                  .widget-results__title Saturday, March 10
+                .widget-results__content
+                  .widget-results__team.widget-results__team--first
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/alchemists_b_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name Alchemists
+                      span.widget-results__team-info Eric Bros School
+                  .widget-results__result
+                    .widget-results__score
+                      span.widget-results__score-loser 95
+                      |  - 
+                      span.widget-results__score-winner 98
+                      .widget-results__status Home
+                  .widget-results__team.widget-results__team--second
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/lucky_clovers_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name Clovers
+                      span.widget-results__team-info St. Patrick&rsquo;s Inst
+              // Game #2 / End
+              // Game #3
+              li.widget-results__item
+                .widget-results__header.justify-content-center
+                  .widget-results__title Friday, March 4
+                .widget-results__content
+                  .widget-results__team.widget-results__team--first
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/ocean_kings_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name Ocean Kings
+                      span.widget-results__team-info Bay College
+                  .widget-results__result
+                    .widget-results__score
+                      span.widget-results__score-winner 110
+                      |  - 
+                      span.widget-results__score-loser 104
+                      .widget-results__status Home
+                  .widget-results__team.widget-results__team--second
+                    figure.widget-results__team-logo
+                      img(src='/assets/images/samples/logos/alchemists_b_shield.png' alt='')
+                    .widget-results__team-details
+                      h5.widget-results__team-name Alchemists
+                      span.widget-results__team-info Eric Bros School
+              // Game #3 / End
+        // Widget: Latest Results / End
+        // Widget: Awards
+        aside.widget.card.widget--sidebar.widget-awards
+          .widget__title.card__header
+            h4 Our Awards
+          .widget__content.card__content
+            .awards.awards--slider
+              .awards__item
+                figure.awards__figure
+                  img(src='/assets/images/samples/trophy-01.jpg' alt='')
+                .awards__desc
+                  h5.awards__name Big League Champions
+                  .awards__date December 2009
+              .awards__item
+                figure.awards__figure
+                  img(src='/assets/images/samples/trophy-02.jpg' alt='')
+                .awards__desc
+                  h5.awards__name Big League Champions
+                  .awards__date November 2010
+              .awards__item
+                figure.awards__figure
+                  img(src='/assets/images/samples/trophy-03.jpg' alt='')
+                .awards__desc
+                  h5.awards__name Big League Champions
+                  .awards__date December 2012
+        // Widget: Awards / End
+        // Widget: Games History
+        aside.widget.card.widget--sidebar.widget-games-history
+          .widget__title.card__header.card__header--has-legend
+            h4 Games History
+            #gamesHistoryLegend.chart-legend.chart-legend--games-history
+          .widget__content.card__content
+            canvas#games-history.games-history-chart(height='270')
+        // Widget: Games History / End
+        // Widget: Team Newslog
+        aside.widget.card.widget--sidebar.widget-newslog
+          .widget__title.card__header
+            h4 Team Newslog
+          .widget__content.card__content
+            ul.newslog
+              li.newslog__item.newslog__item--injury
+                .newslog__item-inner
+                  .newslog__content
+                    strong Mark Johnson
+                    |  has a tibia fracture and
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;he&rsquo;s gonna be out of the play for 
+                    strong 2 months
+                    | .
+                  time.newslog__date(datetime='2016-01-19') September 18, 2016
+              li.newslog__item.newslog__item--join
+                .newslog__item-inner
+                  .newslog__content
+                    strong Dominick R. Blink
+                    | , a new
+                    strong Shooting Guard
+                    |  from San Francisco has joined the team!.
+                  time.newslog__date(datetime='2016-01-19') September 6, 2016
+              li.newslog__item.newslog__item--join
+                .newslog__item-inner
+                  .newslog__content
+                    strong Christopher Grifin
+                    | , a new
+                    strong Power Forward
+                    |  from Rockstar Bay College has joined the team!.
+                  time.newslog__date(datetime='2016-01-19') August 24, 2016
+              li.newslog__item.newslog__item--injury
+                .newslog__item-inner
+                  .newslog__content
+                    strong Thomas Durry
+                    |  has a composed hand
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;fracture and he won&rsquo;t be playing untill 
+                    strong September
+                    | .
+                  time.newslog__date(datetime='2016-01-19') August 17, 2016
+              li.newslog__item.newslog__item--exit
+                .newslog__item-inner
+                  .newslog__content
+                    strong Jeremy Rittersen
+                    |  left the team after
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;2 year in the club and his new house are the 
+                    strong Clovers
+                    | .
+                  time.newslog__date(datetime='2016-01-19') August 12, 2016
+        // Widget: Team Newslog / End
+      // Sidebar / End
+ // Content / End

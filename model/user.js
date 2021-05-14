@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Team = require('./team')
 
 
 const userSchema = mongoose.Schema({
@@ -69,7 +70,11 @@ const userSchema = mongoose.Schema({
     //         }
     //     ]
     // }
-});
+    
+    
+}
+);
+
 
 
 

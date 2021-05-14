@@ -40,5 +40,7 @@ router.get('/requestteam',ControlSession,UserController.GetRequest)
 router.get('/acceptteam/:Id',ControlSession,UserController.AcceptTeam)
 router.get('/declineteam/:Id',ControlSession,UserController.DeclineTeam)
 
+//TeamOverviews
+router.get('/team/:team',ControlSession,UserController.GetTeamOverviews)
 
 module.exports = router;
