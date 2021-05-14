@@ -1,0 +1,349 @@
+extends layouts/zonelayout.pug
+block body
+ .page-heading
+  .container
+    .row
+      .col-md-10.offset-md-1
+        h1.page-heading__title
+          | Latest 
+          span.highlight Results
+        ol.page-heading__breadcrumb.breadcrumb
+          li.breadcrumb-item
+            a(href='index.html') Home
+          li.breadcrumb-item
+            a(href='team-overview.html') Team
+          li.breadcrumb-item.active(aria-current='page') Latest Results
+ // Page Heading / End
+ // Team Pages Filter
+ nav.content-filter
+  .container
+    a.content-filter__toggle(href='#')
+    ul.content-filter__list
+      li.content-filter__item
+        a.content-filter__link(href='team-overview.html')
+          small
+            | The
+            | Team
+          | Overview
+      li.content-filter__item
+        a.content-filter__link(href='team-roster-1.html')
+          small
+            | The
+            | Team
+          | Roster
+      li.content-filter__item
+        a.content-filter__link(href='team-standings.html')
+          small
+            | The
+            | Team
+          | Standings
+      li.content-filter__item.content-filter__item--active
+        a.content-filter__link(href='team-last-results.html')
+          small The Team
+          | Latest Results
+      li.content-filter__item
+        a.content-filter__link(href='team-schedule.html')
+          small
+            | The
+            | Team
+          | Schedule
+      li.content-filter__item
+        a.content-filter__link(href='team-gallery.html')
+          small
+            | The
+            | Team
+          | Gallery
+ // Team Pages Filter / End
+ //
+  Content
+  ==================================================
+ .site-content
+  .container
+    // Team Latest Results
+    .card.card--has-table
+      .card__header.card__header--has-btn
+        h4 Latest Results
+        // Result Filter
+        ul.team-result-filter
+          li.team-result-filter__item
+            select.form-control.input-xs
+              option Playoffs 2016
+              option Playoffs 2015
+              option Playoffs 2014
+          li.team-result-filter__item
+            select.form-control.input-xs
+              option December 2016
+              option November 2016
+              option October 2016
+              option September 2016
+              option August 2016
+              option July 2016
+              option June 2016
+              option May 2016
+              option April 2016
+              option March 2016
+              option February 2016
+              option January 2016
+          li.team-result-filter__item
+            select.form-control.input-xs
+              option Ascending
+              option Descending
+          li.team-result-filter__item
+            button.btn.btn-default.btn-outline.btn-xs.card-header__button(type='submit')
+              | Filter
+              | Latest Results
+        // Result Filter / End
+      .card__content
+        .table-responsive
+          table.table.table-hover.team-result
+            thead
+              tr
+                th.team-result__date Date
+                th.team-result__vs Versus
+                th.team-result__score Score
+                th.team-result__status Status
+                th.team-result__points HI Points
+                th.team-result__rebounds HI Rebounds
+                th.team-result__assists HI Assists
+                th.team-result__steals HI Steals
+            tbody
+              tr
+                td.team-result__date Saturday, Mar 24
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/sharks_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Sharks
+                      span.team-meta__place Marine College
+                td.team-result__score
+                  span.team-result__game W
+                  |  107-102
+                td.team-result__status Home
+                td.team-result__points James Girobilli 23 (ALC)
+                td.team-result__rebounds Tom Hoopstern 11 (SHR)
+                td.team-result__assists Jet Valentine 6 (SHR)
+                td.team-result__steals Griffin Peterson 8 (ALC)
+              tr
+                td.team-result__date Friday, Mar 16
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/pirates_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name L.A. Pirates
+                      span.team-meta__place Bebop Institute
+                td.team-result__score
+                  span.team-result__game L
+                  |  124-106
+                td.team-result__status Away
+                td.team-result__points Nick Robertson 26 (LAP)
+                td.team-result__rebounds Tony Rodgers 15 (LAP)
+                td.team-result__assists James Girobilli 9 (ALC)
+                td.team-result__steals Robert Frankson 6 (ALC)
+              tr
+                td.team-result__date Saturday, Mar 10
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/lucky_clovers_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Lucky Clovers
+                      span.team-meta__place St. Patrick&rsquo;s Institute
+                td.team-result__score
+                  span.team-result__game L
+                  |  95-98
+                td.team-result__status Home
+                td.team-result__points James Girobilli 24 (ALC)
+                td.team-result__rebounds Johnny Richards 18 (LCL)
+                td.team-result__assists Robert Frankson 6 (ALC)
+                td.team-result__steals Johnny Richards 10 (LCL)
+              tr
+                td.team-result__date Friday, Mar 4
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/ocean_kings_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Ocean Kings
+                      span.team-meta__place Bay College
+                td.team-result__score
+                  span.team-result__game L
+                  |  110-104
+                td.team-result__status Away
+                td.team-result__points Edward Storm 29 (OCK)
+                td.team-result__rebounds Edward Storm 14 (OCK)
+                td.team-result__assists Peter Watson 6 (OCK)
+                td.team-result__steals James Girobilli 9 (ALC)
+              tr
+                td.team-result__date Saturday, Feb 29
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/icarus_wings_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Red Wings
+                      span.team-meta__place Icarus College
+                td.team-result__score
+                  span.team-result__game W
+                  |  102-97
+                td.team-result__status Home
+                td.team-result__points James Girobilli 29 (ALC)
+                td.team-result__rebounds Terrence Parker 14 (RDW)
+                td.team-result__assists Terrence Parker 8 (RDW)
+                td.team-result__steals Robert Frankson 11 (ALC)
+              tr
+                td.team-result__date Friday, Feb 21
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/draconians_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Draconians
+                      span.team-meta__place Wyvern College
+                td.team-result__score
+                  span.team-result__game W
+                  |  104-113
+                td.team-result__status Away
+                td.team-result__points Steven Franklin 28 (DRC)
+                td.team-result__rebounds Steven Franklin 16 (DRC)
+                td.team-result__assists Steven Franklin 10 (DRC)
+                td.team-result__steals Griffin Peterson 8 (ALC)
+              tr
+                td.team-result__date Saturday, Feb 17
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/icarus_wings_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Icarus Wings
+                      span.team-meta__place Waxer College
+                td.team-result__score
+                  span.team-result__game W
+                  |  105-94
+                td.team-result__status Home
+                td.team-result__points Benjamin Storm 22 (ICW)
+                td.team-result__rebounds James Girobilli 19 (ALC)
+                td.team-result__assists Benjamin Storm 12 (ICW)
+                td.team-result__steals Robert Frankson 7 (ALC)
+              tr
+                td.team-result__date Friday, Feb 9
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/aqua_keyes_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Aqua Keyes
+                      span.team-meta__place Pacific Institute
+                td.team-result__score
+                  span.team-result__game W
+                  |  102-116
+                td.team-result__status Away
+                td.team-result__points James Girobilli 20 (ALC)
+                td.team-result__rebounds Logan Summers 16 (AQK)
+                td.team-result__assists Remy Lebeau 7 (AQK)
+                td.team-result__steals James Girobilli 8 (ALC)
+              tr
+                td.team-result__date Saturday, Feb 3
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/sharks_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Sharks
+                      span.team-meta__place Marine College
+                td.team-result__score
+                  span.team-result__game W
+                  |  107-102
+                td.team-result__status Home
+                td.team-result__points James Girobilli 23 (ALC)
+                td.team-result__rebounds Tom Hoopstern 11 (SHR)
+                td.team-result__assists Jet Valentine 6 (SHR)
+                td.team-result__steals Griffin Peterson 8 (ALC)
+              tr
+                td.team-result__date Friday, Jan 28
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/pirates_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name L.A. Pirates
+                      span.team-meta__place Bebop Institute
+                td.team-result__score
+                  span.team-result__game L
+                  |  124-106
+                td.team-result__status Away
+                td.team-result__points Nick Robertson 26 (LAP)
+                td.team-result__rebounds Tony Rodgers 15 (LAP)
+                td.team-result__assists James Girobilli 9 (ALC)
+                td.team-result__steals Robert Frankson 6 (ALC)
+              tr
+                td.team-result__date Saturday, Jan 22
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/lucky_clovers_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Lucky Clovers
+                      span.team-meta__place St. Patrick&rsquo;s Institute
+                td.team-result__score
+                  span.team-result__game L
+                  |  95-98
+                td.team-result__status Home
+                td.team-result__points James Girobilli 24 (ALC)
+                td.team-result__rebounds Johnny Richards 18 (LCL)
+                td.team-result__assists James Girobilli 9 (ALC)
+                td.team-result__steals Johnny Richards 10 (LCL)
+              tr
+                td.team-result__date Friday, Jan 14
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/ocean_kings_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Ocean Kings
+                      span.team-meta__place Bay College
+                td.team-result__score
+                  span.team-result__game L
+                  |  110-104
+                td.team-result__status Away
+                td.team-result__points Edward Storm 29 (OCK)
+                td.team-result__rebounds Edward Storm 14 (OCK)
+                td.team-result__assists Peter Watson 6 (OCK)
+                td.team-result__steals James Girobilli 9 (ALC)
+              tr
+                td.team-result__date Saturday, Jan 8
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/icarus_wings_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Red Wings
+                      span.team-meta__place Icarus College
+                td.team-result__score
+                  span.team-result__game W
+                  |  102-97
+                td.team-result__status Home
+                td.team-result__points James Girobilli 29 (ALC)
+                td.team-result__rebounds Terrence Parker 14 (RDW)
+                td.team-result__assists Terrence Parker 8 (RDW)
+                td.team-result__steals Robert Frankson 11 (ALC)
+              tr
+                td.team-result__date Friday, Jan 2
+                td.team-result__vs
+                  .team-meta
+                    figure.team-meta__logo
+                      img(src='assets/images/samples/logos/draconians_shield.png' alt='')
+                    .team-meta__info
+                      h6.team-meta__name Draconians
+                      span.team-meta__place Wyvern College
+                td.team-result__score
+                  span.team-result__game W
+                  |  104-113
+                td.team-result__status Away
+                td.team-result__points Steven Franklin 28 (DRC)
+                td.team-result__rebounds Steven Franklin 16 (DRC)
+                td.team-result__assists Steven Franklin 10 (DRC)
+                td.team-result__steals Griffin Peterson 8 (ALC)
+    // Team Latest Results / End
+ // Content / End

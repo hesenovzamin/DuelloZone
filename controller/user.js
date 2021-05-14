@@ -354,7 +354,7 @@ exports.DeclineTeam = async (req, res, next) => {
     
 };
 
-//GetTeams
+//GetTeam
 
 exports.GetTeamOverviews = async (req, res, next) => {
     let userteam;
@@ -364,16 +364,16 @@ exports.GetTeamOverviews = async (req, res, next) => {
         .populate('TeamID' ,'name')
         .execPopulate()
         .then( user => {
-           console.log(user)
           userteam  = user
         })
     }
     Team.findOne({name : req.params.team})
     .then( team => {
-        console.log(team.teammates.items.length)
+        
         team.populate('teammates.items.userid')
         .execPopulate()
         .then(result => {
+            console.log(result.teammates.items)
             res.render('teamoverviews',{
                 team : team,
                 teammates : result.teammates.items,
@@ -381,5 +381,33 @@ exports.GetTeamOverviews = async (req, res, next) => {
                 User : userteam
             })
         })
+    })
+};
+
+//GetPlayer
+exports.GetPlayerOverviews = async (req, res, next) => {
+    let userteam;
+    if(req.session.IsLogin)
+    {
+      await  req.user
+        .populate('TeamID' ,'name')
+        .execPopulate()
+        .then( user => {
+          userteam  = user
+        })
+    }
+    User.findOne({username : req.params.player})
+    .then( player => {
+        res.render('playeroverview',{
+            player : player,
+            IsLogin : req.session.IsLogin,
+            User : userteam
+        })
+        // team.populate('teammates.items.userid')
+        // .execPopulate()
+        // .then(result => {
+        //     console.log(result.teammates.items)
+            
+        // })
     })
 };

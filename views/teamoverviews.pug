@@ -206,74 +206,74 @@ block body
                         .progress__number 14
                       // Progress: Fouls / End
               section.game-result__section
-                header.game-result__subheader.card__subheader
-                  h5.game-result__subtitle Game Statistics
-                .game-result__content.mb-0
-                  .row
-                    .col-12.col-md-6
-                      .row
-                        .col-4
-                          .circular
-                            .circular__bar(data-percent='88')
-                              span.circular__percents
-                                | 88
-                                small %
-                            span.circular__label
-                              | Shot
-                              br
-                              |  Accuracy
-                        .col-4
-                          .circular
-                            .circular__bar(data-percent='63')
-                              span.circular__percents
-                                | 63
-                                small %
-                            span.circular__label
-                              | Pass
-                              br
-                              |  Accuracy
-                        .col-4
-                          .circular
-                            .circular__bar(data-percent='75.5')
-                              span.circular__percents
-                                | 75.5
-                                small %
-                            span.circular__label
-                              | Total
-                              br
-                              |  Efficiency
-                    .col-12.col-md-6
-                      .row
-                        .col-4.col-push-8.col-md-push-0
-                          .circular
-                            .circular__bar(data-percent='72.5' data-bar-color='#0cb2e2')
-                              span.circular__percents
-                                | 72.5
-                                small %
-                            span.circular__label
-                              | Total
-                              br
-                              |  Efficiency
-                        .col-4
-                          .circular
-                            .circular__bar(data-percent='53' data-bar-color='#0cb2e2')
-                              span.circular__percents
-                                | 53
-                                small %
-                            span.circular__label
-                              | Pass
-                              br
-                              |  Accuracy
-                        .col-4.col-pull-8.col-md-pull-0
-                          .circular
-                            .circular__bar(data-percent='92' data-bar-color='#0cb2e2')
-                              span.circular__percents
-                                | 92
-                                small %
-                            span.circular__label
-                              | Shot
-                              br
-                              |  Accuracy
+                //- header.game-result__subheader.card__subheader
+                //-   h5.game-result__subtitle Game Statistics
+                //- .game-result__content.mb-0
+                //-   .row
+                    //- .col-12.col-md-6
+                    //-   .row
+                    //-     .col-4
+                    //-       .circular
+                    //-         .circular__bar(data-percent='88')
+                    //-           span.circular__percents
+                    //-             | 88
+                    //-             small %
+                    //-         span.circular__label
+                    //-           | Shot
+                    //-           br
+                    //-           |  Accuracy
+                    //-     .col-4
+                    //-       .circular
+                    //-         .circular__bar(data-percent='63')
+                    //-           span.circular__percents
+                    //-             | 63
+                    //-             small %
+                    //-         span.circular__label
+                    //-           | Pass
+                    //-           br
+                    //-           |  Accuracy
+                    //-     .col-4
+                    //-       .circular
+                    //-         .circular__bar(data-percent='75.5')
+                    //-           span.circular__percents
+                    //-             | 75.5
+                    //-             small %
+                    //-         span.circular__label
+                    //-           | Total
+                    //-           br
+                    //-           |  Efficiency
+                    //- .col-12.col-md-6
+                    //-   .row
+                    //-     .col-4.col-push-8.col-md-push-0
+                    //-       .circular
+                    //-         .circular__bar(data-percent='72.5' data-bar-color='#0cb2e2')
+                    //-           span.circular__percents
+                    //-             | 72.5
+                    //-             small %
+                    //-         span.circular__label
+                    //-           | Total
+                    //-           br
+                    //-           |  Efficiency
+                    //-     .col-4
+                    //-       .circular
+                    //-         .circular__bar(data-percent='53' data-bar-color='#0cb2e2')
+                    //-           span.circular__percents
+                    //-             | 53
+                    //-             small %
+                    //-         span.circular__label
+                    //-           | Pass
+                    //-           br
+                    //-           |  Accuracy
+                    //-     .col-4.col-pull-8.col-md-pull-0
+                    //-       .circular
+                    //-         .circular__bar(data-percent='92' data-bar-color='#0cb2e2')
+                    //-           span.circular__percents
+                    //-             | 92
+                    //-             small %
+                    //-         span.circular__label
+                    //-           | Shot
+                    //-           br
+                    //-           |  Accuracy
             // Game Result / End
         // Game Scoreboard / End
         // Team Roster: Table
@@ -293,168 +293,20 @@ block body
                     th.team-roster-table__weight Total Death
                     th.team-roster-table__college.hidden-xs.hidden-sm Average
                 tbody
+                 -var i = 1;
                  each item in teammates
                   tr
-                    td.team-roster-table__number 38
-                    td.team-roster-table__name Games Girobili
+                    td.team-roster-table__number  #{i}
+                    td.team-roster-table__name #{item.userid.name}
                     td.team-roster-table__position.hidden-xs.hidden-sm
-                      | 1st Shooting Guard
-                    td.team-roster-table__age 18
-                    td.team-roster-table__height 6&apos;6&quot;
-                    td.team-roster-table__weight 205 lbs
+                      | #{item.userid.surname}
+                    td.team-roster-table__age #{item.userid.rank}
+                    td.team-roster-table__height 60
+                    td.team-roster-table__weight 30
                     td.team-roster-table__college.hidden-xs.hidden-sm
-                      | South Beach College
+                      | 30
+                      -i++
         // Team Roster: Table / End
-        .row
-          .col-md-6
-            // Widget: Team Leaders
-            aside.widget.widget--sidebar.card.card--has-table.widget-leaders
-              .widget__title.card__header
-                h4 Team Leaders
-              .widget__content.card__content
-                // Leader: Points
-                .table-responsive
-                  table.table.team-leader
-                    thead
-                      tr
-                        th.team-leader__type Points
-                        th.team-leader__total TP
-                        th.team-leader__gp GP
-                        th.team-leader__avg AVG
-                    tbody
-                      tr
-                        td.team-leader__player
-                          .team-leader__player-info
-                            figure.team-leader__player-img
-                              img(src='/assets/images/samples/stats_player_01.jpg' alt='')
-                            .team-leader__player-inner
-                              h5.team-leader__player-name James Girobili
-                              span.team-leader__player-position
-                                | 1st Shoting
-                                | Guard
-                        td.team-leader__total 424
-                        td.team-leader__gp 20
-                        td.team-leader__avg
-                          .circular
-                            .circular__bar(data-percent='85')
-                              span.circular__percents 21.2
-                // Leader: Points / End
-                // Leader: Assists
-                .table-responsive
-                  table.table.team-leader
-                    thead
-                      tr
-                        th.team-leader__type Assists
-                        th.team-leader__total TA
-                        th.team-leader__gp GP
-                        th.team-leader__avg AVG
-                    tbody
-                      tr
-                        td.team-leader__player
-                          .team-leader__player-info
-                            figure.team-leader__player-img
-                              img(src='/assets/images/samples/stats_player_02.jpg' alt='')
-                            .team-leader__player-inner
-                              h5.team-leader__player-name Mark Stevens
-                              span.team-leader__player-position
-                                | 1st Power
-                                | Forward
-                        td.team-leader__total 136
-                        td.team-leader__gp 20
-                        td.team-leader__avg
-                          .circular
-                            .circular__bar(data-percent='85')
-                              span.circular__percents 6.8
-                // Leader: Assists / End
-                // Leader: Steals
-                .table-responsive
-                  table.table.team-leader
-                    thead
-                      tr
-                        th.team-leader__type Steals
-                        th.team-leader__total TS
-                        th.team-leader__gp GP
-                        th.team-leader__avg AVG
-                    tbody
-                      tr
-                        td.team-leader__player
-                          .team-leader__player-info
-                            figure.team-leader__player-img
-                              img(src='/assets/images/samples/stats_player_02.jpg' alt='')
-                            .team-leader__player-inner
-                              h5.team-leader__player-name Mark Stevens
-                              span.team-leader__player-position
-                                | 1st Power
-                                | Forward
-                        td.team-leader__total 149
-                        td.team-leader__gp 20
-                        td.team-leader__avg
-                          .circular
-                            .circular__bar(data-percent='85')
-                              span.circular__percents 14.9
-                // Leader: Steals / End
-                // Leader: Steals
-                .table-responsive
-                  table.table.team-leader
-                    thead
-                      tr
-                        th.team-leader__type Rebounds
-                        th.team-leader__total TR
-                        th.team-leader__gp GP
-                        th.team-leader__avg AVG
-                    tbody
-                      tr
-                        td.team-leader__player
-                          .team-leader__player-info
-                            figure.team-leader__player-img
-                              img(src='/assets/images/samples/stats_player_01.jpg' alt='')
-                            .team-leader__player-inner
-                              h5.team-leader__player-name James Girobili
-                              span.team-leader__player-position
-                                | 1st Shoting
-                                | Guard
-                        td.team-leader__total 93
-                        td.team-leader__gp 20
-                        td.team-leader__avg
-                          .circular
-                            .circular__bar(data-percent='85')
-                              span.circular__percents 9.3
-                // Leader: Steals / End
-            // Widget: Team Leaders / End
-          .col-md-6
-            // Widget: Team Stats
-            aside.widget.widget--sidebar.card.card--has-table.widget-team-stats
-              .widget__title.card__header
-                h4 Team Stats
-              .widget__content.card__content
-                ul.team-stats-box
-                  li.team-stats__item
-                    .team-stats__icon
-                      svg.df-icon.df-icon--ppg(role='img')
-                        use(xlink:href='/assets/images/icons-basket.svg#points-per-game')
-                    .team-stats__value 103.5
-                    .team-stats__label Points Per Game
-                  li.team-stats__item
-                    .team-stats__icon
-                      svg.df-icon.df-icon--apg(role='img')
-                        use(xlink:href='/assets/images/icons-basket.svg#assists-per-game')
-                    .team-stats__value 24.7
-                    .team-stats__label Assists Per Game
-                  li.team-stats__item
-                    .team-stats__icon
-                      svg.df-icon.df-icon--rpg(role='img')
-                        use(xlink:href='/assets/images/icons-basket.svg#rebounds-per-game')
-                    .team-stats__value 35.2
-                    .team-stats__label Rebounds Per Game
-                  li.team-stats__item
-                    .team-stats__icon
-                      .df-icon-stack.df-icon-stack--3pts
-                        svg.df-icon.df-icon--basketball(role='img')
-                          use(xlink:href='/assets/images/icons-basket.svg#basketball')
-                        .df-icon--txt 3
-                    .team-stats__value 16.4
-                    .team-stats__label 3 Pointers Per Game
-            // Widget: Team Stats / End
         // Schedule & Tickets
         .card.card--has-table
           .card__header.card__header--has-btn
@@ -562,11 +414,10 @@ block body
         .card
           .card__header.card__header--has-btn
             h4 Points History
-            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='team-schedule.html')
               | See
               | Complete History
           .card__content
-            canvas#points-history.points-history-chart(height='135')
+            canvas#points-history.points-history-chart(height='100')
         // Points History / End
       // Content / End
       // Sidebar
@@ -575,7 +426,6 @@ block body
         aside.widget.card.widget--sidebar.widget-standings
           .widget__title.card__header.card__header--has-btn
             h4 Playoff Standings
-            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='#') See All Stats
           .widget__content.card__content
             .table-responsive
               table.table.table-hover.table-standings
@@ -778,89 +628,5 @@ block body
                       h5.widget-results__team-name Alchemists
                       span.widget-results__team-info Eric Bros School
               // Game #3 / End
-        // Widget: Latest Results / End
-        // Widget: Awards
-        aside.widget.card.widget--sidebar.widget-awards
-          .widget__title.card__header
-            h4 Our Awards
-          .widget__content.card__content
-            .awards.awards--slider
-              .awards__item
-                figure.awards__figure
-                  img(src='/assets/images/samples/trophy-01.jpg' alt='')
-                .awards__desc
-                  h5.awards__name Big League Champions
-                  .awards__date December 2009
-              .awards__item
-                figure.awards__figure
-                  img(src='/assets/images/samples/trophy-02.jpg' alt='')
-                .awards__desc
-                  h5.awards__name Big League Champions
-                  .awards__date November 2010
-              .awards__item
-                figure.awards__figure
-                  img(src='/assets/images/samples/trophy-03.jpg' alt='')
-                .awards__desc
-                  h5.awards__name Big League Champions
-                  .awards__date December 2012
-        // Widget: Awards / End
-        // Widget: Games History
-        aside.widget.card.widget--sidebar.widget-games-history
-          .widget__title.card__header.card__header--has-legend
-            h4 Games History
-            #gamesHistoryLegend.chart-legend.chart-legend--games-history
-          .widget__content.card__content
-            canvas#games-history.games-history-chart(height='270')
-        // Widget: Games History / End
-        // Widget: Team Newslog
-        aside.widget.card.widget--sidebar.widget-newslog
-          .widget__title.card__header
-            h4 Team Newslog
-          .widget__content.card__content
-            ul.newslog
-              li.newslog__item.newslog__item--injury
-                .newslog__item-inner
-                  .newslog__content
-                    strong Mark Johnson
-                    |  has a tibia fracture and
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;he&rsquo;s gonna be out of the play for 
-                    strong 2 months
-                    | .
-                  time.newslog__date(datetime='2016-01-19') September 18, 2016
-              li.newslog__item.newslog__item--join
-                .newslog__item-inner
-                  .newslog__content
-                    strong Dominick R. Blink
-                    | , a new
-                    strong Shooting Guard
-                    |  from San Francisco has joined the team!.
-                  time.newslog__date(datetime='2016-01-19') September 6, 2016
-              li.newslog__item.newslog__item--join
-                .newslog__item-inner
-                  .newslog__content
-                    strong Christopher Grifin
-                    | , a new
-                    strong Power Forward
-                    |  from Rockstar Bay College has joined the team!.
-                  time.newslog__date(datetime='2016-01-19') August 24, 2016
-              li.newslog__item.newslog__item--injury
-                .newslog__item-inner
-                  .newslog__content
-                    strong Thomas Durry
-                    |  has a composed hand
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;fracture and he won&rsquo;t be playing untill 
-                    strong September
-                    | .
-                  time.newslog__date(datetime='2016-01-19') August 17, 2016
-              li.newslog__item.newslog__item--exit
-                .newslog__item-inner
-                  .newslog__content
-                    strong Jeremy Rittersen
-                    |  left the team after
-                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;2 year in the club and his new house are the 
-                    strong Clovers
-                    | .
-                  time.newslog__date(datetime='2016-01-19') August 12, 2016
-        // Widget: Team Newslog / End
       // Sidebar / End
  // Content / End

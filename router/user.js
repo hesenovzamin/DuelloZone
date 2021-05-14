@@ -41,6 +41,14 @@ router.get('/acceptteam/:Id',ControlSession,UserController.AcceptTeam)
 router.get('/declineteam/:Id',ControlSession,UserController.DeclineTeam)
 
 //TeamOverviews
-router.get('/team/:team',ControlSession,UserController.GetTeamOverviews)
+router.get('/team/:team',UserController.GetTeamOverviews)
+
+//PlayerOverviews
+router.get('/player/:player',ControlSession,UserController.GetPlayerOverviews)
+
+
+//League
+
+router.get('/league',ControlSession,UserController.GetPlayerOverviews)
 
 module.exports = router;

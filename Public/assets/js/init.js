@@ -1437,7 +1437,7 @@
 				var data3 = {
 					type: 'line',
 					data: {
-						labels: ["Aug 8", "Aug 15", "Aug 21", "Aug 28", "Sep 4", "Sep 19", "Sep 26", "Oct 3", "Oct 10", "Oct 16", "Oct 23", "Oct 30"],
+						labels: ["Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8","Aug 8", "Aug 15", "Aug 21", "Aug 28", "Sep 4", "Sep 19", "Sep 26", "Oct 3", "Oct 10", "Oct 16", "Oct 23", "Oct 30"],
 						datasets: [{
 							label: 'POINTS',
 							fill: false,
@@ -1455,7 +1455,7 @@
 							pointHoverBorderColor: "#ffcc00",
 							pointHoverBorderWidth: 5,
 							pointHitRadius: 10,
-							data: [104, 70, 115, 105, 45, 94, 84, 100, 82, 125, 78, 86, 110],
+							data: [10,10,10,10,10,10,10,10,12,23,24,25,104, 70, 115, 105, 45, 94, 84, 100, 82, 125, 78, 86, 110],
 							spanGaps: false,
 						}]
 					},

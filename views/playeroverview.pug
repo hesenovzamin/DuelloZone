@@ -1,0 +1,557 @@
+extends layouts/zonelayout.pug
+block body
+ .player-heading
+  .container
+    .player-info__team-logo
+      img(src='/assets/images/logo-lg.png' alt='')
+    .player-info__title.player-info__title--mobile
+      .player-info__number 38
+      h1.player-info__name
+        span.player-info__first-name James
+        span.player-info__last-name Girobili
+    .player-info
+      // Player Photo
+      .player-info__item.player-info__item--photo
+        figure.player-info__photo
+          img(src='/assets/images/samples/player-heading-photo.png' alt='')
+      // Player Photo / End
+      // Player Details
+      .player-info__item.player-info__item--details
+        .player-info__title.player-info__title--desktop
+          h1.player-info__name
+            //span.player-info__first-name #{player.username}
+            span.player-info__last-name #{player.username}
+        .player-info-details
+          .player-info-details__item.player-info-details__item--height
+            h6.player-info-details__title Name
+            .player-info-details__value #{player.name}
+          .player-info-details__item.player-info-details__item--weight
+            h6.player-info-details__title Surname
+            .player-info-details__value #{player.surname}
+          .player-info-details__item.player-info-details__item--age
+            h6.player-info-details__title Rank
+            .player-info-details__value #{player.rank}
+        //-   .player-info-details__item.player-info-details__item--college
+        //-     h6.player-info-details__title Total Kill
+        //-     .player-info-details__value 60
+        //-   .player-info-details__item.player-info-details__item--college
+        //-     h6.player-info-details__title Total Death
+        //-     .player-info-details__value 60
+        .player-info-stats
+          .player-info-stats__item
+            .circular
+              .circular__bar(data-percent='88' data-track-color='#4c5d6f')
+                span.circular__percents
+                  | 9.6
+                  small avg
+              span.circular__label
+                strong Total 
+                |  Kill
+          .player-info-stats__item
+            .circular
+              .circular__bar(data-percent='88' data-track-color='#4c5d6f')
+                span.circular__percents
+                  | 4.5
+                  small avg
+              span.circular__label
+                strong Total 
+                |  Death
+          .player-info-stats__item
+            .circular
+              .circular__bar(data-percent='88' data-track-color='#4c5d6f')
+                span.circular__percents
+                  | 2.8
+                  small avg
+              span.circular__label
+                strong Total
+                |  Average
+      // Player Details / End
+      // Player Stats
+      //.player-info__item.player-info__item--stats
+        canvas#player-stats.player-info-chart(height='290')
+      // Player Stats / End
+ // Player Pages Filter
+ //nav.content-filter
+  .container
+    a.content-filter__toggle(href='#')
+    ul.content-filter__list
+      li.content-filter__item.content-filter__item--active
+        a.content-filter__link(href='player-overview.html')
+          small Player
+          | Overview
+      li.content-filter__item
+        a.content-filter__link(href='player-stats.html')
+          small Player
+          | Full Statistics
+      li.content-filter__item
+        a.content-filter__link(href='player-bio.html')
+          small Player
+          | Biography
+      li.content-filter__item
+        a.content-filter__link(href='player-news.html')
+          small Player
+          | Related News
+      li.content-filter__item
+        a.content-filter__link(href='player-gallery.html')
+          small Player
+          | Gallery
+ // Player Pages Filter / End
+ //
+  Content
+  ==================================================
+ .site-content
+  .container
+    .row
+      // Content
+      .content.col-lg-8
+        // Last Game Log
+        .card.card--has-table
+          .card__header.card__header--has-btn
+            h4 Last Games Log
+              | See
+              | complete games log
+          .card__content
+            .table-responsive
+              table.table.table-hover.game-player-result
+                thead
+                  tr
+                    th.game-player-result__date Date
+                    th.game-player-result__vs Versus
+                    th.game-player-result__score Score
+                    th.game-player-result__min Min
+                    th.game-player-result__reb REB
+                    th.game-player-result__ast AST
+                    th.game-player-result__blk BLK
+                    th.game-player-result__stl STL
+                    th.game-player-result__pf PF
+                    th.game-player-result__to TO
+                    th.game-player-result__pts PTS
+                tbody
+                  tr
+                    td.game-player-result__date Saturday, Mar 24
+                    td.game-player-result__vs
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/sharks_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Sharks
+                          span.team-meta__place Marine College
+                    td.game-player-result__score
+                      span.game-player-result__game W
+                      |  107-102
+                    td.game-player-result__min 22
+                    td.game-player-result__reb 3
+                    td.game-player-result__ast 1
+                    td.game-player-result__blk 1
+                    td.game-player-result__stl 2
+                    td.game-player-result__pf 0
+                    td.game-player-result__to 2
+                    td.game-player-result__pts 11
+                  tr
+                    td.game-player-result__date Friday, Mar 16
+                    td.game-player-result__vs
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/pirates_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name L.A. Pirates
+                          span.team-meta__place Bebop Institute
+                    td.game-player-result__score
+                      span.game-player-result__game L
+                      |  124-106
+                    td.game-player-result__min 22
+                    td.game-player-result__reb 1
+                    td.game-player-result__ast 5
+                    td.game-player-result__blk 0
+                    td.game-player-result__stl 4
+                    td.game-player-result__pf 2
+                    td.game-player-result__to 3
+                    td.game-player-result__pts 14
+                  tr
+                    td.game-player-result__date Saturday, Mar 10
+                    td.game-player-result__vs
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/lucky_clovers_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Lucky Clovers
+                          span.team-meta__place St. Patrick&rsquo;s Institute
+                    td.game-player-result__score
+                      span.game-player-result__game L
+                      |  95-98
+                    td.game-player-result__min 11
+                    td.game-player-result__reb 4
+                    td.game-player-result__ast 2
+                    td.game-player-result__blk 0
+                    td.game-player-result__stl 3
+                    td.game-player-result__pf 5
+                    td.game-player-result__to 6
+                    td.game-player-result__pts 10
+                  tr
+                    td.game-player-result__date Friday, Mar 4
+                    td.game-player-result__vs
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/ocean_kings_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Ocean Kings
+                          span.team-meta__place Bay College
+                    td.game-player-result__score
+                      span.game-player-result__game L
+                      |  110-104
+                    td.game-player-result__min 14
+                    td.game-player-result__reb 3
+                    td.game-player-result__ast 5
+                    td.game-player-result__blk 2
+                    td.game-player-result__stl 0
+                    td.game-player-result__pf 1
+                    td.game-player-result__to 4
+                    td.game-player-result__pts 8
+                  tr
+                    td.game-player-result__date Saturday, Feb 29
+                    td.game-player-result__vs
+                      .team-meta
+                        figure.team-meta__logo
+                          img(src='/assets/images/samples/logos/red_wings_shield.png' alt='')
+                        .team-meta__info
+                          h6.team-meta__name Red Wings
+                          span.team-meta__place Icarus College
+                    td.game-player-result__score
+                      span.game-player-result__game W
+                      |  102-97
+                    td.game-player-result__min 27
+                    td.game-player-result__reb 1
+                    td.game-player-result__ast 1
+                    td.game-player-result__blk 1
+                    td.game-player-result__stl 1
+                    td.game-player-result__pf 4
+                    td.game-player-result__to 5
+                    td.game-player-result__pts 12
+        // Last Game Log / End
+        // Lates News
+        .card.card--clean
+          //header.card__header.card__header--has-btn
+            h4 Player Related News
+            a.btn.btn-default.btn-outline.btn-xs.card-header__button(href='blog-1.html')
+              | See All
+              | Related News
+          //.card__content
+            // Posts Grid
+            .posts.posts--cards.post-grid.post-grid--2cols.post-grid--fitRows.row
+              .post-grid__item.col-6
+                .posts__item.posts__item--card.posts__item--category-1.card
+                  figure.posts__thumb
+                    .posts__cat
+                      span.label.posts__cat-label The Team
+                    a(href='#')
+                      img(src='/assets/images/samples/post-img4.jpg' alt='')
+                  .posts__inner.card__content
+                    a.posts__cta(href='#')
+                    time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                    h6.posts__title
+                      a(href='#')
+                        | The Planetrotters will perform this May 4th
+                        | at Madison Cube
+                    .posts__excerpt
+                      | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                      | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam,
+                      | quis nostrud en derum sum laborem.
+                  footer.posts__footer.card__footer
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='/assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name James Spiegel
+                    ul.post__meta.meta
+                      li.meta__item.meta__item--views 2369
+                      li.meta__item.meta__item--likes
+                        a(href='#')
+                          i.meta-like.icon-heart
+                          |  530
+                      li.meta__item.meta__item--comments
+                        a(href='#') 18
+              .post-grid__item.col-6
+                .posts__item.posts__item--card.posts__item--category-1.card
+                  figure.posts__thumb
+                    .posts__cat
+                      span.label.posts__cat-label The Team
+                    a(href='#')
+                      img(src='/assets/images/samples/post-img3.jpg' alt='')
+                  .posts__inner.card__content
+                    a.posts__cta(href='#')
+                    time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                    h6.posts__title
+                      a(href='#')
+                        | The new eco friendly stadium won a Leafy
+                        | Award in 2016
+                    .posts__excerpt
+                      | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                      | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam,
+                      | quis nostrud en derum sum laborem.
+                  footer.posts__footer.card__footer
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='/assets/images/samples/avatar-2.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name Jessica Hoops
+                    ul.post__meta.meta
+                      li.meta__item.meta__item--views 2369
+                      li.meta__item.meta__item--likes
+                        a(href='#')
+                          i.meta-like.icon-heart
+                          |  530
+                      li.meta__item.meta__item--comments
+                        a(href='#') 18
+              .post-grid__item.col-6
+                .posts__item.posts__item--card.posts__item--category-1.card
+                  figure.posts__thumb
+                    .posts__cat
+                      span.label.posts__cat-label The Team
+                    a(href='#')
+                      img(src='/assets/images/samples/post-img5.jpg' alt='')
+                  .posts__inner.card__content
+                    a.posts__cta(href='#')
+                    time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                    h6.posts__title
+                      a(href='#')
+                        | The Alchemists team is appearing in L.A.
+                        | Beach for charity
+                    .posts__excerpt
+                      | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                      | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam,
+                      | quis nostrud en derum sum laborem.
+                  footer.posts__footer.card__footer
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='/assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name James Spiegel
+                    ul.post__meta.meta
+                      li.meta__item.meta__item--views 2369
+                      li.meta__item.meta__item--likes
+                        a(href='#')
+                          i.meta-like.icon-heart
+                          |  530
+                      li.meta__item.meta__item--comments
+                        a(href='#') 18
+              .post-grid__item.col-6
+                .posts__item.posts__item--card.posts__item--category-1.card
+                  figure.posts__thumb
+                    .posts__cat
+                      span.label.posts__cat-label The Team
+                    a(href='#')
+                      img(src='/assets/images/samples/post-img8.jpg' alt='')
+                  .posts__inner.card__content
+                    a.posts__cta(href='#')
+                    time.posts__date(datetime='2016-08-23') August 23rd, 2018
+                    h6.posts__title
+                      a(href='#')
+                        | The team is starting a new power breakfast
+                        | regimen
+                    .posts__excerpt
+                      | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod
+                      | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam,
+                      | quis nostrud en derum sum laborem.
+                  footer.posts__footer.card__footer
+                    .post-author
+                      figure.post-author__avatar
+                        img(src='/assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
+                      .post-author__info
+                        h4.post-author__name James Spiegel
+                    ul.post__meta.meta
+                      li.meta__item.meta__item--views 2369
+                      li.meta__item.meta__item--likes
+                        a(href='#')
+                          i.meta-like.icon-heart
+                          |  530
+                      li.meta__item.meta__item--comments
+                        a(href='#') 18
+            // Post Grid / End
+        // Lates News / End
+      // Content / End
+      // Sidebar
+      .sidebar.col-lg-4
+        // Widget: Social Buttons
+        //aside.widget.widget--sidebar.widget-social
+          a.btn-social-counter.btn-social-counter--fb(href='#' target='_blank')
+            .btn-social-counter__icon
+              i.fab.fa-facebook
+            h6.btn-social-counter__title James&apos;s Facebook Page
+            span.btn-social-counter__count
+              span.btn-social-counter__count-num
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Likes
+            span.btn-social-counter__add-icon
+          a.btn-social-counter.btn-social-counter--twitter(href='#' target='_blank')
+            .btn-social-counter__icon
+              i.fab.fa-twitter
+            h6.btn-social-counter__title James&apos;s Twitter Account
+            span.btn-social-counter__count
+              span.btn-social-counter__count-num
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Followers
+            span.btn-social-counter__add-icon
+        // Widget: Social Buttons / End
+        // Widget: Featured Player - Alternative without Image
+        aside.widget.card.widget--sidebar.widget-player.widget-player--alt
+          .widget__title.card__header
+            h4 Player Main Stats
+          .widget__content-secondary
+            // Player Details
+            .widget-player__details
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label 2 Points
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 1250
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label 3 Points
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 680
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label Rebounds
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 234
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label Assists
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 751
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label Steals
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 472
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label Blocks
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 565
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label Fouls
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 97
+              .widget-player__details__item
+                .widget-player__details-desc-wrapper
+                  span.widget-player__details-holder
+                    span.widget-player__details-label Game Played
+                    span.widget-player__details-desc In his career
+                  span.widget-player__details-value 104
+            // Player Details / End
+          //.widget__content-tertiary.widget__content--bottom-decor
+            .widget__content-inner
+              .widget-player__stats.row
+                .col-4
+                  .widget-player__stat-item
+                    .widget-player__stat-circular.circular
+                      .circular__bar(data-percent='88')
+                        span.circular__percents
+                          | 88
+                          small %
+                      span.circular__label
+                        | Shot
+                        br
+                        |  Accuracy
+                .col-4
+                  .widget-player__stat-item
+                    .widget-player__stat-circular.circular
+                      .circular__bar(data-percent='63')
+                        span.circular__percents
+                          | 63
+                          small %
+                      span.circular__label
+                        | Pass
+                        br
+                        |  Accuracy
+                .col-4
+                  .widget-player__stat-item
+                    .widget-player__stat-circular.circular
+                      .circular__bar(data-percent='75.5')
+                        span.circular__percents
+                          | 75.5
+                          small %
+                      span.circular__label
+                        | Total
+                        br
+                        |  Efficiency
+        // Widget: Featured Player - Alternative without Image / End
+        // Widget: Player Newslog
+        //aside.widget.card.widget--sidebar.widget-newslog
+          .widget__title.card__header
+            h4 Player Newslog
+          .widget__content.card__content
+            ul.newslog
+              li.newslog__item.newslog__item--injury
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli&rsquo;s
+                    |  knee fracture is
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;healing properly and will be returning to the field 
+                    strong next week
+                    | .
+                  time.newslog__date(datetime='2016-01-19') January 19, 2016
+              li.newslog__item.newslog__item--injury
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli
+                    |  has a knee fracture
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and he&rsquo;s gonna be out of the play for 
+                    strong 4 months
+                    | .
+                  time.newslog__date(datetime='2016-01-19') September 26, 2016
+              li.newslog__item.newslog__item--join
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli
+                    |  is now the
+                    strong 1st Shooting Guard
+                    |  after being 3rd Shooting Guard for the past
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;year.
+                  time.newslog__date(datetime='2016-01-19') September 6, 2016
+              li.newslog__item.newslog__item--injury
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli
+                    |  has an abductor
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;strain so he will miss the next game against the LA Pirates.
+                  time.newslog__date(datetime='2016-01-19') March 4, 2016
+              li.newslog__item.newslog__item--injury
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli
+                    |  has an abductor
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;strain so he will miss the next game against the LA Pirates.
+                  time.newslog__date(datetime='2016-01-19') March 4, 2016
+              li.newslog__item.newslog__item--award
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli
+                    |  won the
+                    strong Player of the Year 2014 Award
+                    |  for the first time.
+                  time.newslog__date(datetime='2016-01-19') August 17, 2015
+              li.newslog__item.newslog__item--injury
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli
+                    |  has a lower back
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;contusion and will miss the next two games.
+                  time.newslog__date(datetime='2016-01-19') August 5, 2015
+              li.newslog__item.newslog__item--join
+                .newslog__item-inner
+                  .newslog__content
+                    strong James Girobilli
+                    |  has joined the team
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;after playing for the California Surfers for a year.
+                  time.newslog__date(datetime='2016-01-19') June 19, 2013
+        // Widget: Player Newslog / End
+      // Sidebar / End
+ // Content / End

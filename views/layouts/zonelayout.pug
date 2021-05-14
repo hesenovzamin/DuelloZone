@@ -151,215 +151,24 @@ head
               img.header-logo__img(src='/img/duello.zone.jpg' alt='Alchemists' srcset='/img/duello.zone.jpg 2x')
           // Header Logo / End
           // Main Navigation
-          nav.main-nav.clearfix
+          nav.main-nav.clearfix(style='text-align: right;')
             ul.main-nav__list
-              li.active
-                a(href='index.html') Home
-                ul.main-nav__sub
+              li
+                a(href='/home') Home
+              li
+                a(href='/home') Leage
+              li
+                a(href='/home') News
+              li
+                a(href='/home') Contact Us
+                //ul.main-nav__sub
                   li.active
                     a(href='index.html') Home - version 1
                   li
                     a(href='index-2.html') Home - version 2
                   li
                     a(href='index-3.html') Home - version 3
-              li
-                a(href='#') Features
-                .main-nav__megamenu.clearfix
-                  ul.col-lg-2.col-md-3.col-12.main-nav__ul
-                    li.main-nav__title Features
-                    li
-                      a(href='features-shortcodes.html') Shortcodes
-                    li
-                      a(href='features-typography.html') Typography
-                    li
-                      a(href='features-widgets-blog.html') Widgets - Blog
-                    li
-                      a(href='features-widgets-shop.html') Widgets - Shop
-                    li
-                      a(href='features-widgets-sports.html') Widgets - Sports
-                    li
-                      a(href='features-404.html') 404 Error Page
-                    li
-                      a(href='features-search-results.html') Search Results
-                    li
-                      a(href='page-contacts.html') Contact Us
-                  ul.col-lg-2.col-md-3.col-12.main-nav__ul
-                    li.main-nav__title Other Pages
-                    li
-                      a(href='page-sponsors.html') Sponsors
-                    li
-                      a(href='page-faqs.html') FAQs
-                    li
-                      a(href='staff-single.html') Staff Member
-                    li
-                      a(href='event-tournament.html') Tournament
-                    li
-                      a(href='shop-list.html') Shop Page
-                    li
-                      a(href='shop-cart.html') Shopping Cart
-                    li
-                      a(href='shop-wishlist.html') Wishlist
-                    li
-                      a(href='shop-checkout.html') Checkout
-                  .col-lg-4.col-md-3.col-12
-                    .posts.posts--simple-list.posts--simple-list--lg
-                      .posts__item.posts__item--category-1
-                        .posts__inner
-                          .posts__cat
-                            span.label.posts__cat-label The Team
-                          h6.posts__title
-                            a(href='#') The team is starting a new power breakfast regimen
-                          time.posts__date(datetime='2017-08-23') August 23rd, 2017
-                          .posts__excerpt
-                            | Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        .posts__footer.card__footer
-                          .post-author
-                            figure.post-author__avatar
-                              img(src='/assets/images/samples/avatar-1.jpg' alt='Post Author Avatar')
-                            .post-author__info
-                              h4.post-author__name James Spiegel
-                          ul.post__meta.meta
-                            li.meta__item.meta__item--likes
-                              a(href='#')
-                                i.meta-like.meta-like--active.icon-heart
-                                |  530
-                            li.meta__item.meta__item--comments
-                              a(href='#') 18
-                  .col-lg-4.col-md-3.col-12
-                    ul.posts.posts--simple-list
-                      li.posts__item.posts__item--category-1
-                        figure.posts__thumb
-                          a(href='#')
-                            img(src='/assets/images/samples/post-img3-xs.jpg' alt='')
-                        .posts__inner
-                          .posts__cat
-                            span.label.posts__cat-label The Team
-                          h6.posts__title
-                            a(href='#') The new eco friendly stadium won a Leafy Award in 2016
-                          time.posts__date(datetime='2016-08-21') August 21st, 2016
-                      li.posts__item.posts__item--category-2
-                        figure.posts__thumb
-                          a(href='#')
-                            img(src='/assets/images/samples/post-img1-xs.jpg' alt='')
-                        .posts__inner
-                          .posts__cat
-                            span.label.posts__cat-label Injuries
-                          h6.posts__title
-                            a(href='#') Mark Johnson has a Tibia Fracture and is gonna be out
-                          time.posts__date(datetime='2016-08-23') August 23rd, 2016
-                      li.posts__item.posts__item--category-1
-                        figure.posts__thumb
-                          a(href='#')
-                            img(src='/assets/images/samples/post-img4-xs.jpg' alt='')
-                        .posts__inner
-                          .posts__cat
-                            span.label.posts__cat-label The Team
-                          h6.posts__title
-                            a(href='#') The team is starting a new power breakfast regimen
-                          time.posts__date(datetime='2016-08-21') August 21st, 2016
-              li
-                a(href='#') The Team
-                ul.main-nav__sub
-                  li
-                    a(href='team-overview.html') Team
-                    ul.main-nav__sub-2
-                      li
-                        a(href='team-overview.html') Overview
-                      li
-                        a(href='team-roster-2.html') Roster
-                        ul.main-nav__sub-2
-                          li
-                            a(href='team-roster-1.html') Roster - 1
-                          li
-                            a(href='team-roster-2.html') Roster - 2
-                          li
-                            a(href='team-roster-3.html') Roster - 3
-                      li
-                        a(href='team-standings.html') Standings
-                      li
-                        a(href='team-last-results.html') Latest Results
-                      li
-                        a(href='team-schedule.html') Schedule
-                      li
-                        a(href='team-gallery.html') Gallery
-                        ul.main-nav__sub-3
-                          li
-                            a(href='team-gallery-album.html') Single Album
-                  li
-                    a(href='player-overview.html') Player
-                    ul.main-nav__sub-2
-                      li
-                        a(href='player-overview.html') Overview
-                      li
-                        a(href='player-stats.html') Full Statistics
-                      li
-                        a(href='player-bio.html') Biography
-                      li
-                        a(href='player-news.html') Related News
-                      li
-                        a(href='player-gallery.html') Gallery
-                  li
-                    a(href='staff-single.html') Staff Member
-                  li
-                    a(href='event-overview.html')
-                      | Event &nbsp; 
-                      span.label.label-danger New
-                    ul.main-nav__sub-2
-                      li
-                        a(href='event-overview.html') Overview
-                      li
-                        a(href='event-box-score.html') Box Score
-                      li
-                        a(href='event-play-by-play.html') Play-by-Play
-                      li
-                        a(href='event-team-stats.html') Team Stats
-                      li
-                        a(href='event-news-recap.html') News Recap
-                      li
-                        a(href='event-videos.html') Videos
-                  li
-                    a(href='event-tournament.html') Tournament
-              li
-                a(href='#') News
-                ul.main-nav__sub
-                  li
-                    a(href='blog-1.html') News - version 1
-                  li
-                    a(href='blog-2.html') News - version 2
-                  li
-                    a(href='blog-3.html') News - version 3
-                  li
-                    a(href='blog-4.html') News - version 4
-                  li
-                    a(href='#') Post
-                    ul.main-nav__sub-2
-                      li
-                        a(href='blog-post-1.html') Single Post - version 1
-                      li
-                        a(href='blog-post-2.html') Single Post - version 2
-                      li
-                        a(href='blog-post-3.html') Single Post - version 3
-              li
-                a(href='shop-grid.html') Shop
-                ul.main-nav__sub
-                  li
-                    a(href='shop-grid.html') Shop - Grid
-                  li
-                    a(href='shop-list.html') Shop - List
-                  li
-                    a(href='shop-fullwidth.html') Shop - Full Width
-                  li
-                    a(href='shop-product.html') Single Product
-                  li
-                    a(href='shop-cart.html') Shopping Cart
-                  li
-                    a(href='shop-checkout.html') Checkout
-                  li
-                    a(href='shop-wishlist.html') Wishlist
-                  li
-                    a(href='shop-login.html') Login
-                  li
-                    a(href='shop-account.html') Account
+
             // Social Links
             ul.social-links.social-links--inline.social-links--main-nav
               li.social-links__item
@@ -373,7 +182,7 @@ head
                   i.fab.fa-instagram
             // Social Links / End
             // Pushy Panel Toggle
-            a.pushy-panel__toggle(href='#')
+            a(href='#')
               span.pushy-panel__line
             // Pushy Panel Toggle / Eng
           // Main Navigation / End
