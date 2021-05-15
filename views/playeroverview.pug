@@ -110,6 +110,8 @@ block body
             h4 Last Games Log
               | See
               | complete games log
+            if (User.TeamStatus === true && User.TeamAdmin === true && teamlength < 11 && player.TeamStatus !== true)
+             a.btn.btn-default.btn-outline.btn-xs.card-header__button(href=`/addteammate/${player.username}`) Invite Player
           .card__content
             .table-responsive
               table.table.table-hover.game-player-result

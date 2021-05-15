@@ -18,53 +18,45 @@ block body
   ==================================================
  .site-content
   .container
-    .row
-      //- .col-lg-4
-      //-   // Account Navigation
-      //-   .card
-      //-     .card__header
-      //-       h4 Welcome Back!
-      //-     .card__content
-      //-       nav.df-account-navigation
-      //-         ul
-      //-           li.df-account-navigation__link
-      //-             a(href='#') Personal Information
-      //-           li.df-account-navigation__link
-      //-             a(href='#') Billing Information
-      //-           li.df-account-navigation__link
-      //-             a(href='#') Shipping Information
-      //-   // Account Navigation / End
-      
+    // Shopping Cart
+    .card.card--has-table
+      .card__header
+        h4 Your Team Invites
+      .card__content
+        .table-responsive
+          table.table.shop-table
+            thead
+              tr
+                th.product__photo(style='text-align: center;') Number
+                th.product__photo(style='text-align: center;') Name
+                th.product__info Surname
+                th.product__info username
+                th.product__price Accept
+                th.product__price Decline
+            tbody
+             -var i = 1;
+             each item in requsers
+              tr
+                //- td.product__photo
+                //-   figure.product__thumb
+                //-     a(href='#')
+                //-       img(src=`/img/${item.logo}` alt='')
+                td.product__price
+                  | #{i}
+                td.product__price
+                  | #{item.name}
+                td.product__price(style='text-align: left;')
+                  | #{item.surname}
+                td.product__info
+                  h5.product__name
+                    a(href=`/player/${item.username}`) #{item.username}
+                td.product__remove
+                  a.fas.fa-check.product__remove-icon(href=`/acceptteam/${item._id}`)
+                td.product__remove
+                  a.fas.fa-times.product__remove-icon(href=`/declineteam/${item._id}`)
+                  -i++;
+            // Checkout Payment / End
+        // Cart Totals / End
+    // Shipping Details / End
+ // Content / End
 
-      .col-lg-12
-        // Personal Information
-        if (action !== "empty")
-         .alert.alert-primary(role='alert' style='font-size: 17px; color:white;')
-          | #{action}
-        .card.card--lg
-          .card__header
-            h4 Add Teammate
-          .card__content
-            form.df-personal-info(method='POST' action='/addteammate')
-              .row
-                .col-md-6
-                  .form-group
-                    label(for='account-email') Username
-                    input#account-email.form-control(type='text' value='' name='teammate' placeholder=`add Team Mate Username`)
-              .form-group--submit
-                button.btn.btn-default.btn-lg.btn-block(type='submit')
-                  | Add Team Mates
-            form.df-personal-info(method='POST' action='/updatepassword' style='margin-top:5%;')
-              .row
-                .col-md-6
-                  .form-group
-                    label(for='account-password') Change Password
-                    input#account-password.form-control(type='password'  value='' name='account_password' placeholder='**********')
-                .col-md-6
-                  .form-group
-                    label(for='account-password-repeat') Repeat Password
-                    input#account-password-repeat.form-control(type='password'  value='' name='account_password_repeat' placeholder='**********')
-              .form-group--submit
-                button.btn.btn-default.btn-lg.btn-block(type='submit')
-                  | Change Password
-        // Personal Information / End

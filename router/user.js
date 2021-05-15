@@ -33,7 +33,7 @@ router.post('/updatepassword',ControlSession,UserController.PostUpdatePassword)
 
 //GetTeam
 router.get('/getteam',ControlSession,UserController.GetTeam)
-router.post('/addteammate',ControlSession,UserController.PostAddTeamMate)
+router.get('/addteammate/:username',ControlSession,UserController.GetAddTeamMate)
 
 //RequestTeam
 router.get('/requestteam',ControlSession,UserController.GetRequest)

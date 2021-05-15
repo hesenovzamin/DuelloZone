@@ -89,7 +89,7 @@ head
               a(href='/createteam')
                 | Create Team 
                 span.highlight 
-            if (User.TeamStatus === true && User.TeamAdmin === true)
+            if (User.TeamStatus === true)
              li.nav-account__item.nav-account__item--wishlist
               a(href=`/team/${User.TeamID.name}`)
                 | Your Team
@@ -99,6 +99,11 @@ head
               a(href='/getteam')
                 | Control Team
                 span.highlight 
+            if (User.RequestItem.length > 0)
+             li.nav-account__item
+              a(href='/requestteam')
+                | Your Request 
+                span.highlight #{User.RequestItem.length}
             
             //- li.nav-account__item
             //-   a(href='#')

@@ -6,31 +6,29 @@ const { find } = require('../model/user');
 
 
 //home
-const getTeam = function(user){
-    User.findById(user._id).populate('TeamID' ,'name')
-    .then(user => {
-        console.log(user) 
-        return user;
-    }
-    )
+const getTeam = function (user) {
+    User.findById(user._id).populate('TeamID', 'name')
+        .then(user => {
+            console.log(user)
+            return user;
+        }
+        )
 }
 
 exports.GetIndex = async (req, res, next) => {
     let userteam;
-    if(req.session.IsLogin)
-    {
-      await  req.user
-        .populate('TeamID' ,'name')
-        .execPopulate()
-        .then( user => {
-           console.log(user)
-          userteam  = user
-        })
+    if (req.session.IsLogin) {
+        await req.user
+            .populate('TeamID', 'name')
+            .execPopulate()
+            .then(user => {
+                console.log(user)
+                userteam = user
+            })
     }
-    console.log(userteam)
-    res.render("home",{
-        IsLogin : req.session.IsLogin,
-        User : userteam
+    res.render("home", {
+        IsLogin: req.session.IsLogin,
+        User: userteam
     });
 };
 
@@ -47,33 +45,32 @@ exports.PostRegister = async (req, res, next) => {
         var body = req.body
         console.log(body)
         const password = req.body.password
-        if(body.register_password === body.repeat_password)
-        {
+        if (body.register_password === body.repeat_password) {
             const user = new User({
-                name :body.first_name,
-                surname : body.last_name,
-                email : body.register_email,
-                password : body.register_password,
-                riotid : body.riotid,
-                username : body.nick_name,
-                rank : body.rank
+                name: body.first_name,
+                surname: body.last_name,
+                email: body.register_email,
+                password: body.register_password,
+                riotid: body.riotid,
+                username: body.nick_name,
+                rank: body.rank
             })
             user.save()
-            .then( result => {
-                res.redirect('/login')
+                .then(result => {
+                    res.redirect('/login')
+                })
+        }
+        else {
+            res.render('error', {
+                info: 'Parollar Uygun Deyil',
+                info2: 'Yeniden Qeydiyyatdan Keçin'
             })
         }
-        else{
-            res.render('error',{
-                info : 'Parollar Uygun Deyil',
-                info2 : 'Yeniden Qeydiyyatdan Keçin'
-            })
-    }
     } catch (error) {
         console.log(error)
-        res.render('error',{
-            info : 'Sitemde Problem YasANDI',
-            info2 : `${error}`
+        res.render('error', {
+            info: 'Sitemde Problem YasANDI',
+            info2: `${error}`
         })
     }
 };
@@ -87,45 +84,42 @@ exports.GetLogin = async (req, res, next) => {
 exports.PostLogin = async (req, res, next) => {
     console.log(req.body)
     let url = '';
-    User.findOne({email : req.body.login_email})
-    .then(user => {
-        if(user)
-        {
-            if(user.password === req.body.login_password)
-            {
-                req.session.user = user
-                req.session.IsLogin = true
+    User.findOne({ email: req.body.login_email })
+        .then(user => {
+            if (user) {
+                if (user.password === req.body.login_password) {
+                    req.session.user = user
+                    req.session.IsLogin = true
 
-                if (req.session.redirectTo == undefined)
-                {
-                    url = "/home";
-                }   
-                else {
-                  url = req.session.redirectTo;
-                  console.log(url)
+                    if (req.session.redirectTo == undefined) {
+                        url = "/home";
+                    }
+                    else {
+                        url = req.session.redirectTo;
+                        console.log(url)
+                    }
+                    delete req.session.redirectTo;
+                    res.redirect(url);
+
                 }
-                delete req.session.redirectTo;
-                res.redirect(url);
-                
+                else {
+                    res.json({ data: "Sifre yalnisdir" })
+                }
             }
-            else{
-                res.json({data : "Sifre yalnisdir"})
+            else {
+                res.json({ data: "bele qeydiyyat yoxdu" })
             }
-        }
-        else{
-            res.json({data : "bele qeydiyyat yoxdu"})
-        }
-    })
-    .catch(err => {
-        console.log(err)
-    })
+        })
+        .catch(err => {
+            console.log(err)
+        })
 };
 
 //CreateTeam
 exports.GetCreateTeam = async (req, res, next) => {
 
-    res.render("createteam",{
-        User : req.user
+    res.render("createteam", {
+        User: req.user
     });
 };
 
@@ -133,9 +127,9 @@ exports.GetCreateTeam = async (req, res, next) => {
 exports.PostCreateTeam = async (req, res, next) => {
     let TeamLogo;
     console.log(req.files.length)
-    if(req.files.length === 0)
-     TeamLogo = 'duello.zone.jpg'
-    else{
+    if (req.files.length === 0)
+        TeamLogo = 'duello.zone.jpg'
+    else {
         TeamLogo = req.files[0].filename
     }
     console.log(req.body)
@@ -147,31 +141,31 @@ exports.PostCreateTeam = async (req, res, next) => {
         const body = req.body
         console.log(req.body)
         const team = new Team({
-            name : body.name,
-            logo : TeamLogo,
-            AdminId : req.user._id
+            name: body.name,
+            logo: TeamLogo,
+            AdminId: req.user._id
         })
         team.save()
-        .then(result => {
-            User.findById(req.user._id)
-            .then(user => {
-                user.TeamStatus = true;
-                user.TeamAdmin = true;
-                user.TeamID = team._id
-                user.save()
-                team.AddTeamMates(user)
-                .then( teamresult => {
-                    res.redirect('/home')
-                })
+            .then(result => {
+                User.findById(req.user._id)
+                    .then(user => {
+                        user.TeamStatus = true;
+                        user.TeamAdmin = true;
+                        user.TeamID = team._id
+                        user.save()
+                        team.AddTeamMates(user)
+                            .then(teamresult => {
+                                res.redirect('/home')
+                            })
 
+                    })
+                console.log(result)
+                res.redirect('/home')
             })
-            console.log(result)
-            res.redirect('/home')
-        })
     } catch (error) {
         console.log(error)
     }
-        
+
 };
 
 
@@ -179,65 +173,60 @@ exports.PostCreateTeam = async (req, res, next) => {
 exports.GetAccount = async (req, res, next) => {
     console.log(req.query)
     let action = "empty";
-    if(req.query.action)
-    {
-        if(req.query.action === "updatepwd")
-        {   
+    if (req.query.action) {
+        if (req.query.action === "updatepwd") {
             console.log('salam isdedi')
-             action = "Your password has been updated..."; 
+            action = "Your password has been updated...";
         }
-        else if(req.query.action === "erorpwd")
-        {   
+        else if (req.query.action === "erorpwd") {
             console.log('salam isdedi')
-             action = "Your password is either short or not the same ..."; 
+            action = "Your password is either short or not the same ...";
         }
-        else if(req.query.action === "update")
-        {   
+        else if (req.query.action === "update") {
             console.log('salam isdedi')
-             action = "Your account is update ..."; 
+            action = "Your account is update ...";
         }
     }
-    res.render("account",{
-        IsLogin : req.session.IsLogin,
-        User : req.user,
-        action : action
+    res.render("account", {
+        IsLogin: req.session.IsLogin,
+        User: req.user,
+        action: action
 
     });
 };
 
-exports.PostUpdateUser = async (req,res,next) => {
+exports.PostUpdateUser = async (req, res, next) => {
 
 
     User.findById(req.user._id)
-    .then(user => {
-        if(req.body.account_first_name)
-        user.name = req.body.account_first_name
-        if(req.body.account_last_name)
-        user.surname = req.body.account_last_name
-        if(req.body.account_email)
-        user.email = req.body.account_email
-        user.save()
-        .then(result => {
-            res.redirect('/account?action=update')
+        .then(user => {
+            if (req.body.account_first_name)
+                user.name = req.body.account_first_name
+            if (req.body.account_last_name)
+                user.surname = req.body.account_last_name
+            if (req.body.account_email)
+                user.email = req.body.account_email
+            user.save()
+                .then(result => {
+                    res.redirect('/account?action=update')
+                })
         })
-    })
 }
 
-exports.PostUpdatePassword = async (req,res,next) => {
+exports.PostUpdatePassword = async (req, res, next) => {
     console.log(req.body)
     const body = req.body
-    if(body.account_password === body.account_password_repeat && body.account_password.length > 4)
-    {
+    if (body.account_password === body.account_password_repeat && body.account_password.length > 4) {
         User.findById(req.user._id)
-        .then(user => {
-            user.password = body.account_password 
-            user.save()
-            .then(result => {
-                res.redirect('/account?action=updatepwd')
+            .then(user => {
+                user.password = body.account_password
+                user.save()
+                    .then(result => {
+                        res.redirect('/account?action=updatepwd')
+                    })
             })
-        })
     }
-    else{
+    else {
         res.redirect('/account?action=erorpwd')
     }
 }
@@ -245,62 +234,100 @@ exports.PostUpdatePassword = async (req,res,next) => {
 
 //GetTeam
 exports.GetTeam = async (req, res, next) => {
-    if(req.user.TeamAdmin)
-    {
+    if (req.user.TeamAdmin) {
+
+        let requseridarr = []
+        let useridarr = []
+        // await req.user.RequestItem.forEach(element => {
+        //     teamidarr.push(element.object.teamid)
+        // });
         Team.findById(req.user.TeamID)
-    .then(team => {
-        res.render("getteam",{
-            User : req.user,
-            IsLogin : req.session.IsLogin,
-        });
-    })
+            .then(async team => {
+                await team.RequestItem.forEach(element => {
+                    requseridarr.push(element.object.userid)
+                });
+                console.log(requseridarr)
+                User.find({
+                    _id: {
+                        $in: requseridarr
+                    }
+                })
+                    .then(requsers => {
+                        Team.findById(req.user.TeamID)
+                            .then(async team => {
+                                await team.teammates.items.forEach(element => {
+                                    useridarr.push(element.userid)
+                                });
+                                console.log(useridarr)
+                                User.find({
+                                    _id: {
+                                        $in: useridarr
+                                    }
+                                })
+                                    .then(users => {
+
+                                        res.render("getteam", {
+                                            User: req.user,
+                                            IsLogin: req.session.IsLogin,
+                                            requsers: requsers,
+                                            users : users
+                                        });
+                                    })
+                            })
+                    })
+            })
+
+
+
+
+        // Team.findById(req.user.TeamID)
+        // .then(team => {
+        //     res.render("getteam",{
+        //         User : req.user,
+        //         IsLogin : req.session.IsLogin,
+        //     });
+        // })
     }
-    else{
-        res.render('error',{
-            info : 'Peyserliy eleme sen bura girenmersen',
-            info2 : `Peyserliy eleme`,
-            User : req.user,
-            IsLogin : req.session.IsLogin,
+    else {
+        res.render('error', {
+            info: 'Peyserliy eleme sen bura girenmersen',
+            info2: `Peyserliy eleme`,
+            User: req.user,
+            IsLogin: req.session.IsLogin,
         })
     }
 };
 
-exports.PostAddTeamMate = async (req, res, next) => {
+exports.GetAddTeamMate = async (req, res, next) => {
 
-    console.log(req.body)
+    console.log(req.params.username)
     Team.findById(req.user.TeamID)
-    .then(team => {
-        User.findOne({username : req.body.teammate})
-        .then(async user => {
-            if(user)
-            {
-                if (user.TeamStatus) {
-                        user.TeamStatus = true;
-                        user.TeamID = team._id
-                        user.save()
-                        .then(result => {
-                            team.AddTeamMates(user)
-                        })
-                        var obj = {
-                            teamid : team._id , userid : req.user._id, 
+        .then(team => {
+            User.findOne({ username: req.params.username })
+                .then(async user => {
+                    if (user) {
+                        if (!user.TeamStatus) {
+                            var obj = {
+                                teamid: team._id, userid: user._id,
+                            }
+                            console.log(user)
+                            await user.AddRequest(obj)
+                            await team.AddRequest(obj)
                         }
-                        console.log(user)
-                    await user.AddRequest(obj)
-                } 
-                else {
-                    res.render('error',{
-                        info : 'Qeydiyyat Problemi',
-                        info2 : `Bu username teami var direme`
-                    })
-                }
-            }
-            else{
-                res.json({data : false})
-            }
-           
-            res.redirect('/getteam')
+                        else {
+                            res.render('error', {
+                                info: 'Qeydiyyat Problemi',
+                                info2: `Bu username teami var direme`
+                            })
+                        }
+                    }
+                    else {
+                        res.json({ data: false })
+                    }
+
+                    res.redirect('/getteam')
+                })
         })
-    })
 };
 
 
@@ -311,103 +338,111 @@ exports.GetRequest = async (req, res, next) => {
     await req.user.RequestItem.forEach(element => {
         teamidarr.push(element.object.teamid)
     });
+    console.log(teamidarr)
     Team.find({
         _id: {
             $in: teamidarr
         }
     }).populate("AdminId", "name")
-    .then(teams => {
-        console.log(teams)
-        res.render("requestteam",{
-            User : req.user,
-            IsLogin : req.session.IsLogin,
-            teams : teams
-        });
-    })
-    
+        .then(teams => {
+            console.log(teams)
+            res.render("requestteam", {
+                User: req.user,
+                IsLogin: req.session.IsLogin,
+                teams: teams
+            });
+        })
+
 };
 
 exports.AcceptTeam = async (req, res, next) => {
 
     Team.findById(req.params.Id)
-    .then(team => {
-        User.findById(req.user._id)
-        .then(async user => {
-            team.AddTeamMates(user)
-            user.TeamStatus = true;
-            user.TeamID = team._id
-            await user.clearRequest()
-            res.redirect('/requestteam')
+        .then(team => {
+            User.findById(req.user._id)
+                .then(async user => {
+                    team.AddTeamMates(user)
+                    user.TeamStatus = true;
+                    user.TeamID = team._id
+                    await user.clearRequest()
+                    await team.RemoveRequest(user._id)
+                    res.redirect('/requestteam')
+                })
+
         })
-        
-    })
-    
+
 };
 
 exports.DeclineTeam = async (req, res, next) => {
 
     User.findById(req.user._id)
-        .then( async user => {
-          await  user.RemoveRequest(req.params.Id)
-            res.redirect('/requestteam')
+        .then(async user => {
+            await user.RemoveRequest(req.params.Id)
+            Team.findById(req.params.Id)
+            .then(async team => {
+                console.log(team)
+                await team.RemoveRequest(req.user._id)
+                res.redirect('/requestteam')
+            })
+            
         })
-    
+
 };
 
 //GetTeam
 
 exports.GetTeamOverviews = async (req, res, next) => {
     let userteam;
-    if(req.session.IsLogin)
-    {
-      await  req.user
-        .populate('TeamID' ,'name')
-        .execPopulate()
-        .then( user => {
-          userteam  = user
-        })
-    }
-    Team.findOne({name : req.params.team})
-    .then( team => {
-        
-        team.populate('teammates.items.userid')
-        .execPopulate()
-        .then(result => {
-            console.log(result.teammates.items)
-            res.render('teamoverviews',{
-                team : team,
-                teammates : result.teammates.items,
-                IsLogin : req.session.IsLogin,
-                User : userteam
+    if (req.session.IsLogin) {
+        await req.user
+            .populate('TeamID', 'name')
+            .execPopulate()
+            .then(user => {
+                userteam = user
             })
+    }
+    Team.findOne({ name: req.params.team })
+        .then(team => {
+
+            team.populate('teammates.items.userid')
+                .execPopulate()
+                .then(result => {
+                    console.log(result.teammates.items)
+                    res.render('teamoverviews', {
+                        team: team,
+                        teammates: result.teammates.items,
+                        IsLogin: req.session.IsLogin,
+                        User: userteam
+                    })
+                })
         })
-    })
 };
 
 //GetPlayer
 exports.GetPlayerOverviews = async (req, res, next) => {
     let userteam;
-    if(req.session.IsLogin)
-    {
-      await  req.user
-        .populate('TeamID' ,'name')
-        .execPopulate()
-        .then( user => {
-          userteam  = user
-        })
+    let teamlength
+    if (req.session.IsLogin) {
+        await req.user
+            .populate('TeamID', 'name')
+            .execPopulate()
+            .then(user => {
+                userteam = user
+                console.log(userteam)
+                Team.findById(userteam.TeamID._id)
+                    .then(team => {
+                        teamlength = team.teammates.items.length
+                        User.findOne({ username: req.params.player })
+                            .then(player => {
+                                res.render('playeroverview', {
+                                    player: player,
+                                    IsLogin: req.session.IsLogin,
+                                    User: userteam,
+                                    teamlength: teamlength
+                                })
+                            })
+                    })
+            })
     }
-    User.findOne({username : req.params.player})
-    .then( player => {
-        res.render('playeroverview',{
-            player : player,
-            IsLogin : req.session.IsLogin,
-            User : userteam
-        })
-        // team.populate('teammates.items.userid')
-        // .execPopulate()
-        // .then(result => {
-        //     console.log(result.teammates.items)
-            
-        // })
-    })
+
 };

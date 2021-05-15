@@ -36,7 +36,47 @@ const teamSchema = mongoose.Schema({
             }
         ]
     },
+    RequestItem : [
+
+    ],
 });
+
+
+teamSchema.methods.AddRequest = async function (object) {
+    const updated = [...this.RequestItem];
+    
+    const index = await this.RequestItem.findIndex(cp => {
+
+        return cp.object.userid.toString() === object.userid.toString()
+    });
+    if(index < 0)
+    {
+        console.log('isdedi')
+        updated.push({object});
+    }
+    this.RequestItem = updated
+
+    return this.save();
+}
+
+teamSchema.methods.RemoveRequest = async function (object) {
+    
+    const updated = await this.RequestItem.filter(item => {
+
+        return String(item.object.userid) !== String(object)
+    });
+    this.RequestItem = updated
+    console.log(updated,1)
+
+    return this.save();
+}
+
+teamSchema.methods.clearRequest = function () {
+    this.RequestItem = [];
+    return this.save();
+}
+
+
 
 teamSchema.methods.AddTeamMates = function (user) {
     const index = this.teammates.items.findIndex(cp => {
