@@ -1,18 +1,15 @@
-extends layouts/zonelayout.pug
+extends layouts/duellozonehome.pug
 block body
  .page-heading
   .container
     .row
       .col-md-10.offset-md-1
         h1.page-heading__title
-          | Login or 
-          span.highlight Register
+          span.highlight Login
         ol.page-heading__breadcrumb.breadcrumb
           li.breadcrumb-item
-            a(href='_football_index.html') Home
-          li.breadcrumb-item
-            a(href='_football_shop-list.html') Shop
-          li.breadcrumb-item.active(aria-current='page') Login or Register
+            a(href='/zone') Home
+          li.breadcrumb-item.active(aria-current='page') Login 
  // Page Heading / End
  //
   Content
@@ -46,6 +43,8 @@ block body
                     | Here
               .form-group.form-group--sm
                 button.btn.btn-primary-inverse.btn-lg.btn-block(type='submit') Sign in to your account
+              .form-group.form-group--sm
+                a.btn.btn-primary-inverse.btn-lg.btn-block(href='/register') Register
             // Login Form / End
         // Login / End
     //-   .col-lg-6

@@ -20,6 +20,10 @@ const teamSchema = mongoose.Schema({
         default : Date.now,
         required : true
     },
+    RequestStatus : {
+        type : Boolean,
+        default : true
+    },
     AdminId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -37,7 +41,10 @@ const teamSchema = mongoose.Schema({
         ]
     },
     RequestItem : [
-
+        
+    ],
+    InviteItem : [
+        
     ],
 });
 
@@ -73,6 +80,41 @@ teamSchema.methods.RemoveRequest = async function (object) {
 
 teamSchema.methods.clearRequest = function () {
     this.RequestItem = [];
+    return this.save();
+}
+
+
+teamSchema.methods.AddInvite = async function (object) {
+    const updated = [...this.InviteItem];
+    
+    const index = await this.InviteItem.findIndex(cp => {
+
+        return cp.object.userid.toString() === object.userid.toString()
+    });
+    if(index < 0)
+    {
+        console.log('isdedi')
+        updated.push({object});
+    }
+    this.InviteItem = updated
+
+    return this.save();
+}
+
+teamSchema.methods.RemoveInvite = async function (object) {
+    
+    const updated = await this.InviteItem.filter(item => {
+
+        return String(item.object.userid) !== String(object)
+    });
+    this.InviteItem = updated
+    console.log(updated,1)
+
+    return this.save();
+}
+
+teamSchema.methods.clearInvite = function () {
+    this.InviteItem = [];
     return this.save();
 }
 

@@ -31,7 +31,6 @@ block body
                 th.product__photo(style='text-align: center;') Name
                 th.product__info Surname
                 th.product__info username
-                th.product__price Accept
                 th.product__price Decline
             tbody
              -var i = 1;
@@ -51,9 +50,79 @@ block body
                   h5.product__name
                     a(href=`/player/${item.username}`) #{item.username}
                 td.product__remove
-                  a.fas.fa-check.product__remove-icon(href=`/acceptteam/${item._id}`)
+                  a.fas.fa-times.product__remove-icon(href=`/removerequest/${item._id}`)
+                  -i++;
+    .card.card--has-table
+      .card__header
+        h4 Your Team Request
+      .card__content
+        .table-responsive
+          table.table.shop-table
+            thead
+              tr
+                th.product__photo(style='text-align: center;') Number
+                th.product__photo(style='text-align: center;') Name
+                th.product__info Surname
+                th.product__info username
+                th.product__price Accept
+                th.product__price Decline
+            tbody
+             -var i = 1;
+             each item in inviteduser
+              tr
+                //- td.product__photo
+                //-   figure.product__thumb
+                //-     a(href='#')
+                //-       img(src=`/img/${item.logo}` alt='')
+                td.product__price
+                  | #{i}
+                td.product__price
+                  | #{item.name}
+                td.product__price(style='text-align: left;')
+                  | #{item.surname}
+                td.product__info
+                  h5.product__name
+                    a(href=`/player/${item.username}`) #{item.username}
                 td.product__remove
-                  a.fas.fa-times.product__remove-icon(href=`/declineteam/${item._id}`)
+                  a.fas.fa-check.product__remove-icon(href=`/acceptinvite/${item._id}`)
+                td.product__remove
+                  a.fas.fa-times.product__remove-icon(href=`/removeinvite/${item._id}`)
+                  -i++;
+    .card.card--has-table
+      .card__header
+        h4 Your Team Request
+      .card__content
+        .table-responsive
+          table.table.shop-table
+            thead
+              tr
+                th.product__photo(style='text-align: center;') Number
+                th.product__photo(style='text-align: center;') Name
+                th.product__info Surname
+                th.product__info username
+                th.product__price Accept
+                th.product__price Decline
+            tbody
+             -var i = 1;
+             each item in users
+              tr
+                //- td.product__photo
+                //-   figure.product__thumb
+                //-     a(href='#')
+                //-       img(src=`/img/${item.logo}` alt='')
+                td.product__price
+                  | #{i}
+                td.product__price
+                  | #{item.name}
+                td.product__price(style='text-align: left;')
+                  | #{item.surname}
+                td.product__info
+                  h5.product__name
+                    a(href=`/player/${item.username}`) #{item.username}
+                td.product__remove
+                  a.fas.fa-check.product__remove-icon(href=`/acceptinvite/${item._id}`)
+                td.product__remove
+                  a.fas.fa-times.product__remove-icon(href=`/removeinvite/${item._id}`)
                   -i++;
             // Checkout Payment / End
         // Cart Totals / End

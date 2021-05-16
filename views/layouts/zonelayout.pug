@@ -126,7 +126,7 @@ head
                 li
                   a(href='#') Türkçe
             li.nav-account__item.nav-account__item--logout
-              a(href='#') Logout
+              a(href='/logout') Logout
           // Account Navigation / End
     // Header Top Bar / End
     // Header Secondary
@@ -134,17 +134,16 @@ head
       .container
         // Header Search Form
         .header-search-form
-          form#mobile-search-form.search-form(action='#' style='margin-right : 10px;')
-            input.form-control.header-mobile__search-control(type='text' value='' placeholder='Komanda Axtar' style='border-radius : 1%;')
-            button.header-mobile__search-submit(type='submit')
+          .search-form( style='margin-right : 10px;')
+            input#searchteamvalue.form-control.header-mobile__search-control(type='text'  placeholder='Komanda Axtar' style='border-radius : 1%;')
+            button#searchteam.header-mobile__search-submit
               i.fas.fa-search
         .header-search-form
-          form#mobile-search-form.search-form(method='POST' action='#')
-            input.form-control.header-mobile__search-control(type='text' value='' placeholder='Oyuncu Axtar' style='border-radius : 1%;')
-            button#SearchPlayer.header-mobile__search-submit(type='submit')
+          .search-form
+            input#searchplayervalue.form-control.header-mobile__search-control(type='text'  placeholder='Oyuncu Axtar' style='border-radius : 1%;')
+            button#searchplayer.header-mobile__search-submit
               i.fas.fa-search
         // Header Search Form / End
-            // Dropdown Shopping Cart / End
     // Header Secondary / End
     // Header Primary
     .header__primary

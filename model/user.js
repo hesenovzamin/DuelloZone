@@ -49,6 +49,9 @@ const userSchema = mongoose.Schema({
     RequestItem : [
 
     ],
+    InviteItem : [
+
+    ],
     CreateDate : {
         type : Date,
         default : Date.now,
@@ -110,6 +113,40 @@ userSchema.methods.RemoveRequest = async function (object) {
 
 userSchema.methods.clearRequest = function () {
     this.RequestItem = [];
+    return this.save();
+}
+
+userSchema.methods.AddInvite = async function (object) {
+    const updated = [...this.InviteItem];
+    
+    const index = await this.InviteItem.findIndex(cp => {
+
+        return cp.object.teamid.toString() === object.teamid.toString()
+    });
+    if(index < 0)
+    {
+        console.log('isdedi')
+        updated.push({object});
+    }
+    this.InviteItem = updated
+
+    return this.save();
+}
+
+userSchema.methods.RemoveInvite = async function (object) {
+    
+    const updated = await this.InviteItem.filter(item => {
+
+        return String(item.object.teamid) !== String(object)
+    });
+    this.InviteItem = updated
+    console.log(updated,1)
+
+    return this.save();
+}
+
+userSchema.methods.clearInvite = function () {
+    this.InviteItem = [];
     return this.save();
 }
 

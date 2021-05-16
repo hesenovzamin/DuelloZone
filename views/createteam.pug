@@ -5,14 +5,11 @@ block body
     .row
       .col-md-10.offset-md-1
         h1.page-heading__title
-          | Login or 
-          span.highlight Register
+          span.highlight Create Team
         ol.page-heading__breadcrumb.breadcrumb
           li.breadcrumb-item
-            a(href='_football_index.html') Home
-          li.breadcrumb-item
-            a(href='_football_shop-list.html') Shop
-          li.breadcrumb-item.active(aria-current='page') Login or Register
+            a(href='/home') Home
+          li.breadcrumb-item.active(aria-current='page') Create Team
  // Page Heading / End
  //
   Content
@@ -24,7 +21,7 @@ block body
         // Register
         .card
           .card__header
-            h4 Register Now
+            h4 Create Team
           .card__content
             // Register Form
             form(action='/createteam' method='POST' enctype='multipart/form-data')

@@ -68,13 +68,6 @@ app.use('/',UserRouter);
 // app.use('/admin',adminRoutes);
  
 
-
-
-app.use('/',(req,res,next) => {
-    res.send('<h1>Salam</h1>');
-
-});
-
  
 mongoose.connect(connectString ,{ useNewUrlParser: true ,useCreateIndex : true ,useUnifiedTopology: true })
 
