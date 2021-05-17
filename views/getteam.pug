@@ -18,8 +18,8 @@ block body
   ==================================================
  .site-content
   .container
-    // Shopping Cart
-    .card.card--has-table
+    if requsers.length > 0
+     .card.card--has-table
       .card__header
         h4 Your Team Invites
       .card__content
@@ -52,7 +52,8 @@ block body
                 td.product__remove
                   a.fas.fa-times.product__remove-icon(href=`/removerequest/${item._id}`)
                   -i++;
-    .card.card--has-table
+    if inviteduser.length > 0
+     .card.card--has-table
       .card__header
         h4 Your Team Request
       .card__content
@@ -90,7 +91,11 @@ block body
                   -i++;
     .card.card--has-table
       .card__header
-        h4 Your Team Request
+        h4 Your TeamMates
+        if team.RequestStatus === true
+         a.btn.btn-default.btn-outline.btn-xs.card-header__button(href=`/closeinvite`) Close TeamInvite
+        else 
+         a.btn.btn-default.btn-outline.btn-xs.card-header__button(href=`/openinvite`) Open TeamInvite
       .card__content
         .table-responsive
           table.table.shop-table
@@ -100,8 +105,8 @@ block body
                 th.product__photo(style='text-align: center;') Name
                 th.product__info Surname
                 th.product__info username
-                th.product__price Accept
-                th.product__price Decline
+                //- th.product__price Accept
+                //- th.product__price Decline
             tbody
              -var i = 1;
              each item in users
@@ -119,10 +124,10 @@ block body
                 td.product__info
                   h5.product__name
                     a(href=`/player/${item.username}`) #{item.username}
-                td.product__remove
-                  a.fas.fa-check.product__remove-icon(href=`/acceptinvite/${item._id}`)
-                td.product__remove
-                  a.fas.fa-times.product__remove-icon(href=`/removeinvite/${item._id}`)
+                //- td.product__remove
+                //-   a.fas.fa-check.product__remove-icon(href=`/acceptinvite/${item._id}`)
+                //- td.product__remove
+                //-   a.fas.fa-times.product__remove-icon(href=`/removeinvite/${item._id}`)
                   -i++;
             // Checkout Payment / End
         // Cart Totals / End

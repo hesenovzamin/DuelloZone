@@ -17,6 +17,7 @@ app.set('views','./views');
  const connectString = 'mongodb+srv://zaminhesenov:k25DCx64c8XWQiWG@cluster0.lzbqs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 // const adminRoutes = require('./routes/admin');
  const UserRouter = require('./router/user');
+ const AdminRouter = require('./router/admin');
 // const { connect } = require('./routes/admin');
 
 
@@ -57,7 +58,7 @@ app.use((req, res, next) => {
         return next();
     }
     User.findById(req.session.user._id)
-        .then(user => {
+        .then(user => { 
             req.user = user;
             next();
         })
@@ -65,6 +66,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/',UserRouter);
+app.use('/admin',AdminRouter);
 // app.use('/admin',adminRoutes);
  
 

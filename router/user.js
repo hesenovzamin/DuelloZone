@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controller/user');
 const ControlSession = require('../authentication/authentication');
+const ControlTeamAdmin = require('../authentication/redirect');
 
 
 //home
@@ -34,8 +35,10 @@ router.post('/updatepassword',ControlSession,UserController.PostUpdatePassword)
 
 
 //GetTeam
-router.get('/getteam',ControlSession,UserController.GetTeam)
-router.get('/addteammate/:username',ControlSession,UserController.GetAddTeamMate)
+router.get('/getteam',ControlSession,ControlTeamAdmin,UserController.GetTeam)
+router.get('/closeinvite',ControlSession,ControlTeamAdmin,UserController.GetCloseTeamInvite)
+router.get('/openinvite',ControlSession,ControlTeamAdmin,UserController.GetOpenTeamInvite)
+router.get('/addteammate/:username',ControlSession,ControlTeamAdmin,UserController.GetAddTeamMate)
 
 //RequestTeam
 router.get('/requestteam',ControlSession,UserController.GetRequest)

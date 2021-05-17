@@ -16,9 +16,11 @@ const userSchema = mongoose.Schema({
     },
     TeamStatus :{
         type : Boolean,
+        default : false
     },
     TeamAdmin :{
         type : Boolean,
+        default : false
     },
     TeamID :{
         type: mongoose.Schema.Types.ObjectId,

@@ -1,0 +1,283 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  title Corona Admin
+  // plugins:css
+  link(rel='stylesheet' href='/assetsadmin/vendors/mdi/css/materialdesignicons.min.css')
+  link(rel='stylesheet' href='/assetsadmin/vendors/css/vendor.bundle.base.css')
+  // endinject
+  // Plugin css for this page
+  link(rel='stylesheet' href='/assetsadmin/vendors/jvectormap/jquery-jvectormap.css')
+  link(rel='stylesheet' href='/assetsadmin/vendors/flag-icon-css/css/flag-icon.min.css')
+  link(rel='stylesheet' href='/assetsadmin/vendors/owl-carousel-2/owl.carousel.min.css')
+  link(rel='stylesheet' href='/assetsadmin/vendors/owl-carousel-2/owl.theme.default.min.css')
+  // End plugin css for this page
+  // inject:css
+  // endinject
+  // Layout styles
+  link(rel='stylesheet' href='/assetsadmin/css/style.css')
+  // End layout styles
+  link(rel='shortcut icon' href='/assetsadmin/images/favicon.png')
+.container-scroller
+  // partial:partials/_sidebar.html
+  nav#sidebar.sidebar.sidebar-offcanvas
+    .sidebar-brand-wrapper.d-none.d-lg-flex.align-items-center.justify-content-center.fixed-top
+      a.sidebar-brand.brand-logo(href='index.html')
+        img(src='/assetsadmin/images/logo.svg' alt='logo')
+      a.sidebar-brand.brand-logo-mini(href='index.html')
+        img(src='/assetsadmin/images/logo-mini.svg' alt='logo')
+    ul.nav
+      li.nav-item.profile
+        .profile-desc
+          .profile-pic
+            .count-indicator
+              img.img-xs.rounded-circle(src='/assetsadmin/images/faces/face15.jpg' alt='')
+              span.count.bg-success
+            .profile-name
+              h5.mb-0.font-weight-normal Henry Klein
+              span Gold Member
+          a#profile-dropdown(href='#' data-toggle='dropdown')
+            i.mdi.mdi-dots-vertical
+          .dropdown-menu.dropdown-menu-right.sidebar-dropdown.preview-list(aria-labelledby='profile-dropdown')
+            a.dropdown-item.preview-item(href='#')
+              .preview-thumbnail
+                .preview-icon.bg-dark.rounded-circle
+                  i.mdi.mdi-settings.text-primary
+              .preview-item-content
+                p.preview-subject.ellipsis.mb-1.text-small Account settings
+            .dropdown-divider
+            a.dropdown-item.preview-item(href='#')
+              .preview-thumbnail
+                .preview-icon.bg-dark.rounded-circle
+                  i.mdi.mdi-onepassword.text-info
+              .preview-item-content
+                p.preview-subject.ellipsis.mb-1.text-small Change Password
+            .dropdown-divider
+            a.dropdown-item.preview-item(href='#')
+              .preview-thumbnail
+                .preview-icon.bg-dark.rounded-circle
+                  i.mdi.mdi-calendar-today.text-success
+              .preview-item-content
+                p.preview-subject.ellipsis.mb-1.text-small To-do list
+      li.nav-item.nav-category
+        span.nav-link Navigation
+      li.nav-item.menu-items
+        a.nav-link(href='index.html')
+          span.menu-icon
+            i.mdi.mdi-speedometer
+          span.menu-title Dashboard
+      li.nav-item.menu-items
+        a.nav-link(data-toggle='collapse' href='#ui-basic' aria-expanded='false' aria-controls='ui-basic')
+          span.menu-icon
+            i.mdi.mdi-laptop
+          span.menu-title Basic UI Elements
+          i.menu-arrow
+        #ui-basic.collapse
+          ul.nav.flex-column.sub-menu
+            li.nav-item
+              a.nav-link(href='pages/ui-features/buttons.html') Buttons
+            li.nav-item
+              a.nav-link(href='pages/ui-features/dropdowns.html') Dropdowns
+            li.nav-item
+              a.nav-link(href='pages/ui-features/typography.html') Typography
+      li.nav-item.menu-items
+        a.nav-link(href='pages/forms/basic_elements.html')
+          span.menu-icon
+            i.mdi.mdi-playlist-play
+          span.menu-title Form Elements
+      li.nav-item.menu-items
+        a.nav-link(href='pages/tables/basic-table.html')
+          span.menu-icon
+            i.mdi.mdi-table-large
+          span.menu-title Tables
+      li.nav-item.menu-items
+        a.nav-link(href='pages/charts/chartjs.html')
+          span.menu-icon
+            i.mdi.mdi-chart-bar
+          span.menu-title Charts
+      li.nav-item.menu-items
+        a.nav-link(href='pages/icons/mdi.html')
+          span.menu-icon
+            i.mdi.mdi-contacts
+          span.menu-title Icons
+      li.nav-item.menu-items
+        a.nav-link(data-toggle='collapse' href='#auth' aria-expanded='false' aria-controls='auth')
+          span.menu-icon
+            i.mdi.mdi-security
+          span.menu-title User Pages
+          i.menu-arrow
+        #auth.collapse
+          ul.nav.flex-column.sub-menu
+            li.nav-item
+              a.nav-link(href='pages/samples/blank-page.html')  Blank Page 
+            li.nav-item
+              a.nav-link(href='pages/samples/error-404.html')  404 
+            li.nav-item
+              a.nav-link(href='pages/samples/error-500.html')  500 
+            li.nav-item
+              a.nav-link(href='pages/samples/login.html')  Login 
+            li.nav-item
+              a.nav-link(href='pages/samples/register.html')  Register 
+      li.nav-item.menu-items
+        a.nav-link(href='http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html')
+          span.menu-icon
+            i.mdi.mdi-file-document-box
+          span.menu-title Documentation
+  // partial
+  .container-fluid.page-body-wrapper
+    // partial:partials/_navbar.html
+    nav.navbar.p-0.fixed-top.d-flex.flex-row
+      .navbar-brand-wrapper.d-flex.d-lg-none.align-items-center.justify-content-center
+        a.navbar-brand.brand-logo-mini(href='index.html')
+          img(src='/assetsadmin/images/logo-mini.svg' alt='logo')
+      .navbar-menu-wrapper.flex-grow.d-flex.align-items-stretch
+        button.navbar-toggler.navbar-toggler.align-self-center(type='button' data-toggle='minimize')
+          span.mdi.mdi-menu
+        ul.navbar-nav.w-100
+          li.nav-item.w-100
+            form.nav-link.mt-2.mt-md-0.d-none.d-lg-flex.search
+              input.form-control(type='text' placeholder='Search products')
+        ul.navbar-nav.navbar-nav-right
+          li.nav-item.dropdown.d-none.d-lg-block
+            a#createbuttonDropdown.nav-link.btn.btn-success.create-new-button(data-toggle='dropdown' aria-expanded='false' href='#') + Create New Project
+            .dropdown-menu.dropdown-menu-right.navbar-dropdown.preview-list(aria-labelledby='createbuttonDropdown')
+              h6.p-3.mb-0 Projects
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-file-outline.text-primary
+                .preview-item-content
+                  p.preview-subject.ellipsis.mb-1 Software Development
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-web.text-info
+                .preview-item-content
+                  p.preview-subject.ellipsis.mb-1 UI Development
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-layers.text-danger
+                .preview-item-content
+                  p.preview-subject.ellipsis.mb-1 Software Testing
+              .dropdown-divider
+              p.p-3.mb-0.text-center See all projects
+          li.nav-item.nav-settings.d-none.d-lg-block
+            a.nav-link(href='#')
+              i.mdi.mdi-view-grid
+          li.nav-item.dropdown.border-left
+            a#messageDropdown.nav-link.count-indicator.dropdown-toggle(href='#' data-toggle='dropdown' aria-expanded='false')
+              i.mdi.mdi-email
+              span.count.bg-success
+            .dropdown-menu.dropdown-menu-right.navbar-dropdown.preview-list(aria-labelledby='messageDropdown')
+              h6.p-3.mb-0 Messages
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  img.rounded-circle.profile-pic(src='/assetsadmin/images/faces/face4.jpg' alt='image')
+                .preview-item-content
+                  p.preview-subject.ellipsis.mb-1 Mark send you a message
+                  p.text-muted.mb-0  1 Minutes ago 
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  img.rounded-circle.profile-pic(src='/assetsadmin/images/faces/face2.jpg' alt='image')
+                .preview-item-content
+                  p.preview-subject.ellipsis.mb-1 Cregh send you a message
+                  p.text-muted.mb-0  15 Minutes ago 
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  img.rounded-circle.profile-pic(src='/assetsadmin/images/faces/face3.jpg' alt='image')
+                .preview-item-content
+                  p.preview-subject.ellipsis.mb-1 Profile picture updated
+                  p.text-muted.mb-0  18 Minutes ago 
+              .dropdown-divider
+              p.p-3.mb-0.text-center 4 new messages
+          li.nav-item.dropdown.border-left
+            a#notificationDropdown.nav-link.count-indicator.dropdown-toggle(href='#' data-toggle='dropdown')
+              i.mdi.mdi-bell
+              span.count.bg-danger
+            .dropdown-menu.dropdown-menu-right.navbar-dropdown.preview-list(aria-labelledby='notificationDropdown')
+              h6.p-3.mb-0 Notifications
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-calendar.text-success
+                .preview-item-content
+                  p.preview-subject.mb-1 Event today
+                  p.text-muted.ellipsis.mb-0  Just a reminder that you have an event today 
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-settings.text-danger
+                .preview-item-content
+                  p.preview-subject.mb-1 Settings
+                  p.text-muted.ellipsis.mb-0  Update dashboard 
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-link-variant.text-warning
+                .preview-item-content
+                  p.preview-subject.mb-1 Launch Admin
+                  p.text-muted.ellipsis.mb-0  New admin wow! 
+              .dropdown-divider
+              p.p-3.mb-0.text-center See all notifications
+          li.nav-item.dropdown
+            a#profileDropdown.nav-link(href='#' data-toggle='dropdown')
+              .navbar-profile
+                img.img-xs.rounded-circle(src='/assetsadmin/images/faces/face15.jpg' alt='')
+                p.mb-0.d-none.d-sm-block.navbar-profile-name Henry Klein
+                i.mdi.mdi-menu-down.d-none.d-sm-block
+            .dropdown-menu.dropdown-menu-right.navbar-dropdown.preview-list(aria-labelledby='profileDropdown')
+              h6.p-3.mb-0 Profile
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-settings.text-success
+                .preview-item-content
+                  p.preview-subject.mb-1 Settings
+              .dropdown-divider
+              a.dropdown-item.preview-item
+                .preview-thumbnail
+                  .preview-icon.bg-dark.rounded-circle
+                    i.mdi.mdi-logout.text-danger
+                .preview-item-content
+                  p.preview-subject.mb-1 Log out
+              .dropdown-divider
+              p.p-3.mb-0.text-center Advanced settings
+        button.navbar-toggler.navbar-toggler-right.d-lg-none.align-self-center(type='button' data-toggle='offcanvas')
+          span.mdi.mdi-format-line-spacing
+    // partial
+    block body
+  // page-body-wrapper ends
+// container-scroller
+// plugins:js
+script(src='/assetsadmin/vendors/js/vendor.bundle.base.js')
+// endinject
+// Plugin js for this page
+script(src='/assetsadmin/vendors/chart.js/Chart.min.js')
+script(src='/assetsadmin/vendors/progressbar.js/progressbar.min.js')
+script(src='/assetsadmin/vendors/jvectormap/jquery-jvectormap.min.js')
+script(src='/assetsadmin/vendors/jvectormap/jquery-jvectormap-world-mill-en.js')
+script(src='/assetsadmin/vendors/owl-carousel-2/owl.carousel.min.js')
+// End plugin js for this page
+// inject:js
+script(src='/assetsadmin/js/off-canvas.js')
+script(src='/assetsadmin/js/hoverable-collapse.js')
+script(src='/assetsadmin/js/misc.js')
+script(src='/assetsadmin/js/settings.js')
+script(src='/assetsadmin/js/todolist.js')
+// endinject
+// Custom js for this page
+script(src='/assetsadmin/js/dashboard.js')
+// End custom js for this page

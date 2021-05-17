@@ -79,7 +79,7 @@ head
           ul.nav-account
             li.nav-account__item
               //a(href='#' data-toggle='modal' data-target='#modal-login-register') 
-              a(href='/account') #{User.username}
+              a(href=`/player/${User.username}`) #{User.username}
             li.nav-account__item
               //a(href='#' data-toggle='modal' data-target='#modal-login-register') 
               a(href='/account') Your Account

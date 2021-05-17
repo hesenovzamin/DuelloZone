@@ -69,7 +69,7 @@ block body
       .content.col-lg-8
         // Game Scoreboard
         .card
-          if (!User.TeamStatus && team.teammates.items.length < 11)
+          if (!User.TeamStatus && team.teammates.items.length < 11 && team.RequestStatus === true)
            header.card__header.card__header--has-btn
             h4 Request Team
             a.btn.btn-default.btn-outline.btn-xs.card-header__button(href=`/sendrequest/${User.username}/${team.name}`)

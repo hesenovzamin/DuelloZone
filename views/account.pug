@@ -69,11 +69,11 @@ block body
                 .col-md-6
                   .form-group
                     label(for='account-password') Change Password
-                    input#account-password.form-control(type='password'  value='' name='account_password' placeholder='**********')
+                    input#account-password.form-control(type='password'  value='' name='account_password' placeholder='**********' required='')
                 .col-md-6
                   .form-group
                     label(for='account-password-repeat') Repeat Password
-                    input#account-password-repeat.form-control(type='password'  value='' name='account_password_repeat' placeholder='**********')
+                    input#account-password-repeat.form-control(type='password'  value='' name='account_password_repeat' placeholder='**********'  required='')
               .form-group--submit
                 button.btn.btn-default.btn-lg.btn-block(type='submit')
                   | Change Password

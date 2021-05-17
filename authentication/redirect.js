@@ -1,22 +1,13 @@
 
-let url = '';
-
-if (req.session.redirectTo == undefined) url = "/";
-else {
-  url = req.session.redirectTo;
-}
-
-
-
-
 module.exports = (req,res,next) => {
 
-    if (req.session.redirectTo == undefined)
+    if (req.session.user.TeamAdmin)
     next();
     else {
-        url = req.session.redirectTo;
-        res.redirect(url);
-        delete req.session.redirectTo;
+       res.render('error', {
+        info: 'Admin Olmalisan',
+        info2: 'Yeniden Yoxlayin'
+    })
       }
 
 }
