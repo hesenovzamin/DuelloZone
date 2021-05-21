@@ -1,0 +1,67 @@
+extends ../layouts/adminlayout.pug
+block body 
+ .main-panel
+  .content-wrapper
+    .page-header
+      h3.page-title  Basic Tables 
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href='#') Tables
+          li.breadcrumb-item.active(aria-current='page') Basic tables
+    .row
+      .col-lg-12.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title User List
+            p.card-description
+              | Add class 
+              code .table
+            .table-responsive
+              table#datatable.table
+                thead
+                  tr
+                    th Name
+                    th Surname
+                    th Username
+                    th riotid
+                    th Email
+                    th Password
+                    th Rank
+                    th Edit
+                    th Ban
+                tbody
+                 each item in users
+                  tr
+                    td #{item.name}
+                    td #{item.surname}
+                    td #{item.username}
+                    td #{item.riotid}
+                    td #{item.email}
+                    td #{item.password}
+                    td #{item.rank}
+                    td
+                       a.btn.btn-primary(href=`/admin/edit/${item._id}`) Edit
+                    td
+                      if item.BanStatus === false
+                       a.btn.btn-danger(href=`/admin/banuser/${item._id}`) Ban
+                      else 
+                       a.btn.btn-primary(href=`/admin/banuser/${item._id}`) DeleteBan
+
+  footer.footer
+    .d-sm-flex.justify-content-center.justify-content-sm-between
+      span.text-muted.d-block.text-center.text-sm-left.d-sm-inline-block Copyright &copy; bootstrapdash.com 2020
+      span.float-none.float-sm-right.d-block.mt-1.mt-sm-0.text-center
+        | Free 
+        a(href='https://www.bootstrapdash.com/bootstrap-admin-template/' target='_blank') Bootstrap admin templates
+        |  from Bootstrapdash.com
+  // partial
+
+block script 
+ script.
+  console.log($('.table-responsive'))
+  $(document).ready(function() {
+    $('#datatable').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+  } );

@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 const Team = require('./team')
+const Moment = require('moment');
 
 
 const userSchema = mongoose.Schema({
     name : {
         type : String,
+        required : true,
     },
     surname : {
         type : String,
+        required : true,
     },
     username : {
         type : String,
@@ -15,6 +18,10 @@ const userSchema = mongoose.Schema({
         unique: true
     },
     TeamStatus :{
+        type : Boolean,
+        default : false
+    },
+    BanStatus :{
         type : Boolean,
         default : false
     },
@@ -33,7 +40,6 @@ const userSchema = mongoose.Schema({
     riotid : {
         type : String,
         required : true,
-        unique: true
     },
     email : {
         type : String,
@@ -59,6 +65,20 @@ const userSchema = mongoose.Schema({
         default : Date.now,
         required : true
     },
+    BanDate : {
+        type : Date,
+        default : Date.now,
+        required : true
+    },
+    Kill : {
+        type : Number,
+    },
+    Death : {
+        type : Number,
+    },
+    Assist : {
+        type : Number,
+    },
     resetToken : String,
     // cart: {
     //     items: [
@@ -77,12 +97,16 @@ const userSchema = mongoose.Schema({
     // }
     
     
+},{
+    toJSON : {virtuals : true},
+    toObject : {virtuals : true}
 }
 );
 
-
-
-
+userSchema.virtual('StartDate').get(function() {
+    
+    return Moment(this.createDate).locale("az").format('LLL')
+})
 
 userSchema.methods.AddRequest = async function (object) {
     const updated = [...this.RequestItem];

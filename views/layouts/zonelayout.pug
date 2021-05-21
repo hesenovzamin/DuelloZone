@@ -116,15 +116,15 @@ head
             //-       a(href='#') EUR
             //-     li
             //-       a(href='#') GBP
-            li.nav-account__item
-              a(href='#')
-                | Language: 
-                span.highlight EN
-              ul.main-nav__sub
-                li
-                  a(href='#') English
-                li
-                  a(href='#') Türkçe
+            //- li.nav-account__item
+            //-   a(href='#')
+            //-     | Language: 
+            //-     span.highlight EN
+            //-   ul.main-nav__sub
+            //-     li
+            //-       a(href='#') English
+            //-     li
+            //-       a(href='#') Türkçe
             li.nav-account__item.nav-account__item--logout
               a(href='/logout') Logout
           // Account Navigation / End
@@ -134,14 +134,14 @@ head
       .container
         // Header Search Form
         .header-search-form
-          .search-form( style='margin-right : 10px;')
-            input#searchteamvalue.form-control.header-mobile__search-control(type='text'  placeholder='Komanda Axtar' style='border-radius : 1%;')
-            button#searchteam.header-mobile__search-submit
+          form.search-form( style='margin-right : 10px;')(method='GET' action='/team')
+            input#searchteamvalue.form-control.header-mobile__search-control(type='text' name='team'  placeholder='Komanda Axtar' style='border-radius : 1%;')
+            button#searchteam.header-mobile__search-submit(type='submit')
               i.fas.fa-search
         .header-search-form
-          .search-form
-            input#searchplayervalue.form-control.header-mobile__search-control(type='text'  placeholder='Oyuncu Axtar' style='border-radius : 1%;')
-            button#searchplayer.header-mobile__search-submit
+          form(method='GET' action='/player').search-form
+            input#searchplayervalue.form-control.header-mobile__search-control(type='text' name='player'  placeholder='Oyuncu Axtar' style='border-radius : 1%;')
+            button#searchplayer.header-mobile__search-submit(type='submit')
               i.fas.fa-search
         // Header Search Form / End
     // Header Secondary / End
@@ -159,12 +159,10 @@ head
             ul.main-nav__list
               li
                 a(href='/home') Home
-              li
+              //li
                 a(href='/home') Leage
-              li
+              //li
                 a(href='/home') News
-              li
-                a(href='/home') Contact Us
                 //ul.main-nav__sub
                   li.active
                     a(href='index.html') Home - version 1

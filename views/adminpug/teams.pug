@@ -1,0 +1,57 @@
+extends ../layouts/adminlayout.pug
+block body 
+ .main-panel
+  .content-wrapper
+    .page-header
+      h3.page-title  Basic Tables 
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href='#') Tables
+          li.breadcrumb-item.active(aria-current='page') Basic tables
+    .row
+      .col-lg-12.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title User List
+            p.card-description
+              | Add class 
+              code .table
+            .table-responsive
+              table#datatable.table
+                thead
+                  tr
+                    th Name
+                    th Logo
+                    th createDate
+                    th Admin
+                    th RequestStatus
+                    th Edit
+                tbody
+                 each item in teams
+                  tr
+                    td #{item.name}
+                    td #{item.logo}
+                    td #{item.StartDate}
+                    td #{item.AdminId.username}
+                    td #{item.RequestStatus}
+                    td
+                       a.btn.btn-primary(href=`/admin/editteam/${item._id}`) Edit
+
+  footer.footer
+    .d-sm-flex.justify-content-center.justify-content-sm-between
+      span.text-muted.d-block.text-center.text-sm-left.d-sm-inline-block Copyright &copy; bootstrapdash.com 2020
+      span.float-none.float-sm-right.d-block.mt-1.mt-sm-0.text-center
+        | Free 
+        a(href='https://www.bootstrapdash.com/bootstrap-admin-template/' target='_blank') Bootstrap admin templates
+        |  from Bootstrapdash.com
+  // partial
+
+block script 
+ script.
+  console.log($('.table-responsive'))
+  $(document).ready(function() {
+    $('#datatable').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+  } );

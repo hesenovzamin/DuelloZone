@@ -1,0 +1,327 @@
+extends ../layouts/adminlayout.pug
+block body 
+ .main-panel
+  .content-wrapper
+    .page-header
+      h3.page-title  Edit User
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href='#') Forms
+          li.breadcrumb-item.active(aria-current='page') Form elements
+    .row
+      .col-12.grid-margin
+        .card
+          .card-body
+            h4.card-title Edit Current User
+            form.form-sample(action='/admin/creategame' method='POST')
+              p.card-description  Personal info 
+              .row
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label   #{team1.name} Win Round
+                    .col-sm-9
+                      input.form-control(type='number' name='name' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player1 Name
+                    .col-sm-9
+                      select.form-control( name='player1' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player1 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player1kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player1 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player1assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player1 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player1death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player2 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player2' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player2 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player2kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player2 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player2assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player2 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player2death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player3 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player3' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player3 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player3kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player3 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player3assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player3 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player3death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player4 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player4' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player4 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player4kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player4 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player4assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player4 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player4death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player5 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player5' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player5 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player5kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player5 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player5assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player5 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player5death' value=``)
+              .row
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label   #{team2.name} Win Round
+                    .col-sm-9
+                      input.form-control(type='number' name='name' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player1 Name
+                    .col-sm-9
+                      select.form-control( name='player6' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player1 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player6kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player1 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player6assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player1 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player6death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player2 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player7' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player2 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player7kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player2 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player7assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player2 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player7death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player3 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player8' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player3 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player8kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player3 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player8assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player3 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player8death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player4 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player9' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player4 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player9kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player4 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player9assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player4 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player9death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label  Player5 Name
+                    .col-sm-9
+                      select.form-control(type='text' name='player10' value=``)
+                       option(value=``)  Salam
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player5 Kill
+                    .col-sm-9
+                      input.form-control(type='number' name='player10kill' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player5 Assist
+                    .col-sm-9
+                      input.form-control(type='number' name='player10assist' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Player5 Death
+                    .col-sm-9
+                      input.form-control(type='number' name='player10death' value=``)
+                .col-md-6
+                  .form-group.row
+                    label.col-sm-3.col-form-label Submit
+                    .col-sm-9
+                      button.btn.btn-primary(type='submit' ) Submit
+            //-   .row
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Gender
+            //-         .col-sm-9
+            //-           select.form-control(value='salam')
+            //-             option Male
+            //-             option Female
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Date of Birth
+            //-         .col-sm-9
+            //-           input.form-control(placeholder='dd/mm/yyyy')
+            //-   .row
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Category
+            //-         .col-sm-9
+            //-           select.form-control
+            //-             option Category1
+            //-             option Category2
+            //-             option Category3
+            //-             option Category4
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Membership
+            //-         .col-sm-4
+            //-           .form-check
+            //-             label.form-check-label
+            //-               input#membershipRadios1.form-check-input(type='radio' name='membershipRadios' value='' checked='')
+            //-               |  Free
+            //-         .col-sm-5
+            //-           .form-check
+            //-             label.form-check-label
+            //-               input#membershipRadios2.form-check-input(type='radio' name='membershipRadios' value='option2')
+            //-               |  Professional
+            //-   p.card-description  Address 
+            //-   .row
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Address 1
+            //-         .col-sm-9
+            //-           input.form-control(type='text')
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label State
+            //-         .col-sm-9
+            //-           input.form-control(type='text')
+            //-   .row
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Address 2
+            //-         .col-sm-9
+            //-           input.form-control(type='text')
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Postcode
+            //-         .col-sm-9
+            //-           input.form-control(type='text')
+            //-   .row
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label City
+            //-         .col-sm-9
+            //-           input.form-control(type='text')
+            //-     .col-md-6
+            //-       .form-group.row
+            //-         label.col-sm-3.col-form-label Country
+            //-         .col-sm-9
+            //-           select.form-control
+            //-             option America
+            //-             option Italy
+            //-             option Russia
+            //-             option Britain
+  footer.footer
+    .d-sm-flex.justify-content-center.justify-content-sm-between
+      span.text-muted.d-block.text-center.text-sm-left.d-sm-inline-block Copyright &copy; bootstrapdash.com 2020
+      span.float-none.float-sm-right.d-block.mt-1.mt-sm-0.text-center
+        | Free 
+        a(href='https://www.bootstrapdash.com/bootstrap-admin-template/' target='_blank') Bootstrap admin templates
+        |  from Bootstrapdash.com
+  // partial

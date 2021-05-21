@@ -6,6 +6,7 @@ const router = express.Router();
 const UserController = require('../controller/user');
 const ControlSession = require('../authentication/authentication');
 const ControlTeamAdmin = require('../authentication/redirect');
+const ControlIslogin = require('../authentication/islogin');
 
 
 //home
@@ -13,14 +14,14 @@ router.get('/zone', UserController.GetHome);
 router.get('/home',ControlSession, UserController.GetIndex);
 
 //Register
-router.get('/register', UserController.GetRegister);
-router.post('/register', UserController.PostRegister);
+router.get('/register',ControlIslogin, UserController.GetRegister);
+router.post('/register',ControlIslogin, UserController.PostRegister);
 
 
 //Login
 router.get('/login', UserController.GetLogin);
 router.get('/logout', UserController.Logout);
-router.post('/login', UserController.PostLogin);
+router.post('/login',ControlIslogin, UserController.PostLogin);
 
 
 //CreateTeam
@@ -50,11 +51,14 @@ router.get('/removeinvite/:Id',ControlSession,UserController.DeclineUser)
 router.get('/removerequest/:Id',ControlSession,UserController.DeclineUserRequest)
 
 //TeamOverviews
+router.get('/team',UserController.GetTeamOverviewss)
 router.get('/team/:team',UserController.GetTeamOverviews)
 
 //PlayerOverviews
 router.get('/player/:player',ControlSession,UserController.GetPlayerOverviews)
+router.get('/player',ControlSession,UserController.GetPlayerOverviewss)
 router.get('/sendrequest/:username/:teamname',ControlSession,UserController.GetSendRequestTeam)
+router.get('/deleterequest/:username/:teamname',ControlSession,UserController.DeclineTeamRequest)
 
 
 //League

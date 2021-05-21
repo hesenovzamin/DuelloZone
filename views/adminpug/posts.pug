@@ -1,0 +1,81 @@
+extends ../layouts/adminlayout.pug
+block body 
+ .main-panel
+  .content-wrapper
+    .page-header
+    .row
+       .col-md-12.grid-margin.stretch-card
+         .card
+            .card-body
+                h4.card-title Add League
+                form.forms-sample(method='POST' action='/admin/addpost')
+                    .form-group
+                        label(for='exampleInputUsername1') Name
+                        input#exampleInputUsername1.form-control(type='text' placeholder='name' name='name')
+                    .form-group
+                        label(for='exampleInputUsername1') ImgUrl
+                        input#team_logo.form-control( type='file'   name="File" multiple='' placeholder='If you do not upload a logo, team logo will set by default.')
+                    .form-group
+                        label(for='exampleInputUsername1') Paragraf
+                        input#exampleInputUsername1.form-control(type='text' placeholder='name' name='name')
+                    button.btn.btn-primary.mr-2(type='submit') Submit
+
+       .col-lg-12.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title League List
+            p.card-description
+              | Add class 
+              code .table
+            .table-responsive
+              table#datatable.table
+                thead
+                  tr
+                    th Name
+                    th ImgUrl
+                    th Edit
+                tbody
+                 each item in league
+                  tr
+                    td #{item.name}
+                    td #{item.ImgUrl}
+                    td
+                       a.btn.btn-primary(href=`/admin/edit/${item._id}`) Edit
+                    td 
+                     .row
+                        .col-md-5
+                         select#team1(aria-label='Default select example' name='Team1')
+                            each item in teams
+                             option(value=`${item._id}`) #{item.name}
+                        .col-md-5
+                         select#team2(aria-label='Default select example' name='Team2')
+                            each item in teams
+                             option(value=`${item._id}`) #{item.name}
+                        .col-md-2
+                         a#Match.btn.btn-primary() AddMatch
+
+  footer.footer
+    .d-sm-flex.justify-content-center.justify-content-sm-between
+      span.text-muted.d-block.text-center.text-sm-left.d-sm-inline-block Copyright &copy; bootstrapdash.com 2020
+      span.float-none.float-sm-right.d-block.mt-1.mt-sm-0.text-center
+        | Free 
+        a(href='https://www.bootstrapdash.com/bootstrap-admin-template/' target='_blank') Bootstrap admin templates
+        |  from Bootstrapdash.com
+  // partial
+
+block script 
+ script.
+  console.log($('.table-responsive'))
+  $(document).ready(function() {
+    $('#datatable').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+  } );
+  $( "#Match" ).click(function() {
+      console.log($('#team1').val())
+      if($('#team1').val() === $('#team2').val())
+      {alert( "2 Eyni kamanda oynaya bilmez" );}
+      else{
+          window.location.href = `/admin/startmatch?Team1Id=${$('#team1').val()}&Team2Id=${$('#team2').val()}`
+      }
+    });

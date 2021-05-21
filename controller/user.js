@@ -8,16 +8,14 @@ const { find } = require('../model/user');
 //home
 
 exports.GetIndex = async (req, res, next) => {
-    let userteam;
     if (req.session.IsLogin) {
         await req.user
             .populate('TeamID', 'name')
             .execPopulate()
             .then(user => {
-                userteam = user
                 res.render("home", {
                     IsLogin: req.session.IsLogin,
-                    User: userteam
+                    User: user
                 });
             })
             .catch(err => {
@@ -66,13 +64,38 @@ exports.PostRegister = async (req, res, next) => {
             })
             user.save()
                 .then(result => {
-                    res.redirect('/login')
+                    req.session.user = user
+                    req.session.IsLogin = true
+                    res.redirect('/home')
                 })
                 .catch(err => {
-                    res.render('error', {
-                        info: 'Sitemde Seflik Oldu',
-                        info2: 'Yeniden Yoxlayin'
-                    })
+                    console.log(err)
+                    if(err.code === 11000)
+                    {
+                        if(err.keyValue.username)
+                        {
+                            console.log(err.keyValue.username,1)
+                            res.render('error', {
+                                info: `${err.keyValue.username} Deyeri movcuddur`,
+                                info2: 'Yeniden Yoxlayin'
+                            })
+                        }
+                        else if(err.keyValue.email)
+                        {
+                            console.log(err.keyValue,2)
+                            res.render('error', {
+                                info: `${err.keyValue.email} Deyeri movcuddur`,
+                                info2: 'Yeniden Yoxlayin'
+                            })
+                        }
+                    }
+                    else{
+                        res.render('error', {
+                        
+                            info: 'Sitemde Seflik Oldu',
+                            info2: 'Yeniden Yoxlayin'
+                        })
+                    }
                 })
         }
         else {
@@ -107,18 +130,21 @@ exports.PostLogin = async (req, res, next) => {
         .then(user => {
             if (user) {
                 if (user.password === req.body.login_password) {
-                    req.session.user = user
-                    req.session.IsLogin = true
+                    if(!user.BanStatus)
+                    {
+                        req.session.user = user
+                        req.session.IsLogin = true
 
-                    if (req.session.redirectTo == undefined) {
-                        url = "/home";
+                        if (req.session.redirectTo == undefined) {
+                            url = "/home";
+                        }
+                        else {
+                            url = req.session.redirectTo;
+                            console.log(url)
+                        }
+                        delete req.session.redirectTo;
+                        res.redirect(url);
                     }
-                    else {
-                        url = req.session.redirectTo;
-                        console.log(url)
-                    }
-                    delete req.session.redirectTo;
-                    res.redirect(url);
 
                 }
                 else {
@@ -178,7 +204,7 @@ exports.Logout = (req, res, next) => {
 
 exports.PostCreateTeam = async (req, res, next) => {
     let TeamLogo;
-    if (req.files.length === 0)
+    if (!req.files)
         TeamLogo = 'duello.zone.jpg'
     else {
         TeamLogo = req.files[0].filename
@@ -210,8 +236,6 @@ exports.PostCreateTeam = async (req, res, next) => {
                             })
 
                     })
-                console.log(result)
-                res.redirect('/home')
             })
     } catch (error) {
         console.log(error)
@@ -387,7 +411,8 @@ exports.GetTeam = async (req, res, next) => {
 exports.GetAddTeamMate = async (req, res, next) => {
 
     try {
-        if(req.user.TeamAdmin)
+        
+        if(req.user.TeamAdmin) 
         {
             Team.findById(req.user.TeamID)
             .then(team => {
@@ -581,16 +606,25 @@ exports.DeclineUserRequest = async (req, res, next) => {
 exports.GetTeamOverviews = async (req, res, next) => {
     try {
         let userteam;
+        let testinvite = false;
         if (req.session.IsLogin) {
             await req.user
                 .populate('TeamID', 'name')
                 .execPopulate()
-                .then(user => {
+                .then(async user => {
                     userteam = user
                     Team.findOne({ name: req.params.team })
-                        .then(team => {
-                            if(team)
+                        .then(async team => {
+                            if( team )
                             {
+                                await user.InviteItem.forEach(Element => {
+                                    if(String(Element.object.teamid) === String(team._id))
+                                    {
+                                        
+                                        testinvite =  true
+                                        console.log(testinvite)
+                                    }
+                                })
                                 team.populate('teammates.items.userid')
                                 .execPopulate()
                                 .then(result => {
@@ -599,7 +633,8 @@ exports.GetTeamOverviews = async (req, res, next) => {
                                         team: result,
                                         teammates: result.teammates.items,
                                         IsLogin: req.session.IsLogin,
-                                        User: userteam
+                                        User: userteam,
+                                        testinvite : testinvite
                                     })
                                 })
                             }
@@ -620,6 +655,16 @@ exports.GetTeamOverviews = async (req, res, next) => {
             info2: 'Yeniden Yoxlayin'
         })
     }
+    
+};
+
+exports.GetTeamOverviewss = async (req, res, next) => {
+    res.redirect(`/team/${req.query.team}`)
+    
+};
+
+exports.GetPlayerOverviewss = async (req, res, next) => {
+    res.redirect(`/player/${req.query.player}`)
     
 };
 
@@ -689,6 +734,7 @@ exports.GetSendRequestTeam = async (req, res, next) => {
                             console.log(user)
                             await user.AddInvite(obj)
                             await team.AddInvite(obj)
+                            res.redirect(`/team/${req.params.teamname}`)
                         }
                         else {
                             res.render('error', {
@@ -704,11 +750,10 @@ exports.GetSendRequestTeam = async (req, res, next) => {
                         })
                     }
 
-                    res.redirect('/getteam')
+                    
                 })
         })
 };
-
 
 //TeamInviteControl
 exports.AcceptUser = async (req, res, next) => {
@@ -721,7 +766,14 @@ exports.AcceptUser = async (req, res, next) => {
                     user.TeamStatus = true;
                     user.TeamID = team._id
                     await user.clearRequest()
+                    await user.clearInvite()
+                    
                     await team.RemoveInvite(user._id)
+                    if(team.teammates.items.length === 10)
+                    {
+                        await team.clearRequest()
+                        await team.clearInvite()
+                    }
                     res.redirect('/getteam')
                 })
 
@@ -802,5 +854,40 @@ exports.GetOpenTeamInvite = async (req, res, next) => {
             info2: 'Yeniden Yoxlayin'
         })
     }
+
+};
+
+exports.DeclineTeamRequest = async (req, res, next) => {
+
+    try {
+        User.findOne({username : req.params.username})
+        .then(async user => {
+            if(user)
+            {
+                console.log(req.user.TeamID)
+                Team.findOne({name : req.params.teamname})
+                .then(async team => {
+                    console.log(team)
+                    await user.RemoveInvite(team._id)
+                    await team.RemoveInvite(user._id)
+                    res.redirect(`/team/${team.name}`)
+                })
+            }
+            else{
+                res.render('error', {
+                    info: 'Bele bir player yoxdur',
+                    info2: 'Yeniden Yoxlayin'
+                })
+            }
+            
+        })
+    } catch (error) {
+        console.log(error)
+        res.render('error', {
+            info: 'Sitemde Seflik Oldu',
+            info2: 'Yeniden Yoxlayin'
+        })
+    }
+        
 
 };

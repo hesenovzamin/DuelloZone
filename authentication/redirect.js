@@ -1,7 +1,7 @@
 
 module.exports = (req,res,next) => {
 
-    if (req.session.user.TeamAdmin)
+    if (req.user.TeamAdmin)
     next();
     else {
        res.render('error', {

@@ -9593,6 +9593,11 @@ input.header-mobile__search-control:focus {
   bottom: 0;
   max-width: 50%;
 }
+.hero-unit__img1 {
+  position: absolute;
+  bottom: 0;
+  max-width: 50%;
+}
 
 .hero-unit__img img {
   max-height: 100%;

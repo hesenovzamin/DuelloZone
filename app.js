@@ -8,13 +8,16 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const mongoDbStore = require('connect-mongodb-session')(session);
 const User = require('./model/user')
-//const User = require('./models/user');
+const dotenv = require('dotenv')
+dotenv.config({path : './config.env'})
+//const User = require('./models/user'); league
+
 
 
 app.set('view engine','pug');
 app.set('views','./views');
-
- const connectString = 'mongodb+srv://zaminhesenov:k25DCx64c8XWQiWG@cluster0.lzbqs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+ const connectString = process.env.DATABASE.replace('<PASSWORD>',process.env.DATABASE_PASSWORD)
+ //const connectString = 'mongodb+srv://zaminhesenov:k25DCx64c8XWQiWG@cluster0.lzbqs.mongodb.net/DuellZone?retryWrites=true&w=majority';
 // const adminRoutes = require('./routes/admin');
  const UserRouter = require('./router/user');
  const AdminRouter = require('./router/admin');

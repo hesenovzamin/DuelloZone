@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('./user')
+const Moment = require('moment');
 
 
 const teamSchema = mongoose.Schema({
@@ -46,7 +47,15 @@ const teamSchema = mongoose.Schema({
     InviteItem : [
         
     ],
+},{
+    toJSON : {virtuals : true},
+    toObject : {virtuals : true}
 });
+
+teamSchema.virtual('StartDate').get(function() {
+    
+    return Moment(this.createDate).locale("az").format('LLL')
+})
 
 
 teamSchema.methods.AddRequest = async function (object) {

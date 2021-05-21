@@ -10,6 +10,7 @@ head
   // endinject
   // Plugin css for this page
   link(rel='stylesheet' href='/assetsadmin/vendors/jvectormap/jquery-jvectormap.css')
+  link(rel='stylesheet' href='https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css')
   link(rel='stylesheet' href='/assetsadmin/vendors/flag-icon-css/css/flag-icon.min.css')
   link(rel='stylesheet' href='/assetsadmin/vendors/owl-carousel-2/owl.carousel.min.css')
   link(rel='stylesheet' href='/assetsadmin/vendors/owl-carousel-2/owl.theme.default.min.css')
@@ -64,16 +65,25 @@ head
       li.nav-item.nav-category
         span.nav-link Navigation
       li.nav-item.menu-items
-        a.nav-link(href='index.html')
+        a.nav-link(href='/admin/index')
           span.menu-icon
             i.mdi.mdi-speedometer
           span.menu-title Dashboard
       li.nav-item.menu-items
-        a.nav-link(data-toggle='collapse' href='#ui-basic' aria-expanded='false' aria-controls='ui-basic')
+        a.nav-link(href='/admin/users')
+          span.menu-icon
+            i.mdi.mdi-speedometer
+          span.menu-title Users
+      li.nav-item.menu-items
+        a.nav-link( href='/admin/league' )
           span.menu-icon
             i.mdi.mdi-laptop
-          span.menu-title Basic UI Elements
-          i.menu-arrow
+          span.menu-title League
+      li.nav-item.menu-items
+        a.nav-link( href='/admin/teams' )
+          span.menu-icon
+            i.mdi.mdi-laptop
+          span.menu-title Teams
         #ui-basic.collapse
           ul.nav.flex-column.sub-menu
             li.nav-item
@@ -277,7 +287,11 @@ script(src='/assetsadmin/js/hoverable-collapse.js')
 script(src='/assetsadmin/js/misc.js')
 script(src='/assetsadmin/js/settings.js')
 script(src='/assetsadmin/js/todolist.js')
+
+script(src='https://code.jquery.com/jquery-3.5.1.js')
+script(src='https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js')
 // endinject
 // Custom js for this page
 script(src='/assetsadmin/js/dashboard.js')
+block script
 // End custom js for this page
