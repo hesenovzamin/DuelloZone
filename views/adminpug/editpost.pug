@@ -1,0 +1,22 @@
+extends ../layouts/adminlayout.pug
+block body 
+ .main-panel
+  .content-wrapper
+    .page-header
+    .row
+       .col-md-12.grid-margin.stretch-card
+         .card
+            .card-body
+                h4.card-title Add League
+                form.forms-sample(method='POST' action='/admin/editpost' enctype='multipart/form-data')
+                    .form-group
+                        label(for='exampleInputUsername1') Name
+                        input#exampleInputUsername1.form-control(type='text' placeholder='name' name='name' value=`${post.name}` required='')
+                    .form-group
+                        label(for='exampleInputUsername1') ImgUrl
+                        input(type='hidden' name='Id' value=`${post.id}`)
+                        input#team_logo.form-control( type='file'   name="File" multiple='' required='' placeholder='If you do not upload a logo, team logo will set by default.')
+                    .form-group
+                      label(for='exampleFormControlTextarea1') Example textarea
+                      input#exampleFormControlTextarea1.form-control(rows='3' type='text' value=`${post.Paragraf}` placeholder='Paragraf' name='Paragraf' required='')
+                    button.btn.btn-primary.mr-2(type='submit') Submit

@@ -206,7 +206,7 @@ exports.PostEditTeam = async (req, res, next) => {
         if(team)
         {
             console.log(req.files)
-            if (!req.files)
+            if (req.files.length === 0)
             {
                 console.log('b')
                 team.name = req.body.name
@@ -245,3 +245,54 @@ exports.GetPost = async (req, res, next) => {
         
     })
 };
+
+exports.PostPost = async (req, res, next) => {
+
+    console.log(req.body)
+    const body = req.body
+    console.log(req.files[0])
+    const post = new Post({
+        name : body.name,
+        ImgUrl : req.files[0].filename,
+        Paragraf : req.body.Paragraf
+
+    })
+    post.save()
+    .then(result => {
+        res.redirect('/admin/posts')
+    })
+
+}
+
+exports.GetEditPost = async (req, res, next) => {
+
+//    await User.findOne({username : 'ZA1000'})
+//     .then(async user => {
+//         user.Admin = true
+//         await user.save()
+//     })
+    Post.findById(req.params.Id)
+    .then(post => {
+        res.render('adminpug/editpost',{
+            post : post
+        })
+    })
+
+}
+
+exports.PostEditPost = async (req, res, next) => {
+
+     Post.findById(req.body.Id)
+     .then(post => {
+         post.name = req.body.name
+         post.Paragraf = req.body.Paragraf
+         if (req.files.length > 0)
+         {
+            post.ImgUrl = req.files[0].filename
+         }
+         post.save()
+         .then(result => {
+            res.redirect('/admin/posts')
+         })
+     })
+ }

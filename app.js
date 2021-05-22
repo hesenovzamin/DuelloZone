@@ -34,8 +34,9 @@ const storage = multer.diskStorage({
         cb(null,'./Public/img');
     },
     filename : function(req,file,cb){
-        cb(null,req.body.name + Date.now() + 'Logo.jpg');
         console.log('adlandirma');
+        console.log(req.body.name)
+        cb(null,req.body.name + Date.now() + 'Logo.jpg');
     }
 })
 

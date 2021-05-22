@@ -8,16 +8,16 @@ block body
          .card
             .card-body
                 h4.card-title Add League
-                form.forms-sample(method='POST' action='/admin/addpost')
+                form.forms-sample(method='POST' action='/admin/addpost' enctype='multipart/form-data')
                     .form-group
                         label(for='exampleInputUsername1') Name
-                        input#exampleInputUsername1.form-control(type='text' placeholder='name' name='name')
+                        input#exampleInputUsername1.form-control(type='text' placeholder='name' name='name' required='')
                     .form-group
                         label(for='exampleInputUsername1') ImgUrl
-                        input#team_logo.form-control( type='file'   name="File" multiple='' placeholder='If you do not upload a logo, team logo will set by default.')
+                        input#team_logo.form-control( type='file'   name="File" multiple='' required='' placeholder='If you do not upload a logo, team logo will set by default.')
                     .form-group
-                        label(for='exampleInputUsername1') Paragraf
-                        input#exampleInputUsername1.form-control(type='text' placeholder='name' name='name')
+                      label(for='exampleFormControlTextarea1') Example textarea
+                      textarea#exampleFormControlTextarea1.form-control(rows='3' type='text' placeholder='Paragraf' name='Paragraf' required='')
                     button.btn.btn-primary.mr-2(type='submit') Submit
 
        .col-lg-12.grid-margin.stretch-card
@@ -35,24 +35,12 @@ block body
                     th ImgUrl
                     th Edit
                 tbody
-                 each item in league
+                 each item in post
                   tr
                     td #{item.name}
                     td #{item.ImgUrl}
                     td
-                       a.btn.btn-primary(href=`/admin/edit/${item._id}`) Edit
-                    td 
-                     .row
-                        .col-md-5
-                         select#team1(aria-label='Default select example' name='Team1')
-                            each item in teams
-                             option(value=`${item._id}`) #{item.name}
-                        .col-md-5
-                         select#team2(aria-label='Default select example' name='Team2')
-                            each item in teams
-                             option(value=`${item._id}`) #{item.name}
-                        .col-md-2
-                         a#Match.btn.btn-primary() AddMatch
+                       a.btn.btn-primary(href=`/admin/editpost/${item._id}`) Edit
 
   footer.footer
     .d-sm-flex.justify-content-center.justify-content-sm-between

@@ -11,8 +11,7 @@ const postSchema = mongoose.Schema({
         required : true,
     }, 
     ShowCount : {
-        type : String,
-        required : true,
+        type : Number,
     }, 
     CreateDate : {
         type : Date,
@@ -20,8 +19,7 @@ const postSchema = mongoose.Schema({
         required : true
     },
     Paragraf : {
-        type : Date,
-        default : Date.now,
+        type : String,
         required : true
     },
 }

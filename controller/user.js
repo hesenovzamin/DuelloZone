@@ -204,12 +204,11 @@ exports.Logout = (req, res, next) => {
 
 exports.PostCreateTeam = async (req, res, next) => {
     let TeamLogo;
-    if (!req.files)
+    if (req.files.length === 0 )
         TeamLogo = 'duello.zone.jpg'
     else {
         TeamLogo = req.files[0].filename
     }
-    console.log(req.body)
     // User.findById(req.body.playerid1)
     // .then(user => {
     //     console.log(user)
@@ -266,12 +265,18 @@ exports.GetAccount = async (req, res, next) => {
                 action = "Your account is update ...";
             }
         }
-        res.render("account", {
-            IsLogin: req.session.IsLogin,
-            User: req.user,
-            action: action
-
-        });
+        await req.user
+        .populate('TeamID', 'name')
+        .execPopulate()
+        .then(user => {
+            res.render("account", {
+                IsLogin: req.session.IsLogin,
+                User: user,
+                action: action
+    
+            });
+        })
+        
     } 
     catch (error) {
         console.log(error)

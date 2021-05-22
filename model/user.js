@@ -25,6 +25,10 @@ const userSchema = mongoose.Schema({
         type : Boolean,
         default : false
     },
+    Admin :{
+        type : Boolean,
+        default : false
+    },
     TeamAdmin :{
         type : Boolean,
         default : false
@@ -79,6 +83,7 @@ const userSchema = mongoose.Schema({
     Assist : {
         type : Number,
     },
+
     resetToken : String,
     // cart: {
     //     items: [
