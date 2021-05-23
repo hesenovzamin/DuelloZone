@@ -5,11 +5,11 @@ block body
     .row
       .col-md-10.offset-md-1
         h1.page-heading__title
-          span.highlight Register
+          span.highlight Kayıt
         ol.page-heading__breadcrumb.breadcrumb
           li.breadcrumb-item
-            a(href='/zone') Home
-          li.breadcrumb-item.active(aria-current='page') Login or Register
+            a(href='/zone') Ana Sayfa
+          li.breadcrumb-item.active(aria-current='page')  Kayıt
  // Page Heading / End
  //
   Content
@@ -21,41 +21,58 @@ block body
         // Register
         .card
           .card__header
-            h4 Register Now
+            h4 ŞİMDİ KAYIT OL
           .card__content
             // Register Form
             form(method='POST' action='/register')
               .form-group
-                label(for='register-name') Your Email
-                input#register-name.form-control(type='email' name='register_email' placeholder='Enter your email address...' required='')
+                label(for='register-name')  Email
+                input#register-name.form-control(type='email' name='register_email' placeholder='E-posta adresinizi girin...' required='')
               .form-group
-                label(for='register-name') First Name
-                input#register-name.form-control(type='text'  minlength="1"  name='first_name' placeholder='Enter your first name...' required='')
+                label(for='register-name') İSİM
+                input#register-name.form-control(type='text'  minlength="1"  name='first_name' placeholder='İsminizi girin...' required='')
               .form-group
-                label(for='register-name') Last Name
-                input#register-name.form-control(type='text' minlength="1" name='last_name' text='last_name' placeholder='Enter your last name...' required='')
+                label(for='register-name') SOY İSİM
+                input#register-name.form-control(type='text' minlength="1" name='last_name' text='last_name' placeholder='Soy isminizi girin...' required='')
               .form-group
-                label(for='register-name') Riot ID
-                input#register-name.form-control(type='text'  minlength="4" maxlength="4"  name='riotid' placeholder='Enter your riot  ID...' required='')
+                label(for='register-name') RİOT ID
+                input#register-name.form-control(type='text'  minlength="4" maxlength="4"  name='riotid' placeholder='RİOT İD nizi girin...' required='')
               .form-group
-                label(for='register-name') Nick Name
-                input#register-name.form-control(type='text' minlength="4" name='nick_name' placeholder='Enter your nickname...' required='') 
+                label(for='register-name') KULLANICI ADI
+                input#register-name.form-control(type='text' minlength="4" name='nick_name' placeholder='Kullanıcı adı girin...' required='') 
               .form-group
                 label(for='rank') Rank
                 select.form-control(name='rank')
-                  option(value='Gold1') Gold1
-                  option(value='Gold2') Gold2
-                  option(value='Gold3') Gold3
+                  option(value='Demir 1') Demir 1
+                  option(value='Demir 2') Demir 2
+                  option(value='Demir 3') Demir 3
+                  option(value='Bronz 1') Bronz 1
+                  option(value='Bronz 2') Bronz 2
+                  option(value='Bronz 3') Bronz 3
+                  option(value='Gümüş 1') Gümüş 1
+                  option(value='Gümüş 2') Gümüş 2
+                  option(value='Gümüş 3') Gümüş 3
+                  option(value='Altın 1') Altın 1
+                  option(value='Altın 2') Altın 2
+                  option(value='Altın 3') Altın 3
+                  option(value='Platin 1') Platin 1
+                  option(value='Platin 2') Platin 2
+                  option(value='Platin 3') Platin 3
+                  option(value='Elmas 1') Elmas 1
+                  option(value='Elmas 2') Elmas 2
+                  option(value='Elmas 3') Elmas 3
+                  option(value='Ölümsüzlük') Ölümsüzlük
+                  option(value='Radyant') Radyant
               .form-group
-                label(for='register-password') Your Password
-                input#register-password.form-control(type='password' minlength="8" name='register_password' placeholder='Enter your password...' required='')
+                label(for='register-password') ŞİFRENİZ
+                input#register-password.form-control(type='password' minlength="8" name='register_password' placeholder='Şifrenizi girin...' required='')
               .form-group
-                label(for='repeat-password') Repeat Password
-                input#repeat-password.form-control(type='password' minlength="8" name='repeat_password' placeholder='Repeat your password...' required='')
+                label(for='repeat-password') TEKRAR ŞİFRENİZ
+                input#repeat-password.form-control(type='password' minlength="8" name='repeat_password' placeholder='Şifrenizi tekrar girin...' required='')
               .form-group.form-group--submit
-                button.btn.btn-default.btn-lg.btn-block(type='submit') Create Your Account
+                button.btn.btn-default.btn-lg.btn-block(type='submit') Hesap oluşturun
               .form-group.form-group--submit
-                a.btn.btn-default.btn-lg.btn-block(href='login') Login
+                a.btn.btn-default.btn-lg.btn-block(href='login') hesabınız varsa giriş yapın
             // Register Form / End
         // Register / End
  // Content / End

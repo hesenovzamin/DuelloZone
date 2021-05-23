@@ -21,8 +21,8 @@ exports.GetIndex = async (req, res, next) => {
             .catch(err => {
                 console.log(err)
                 res.render('error', {
-                    info: 'Sitemde Seflik Oldu',
-                    info2: 'Yeniden Yoxlayin'
+                    info: 'Beklenmedik bir hata oluştu',
+                    info2: 'Yeniden Deneyin'
                 })
 
             })
@@ -76,39 +76,39 @@ exports.PostRegister = async (req, res, next) => {
                         {
                             console.log(err.keyValue.username,1)
                             res.render('error', {
-                                info: `${err.keyValue.username} Deyeri movcuddur`,
-                                info2: 'Yeniden Yoxlayin'
+                                info: `${err.keyValue.username} İsmi Kayıtlı`,
+                                info2: 'Yeniden Deneyin'
                             })
                         }
                         else if(err.keyValue.email)
                         {
                             console.log(err.keyValue,2)
                             res.render('error', {
-                                info: `${err.keyValue.email} Deyeri movcuddur`,
-                                info2: 'Yeniden Yoxlayin'
+                                info: `${err.keyValue.email} İsmi Kayıtlı`,
+                                info2: 'Yeniden Deneyin'
                             })
                         }
                     }
                     else{
                         res.render('error', {
                         
-                            info: 'Sitemde Seflik Oldu',
-                            info2: 'Yeniden Yoxlayin'
+                            info: 'Beklenmedik bir hata oluştu',
+                            info2: 'Yeniden Deneyin'
                         })
                     }
                 })
         }
         else {
             res.render('error', {
-                info: 'Parollar Uygun Deyil',
-                info2: 'Yeniden Qeydiyyatdan Keçin'
+                info: 'Şifreler uyuşmuyor',
+                info2: 'Yeniden Kayit olun'
             })
         }
     } catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Problem YasANDI',
-            info2: `${error}`
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
 };
@@ -156,16 +156,16 @@ exports.PostLogin = async (req, res, next) => {
             }
             else {
                 res.render('error', {
-                    info: 'Email Qeydiyatda yoxdur',
-                    info2: 'Email Qeydiyyatda yoxdur'
+                    info: 'Böyle bir e-posta kayıtlı değil',
+                    info2: 'Yeniden Deneyin'
                 })
             }
         })
         .catch(err => {
             console.log(err)
             res.render('error', {
-                info: 'Sitemde Seflik Oldu',
-                info2: 'Yeniden Yoxlayin'
+                info: 'Beklenmedik bir hata oluştu',
+                info2: 'Yeniden Deneyin'
             })
         })
 };
@@ -188,8 +188,8 @@ exports.GetCreateTeam = async (req, res, next) => {
     } catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Seflik Oldu',
-            info2: 'Yeniden Yoxlayin'
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
    
@@ -239,8 +239,8 @@ exports.PostCreateTeam = async (req, res, next) => {
     } catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Seflik Oldu',
-            info2: 'Yeniden Yoxlayin'
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
 
@@ -254,15 +254,15 @@ exports.GetAccount = async (req, res, next) => {
         if (req.query.action) {
             if (req.query.action === "updatepwd") {
                 console.log('salam isdedi')
-                action = "Your password has been updated...";
+                action = "Şifreniz yenilendi...";
             }
             else if (req.query.action === "erorpwd") {
                 console.log('salam isdedi')
-                action = "Your password is either short or not the same ...";
+                action = "şifreniz kisa ve ya uyuşmuyor ...";
             }
             else if (req.query.action === "update") {
                 console.log('salam isdedi')
-                action = "Your account is update ...";
+                action = "hesabınız güncellendi ...";
             }
         }
         await req.user
@@ -281,8 +281,8 @@ exports.GetAccount = async (req, res, next) => {
     catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Seflik Oldu',
-            info2: 'Yeniden Yoxlayin'
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
 };
@@ -307,8 +307,8 @@ exports.PostUpdateUser = async (req, res, next) => {
     } catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Seflik Oldu',
-            info2: 'Yeniden Yoxlayin'
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
 }
@@ -333,8 +333,8 @@ exports.PostUpdatePassword = async (req, res, next) => {
     } catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Seflik Oldu',
-            info2: 'Yeniden Yoxlayin'
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
 }
@@ -398,15 +398,15 @@ exports.GetTeam = async (req, res, next) => {
         catch (error) {
             console.log(error)
             res.render('error', {
-                info: 'Sitemde Seflik Oldu',
-                info2: 'Yeniden Yoxlayin'
+                info: 'Beklenmedik bir hata oluştu',
+                info2: 'Yeniden Deneyin'
             })
         }
     }
     else {
         res.render('error', {
-            info: 'Bura Team Admin Gire biler',
-            info2: `Bura Team Admin Gire biler`,
+            info: 'Takım Yönetmeye Yetkiniz yoktur',
+            info2: `Yalnızca Takım Kaptanları yönete bilir`,
             User: req.user,
             IsLogin: req.session.IsLogin,
         })
@@ -433,15 +433,15 @@ exports.GetAddTeamMate = async (req, res, next) => {
                             }
                             else {
                                 res.render('error', {
-                                    info: 'Qeydiyyat Problemi',
-                                    info2: `Bu username teami var`
+                                    info: 'Bu oyuncu bir takıma sahip',
+                                    info2: `Yeniden Deneyin`
                                 })
                             }
                         }
                         else {
                             res.render('error', {
-                                info: 'Qeydiyyat Problemi',
-                                info2: `Bele Qeydiyyat Yoxdu`
+                                info: 'Böyle bir oyuncu kayıtı yok',
+                                info2: `Yeniden Deneyin`
                             })
                         }
 
@@ -451,16 +451,16 @@ exports.GetAddTeamMate = async (req, res, next) => {
         }
         else{
             res.render('error', {
-                info: 'Team Admin olmalisan',
-                info2: 'Yeniden Yoxlayin'
+                info: 'Takım Yönetmeye Yetkiniz yoktur',
+                info2: `Yalnızca Takım Kaptanları yönete bilir`,
             })
         }
     }
      catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Seflik Oldu',
-            info2: 'Yeniden Yoxlayin'
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
 };
@@ -493,8 +493,8 @@ exports.GetRequest = async (req, res, next) => {
     } catch (error) {
         console.log(error)
         res.render('error', {
-            info: 'Sitemde Seflik Oldu',
-            info2: 'Yeniden Yoxlayin'
+            info: 'Beklenmedik bir hata oluştu',
+            info2: 'Yeniden Deneyin'
         })
     }
 
